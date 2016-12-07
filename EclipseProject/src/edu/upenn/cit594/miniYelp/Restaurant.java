@@ -10,12 +10,12 @@ public class Restaurant {
 	private double longitude;
 	private double latitude;
 	private String zipcode;
-	private String location;
+	private String address;
 	private float rating;
 	private int reviewCount;
 	private String phone;
 	
-	public Restaurant(String id, String name, String price, List<String> categories, double longitude, double latitude, String zipcode, String location, float rating, int reviewCount, String phone) {
+	public Restaurant(String id, String name, String price, List<String> categories, double longitude, double latitude, String zipcode, String address, float rating, int reviewCount, String phone) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
@@ -23,7 +23,7 @@ public class Restaurant {
 		this.longitude = longitude;
 		this.latitude = latitude;
 		this.zipcode = zipcode;
-		this.location = location;
+		this.address = address;
 		this.rating = rating;
 		this.reviewCount = reviewCount;
 		this.phone = phone;
@@ -85,12 +85,12 @@ public class Restaurant {
 		this.zipcode = zipcode;
 	}
 
-	public String getLocation() {
-		return location;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public float getRating() {
