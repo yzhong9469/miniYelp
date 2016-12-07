@@ -1,0 +1,9 @@
+package edu.upenn.cit594.miniYelp;
+
+public class User {
+	private String login_id;
+	private String user_name;
+	private String password;
+	private HashMap<Restaurant,Integer> ratings;
+	
+}
