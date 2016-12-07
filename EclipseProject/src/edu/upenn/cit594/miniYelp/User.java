@@ -19,4 +19,8 @@ public class User {
 	public void updateRatings(Restaurant restaurant, int rating){
 		this.ratings.put(restaurant, rating);
 	}
+	
+	public String getId() {
+		return login_id;
+	}
 }
