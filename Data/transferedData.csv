@@ -1,0 +1,201 @@
+name,id,price,categories/0/title,categories/1/title,categories/2/title,coordinates/longitude,coordinates/latitude,location/zip_code,location/address1,rating,review_count,phone
+Lyn's,lyns-philadelphia-2,$,Sandwiches,Breakfast & Brunch,Food Trucks,-75.1953278,39.9506416,19104,3600 Spruce St,4.5,53,
+Pitruco Pizza,pitruco-pizza-philadelphia,$,Pizza,Food Trucks,Italian,-75.1914831,39.9558055,19104,34TH Market Streets,4.5,102,+14846025454
+Reed's Coffee & Tea House,reeds-coffee-and-tea-house-philadelphia,$,Cafes,Coffee & Tea,Breakfast & Brunch,-75.1972122,39.9601288,19104,3802 Lancaster Ave,4.5,96,+12672444202
+Tacos Don Memo,tacos-don-memo-philadelphia,$,Mexican,Food Trucks,,-75.199123,39.951988,19104,270 S 38th St,4.5,152,+16105292039
+Cucina Zapata,cucina-zapata-philadelphia,$,Food Stands,Thai,Mexican,-75.1854935,39.9542694,19104,S 31st & Ludlow St,4.5,182,
+Fresh Fruit Salad Cart,fresh-fruit-salad-cart-philadelphia,$,Food Stands,,,-75.19723,39.9510099,19104,37th and Spruce St,4.5,35,
+Herban Quality Eats,herban-quality-eats-philadelphia-4,$,Salad,American (New),,-75.1941462010498,39.9565395244297,19104,3601 Market St,4.5,72,+12153865000
+La Dominique,la-dominique-philadelphia,$,Food Stands,Creperies,,-75.19059,39.9553,19104,3300 Market St,4.5,43,
+Zavino,zavino-philadelphia-3,$$,Pizza,Wine Bars,,-75.1891877264587,39.9536479550674,19104,3200 Chestnut St,4.5,192,+12158236897
+Bui's,buis-philadelphia,$,Sandwiches,Food Stands,,-75.199024,39.951357,19195,38th St & Spruce St,4.5,91,+18566307269
+Magic Carpet,magic-carpet-philadelphia,$,Food Stands,Vegetarian,Mediterranean,-75.1921,39.95281,19176,34th & Walnut St,4.5,115,+12153340948
+Avril 50,avril-50-philadelphia,$$,Newspapers & Magazines,Tobacco Shops,Coffee & Tea,-75.192543,39.9534492,19104,3406 Sansom St,4.5,49,+12152226108
+The Fat Ham,the-fat-ham-philadelphia,$$,Southern,Tapas/Small Plates,,-75.1873387,39.9524388,19104,3131 Walnut St,4,279,+12157351914
+Sabrina's Cafe,sabrinas-cafe-philadelphia-4,$$,American (New),Breakfast & Brunch,Cafes,-75.1906560112983,39.9599957321122,19104,227 N 34th St,4,438,+12152221022
+Picnic,picnic-philadelphia,$$,Caterers,American (New),Sandwiches,-75.1864319,39.9522552,19104,3131 Walnut St,4.5,80,+12152221608
+Capogiro Gelato,capogiro-gelato-philadelphia-2,$$,Coffee & Tea,Gelato,Pizza,-75.201380084104,39.954171554516,19104,3925 Walnut St,4,238,+12152220252
+Han Dynasty,han-dynasty-philadelphia-3,$$,Szechuan,,,-75.1969604492188,39.9566383361816,19104,3711 Market St,4,501,+12152223711
+Magic Carpet Foods,magic-carpet-foods-philadelphia,$,Fast Food,Food Trucks,Vegetarian,-75.1952896,39.950779,19104,36th & Spruce St,4.5,33,+12153340948
+Sitar India,sitar-india-philadelphia,$$,Indian,,,-75.1985801107948,39.9556956060509,19104,60 S 38th St,4,277,+12156620818
+Federal Donuts,federal-donuts-philadelphia-5,$,Donuts,Coffee & Tea,Comfort Food,-75.1931768,39.9535536,19104,3428 Sansom St,4,184,+12672758489
+White Dog Cafe,white-dog-cafe-philadelphia-2,$$,American (New),Breakfast & Brunch,,-75.19293,39.95352,19104,3420 Sansom St,3.5,700,+12153869224
+Distrito,distrito-philadelphia-2,$$$,Mexican,Cocktail Bars,,-75.2020299,39.95592,19104,3945 Chestnut St,4,864,+12152221657
+Hemo's,hemos-philadelphia,$,Food Stands,Sandwiches,,-75.197061833898,39.950973252859,19104,36th St and Spruce St,4,61,
+Stan's Deli,stans-deli-philadelphia,$,Delis,Sandwiches,,-75.19506,39.95953,19104,3632 Powelton Ave,4.5,29,+12153827826
+World Cafe Live,world-cafe-live-philadelphia,$$,Music Venues,American (New),Bars,-75.18511,39.9522,19104,3025 Walnut St,4,282,+12152221400
+New Delhi Indian Restaurant,new-delhi-indian-restaurant-philadelphia,$$,Indian,Buffets,,-75.20261,39.95538,19104,4004 Chestnut St,4,381,+12153861941
+Aloosh Hookah Bar Restaurant,aloosh-hookah-bar-restaurant-philadelphia,$$,Hookah Bars,,,-75.19431,39.95862,19104,3600 Lancaster Ave,4,106,+12152222345
+Starbucks,starbucks-philadelphia-3,$,Coffee & Tea,,,-75.192377222241,39.954544976715,19104,3421 Chestnut St,4,54,+12152224237
+MexiCali,mexicali-philadelphia-2,$,Mexican,Food Trucks,,-75.1986771,39.9536209,19104,38th & Walnut,4.5,37,
+United By Blue Coffeehouse and Clothier,united-by-blue-coffeehouse-and-clothier-philadelphia-2,$$,Coffee & Tea,Fashion,,-75.1930734655701,39.9530610182399,19104,3421 Walnut St,4,42,+12152221617
+Zesto Pizza & Grill,zesto-pizza-and-grill-philadelphia-2,$,Pizza,Burgers,American (Traditional),-75.2023281627965,39.9546963177875,19104,125 S 40th St,4,69,+12672922255
+sweetgreen,sweetgreen-philadelphia,$$,Salad,Vegetarian,,-75.2017708,39.954141,19104,3925 Walnut St,3.5,148,+12153861365
+Koreana,koreana-philadelphia,$,Korean,,,-75.1989265345639,39.955616613252,19104,3801 Chestnut St,3.5,278,+12152222240
+Thai Square Restaurant,thai-square-restaurant-philadelphia-2,$$,Thai,,,-75.1853104,39.9425812,19146,2521 Christian St,4,76,+12154546683
+Green Line Cafe - Powelton Village,green-line-cafe-powelton-village-philadelphia,$,Coffee & Tea,Bagels,Breakfast & Brunch,-75.19484,39.95941,19104,3649 Lancaster Ave,4,51,+12153822143
+Chewy's Food Truck,chewys-food-truck-philadelphia,$,Food Trucks,American (Traditional),,-75.1929938793182,39.9559848978367,,,4,55,
+Pod,pod-philadelphia,$$$,Asian Fusion,Sushi Bars,,-75.196107170234,39.953999274991,19104,3636 Sansom St,3.5,622,+12153871803
+Shake Shack,shake-shack-philadelphia-2,$$,Hot Dogs,Burgers,Ice Cream & Frozen Yogurt,-75.1886942,39.953393,19104,3200 Chestnut St,3.5,135,+12673383464
+Hummus Grill,hummus-grill-philadelphia,$,Middle Eastern,Vegetarian,Mediterranean,-75.202206879329,39.9542140011469,19104,3931 Walnut St,3.5,264,+12152225300
+Joe Coffee,joe-coffee-philadelphia-2,$,Coffee & Tea,,,-75.1884539128548,39.9538163267606,19104,3200 Chestnut St,4,51,+12152404577
+Bobby's Burger Palace,bobbys-burger-palace-philadelphia,$$,Burgers,Salad,American (Traditional),-75.200959227113,39.954086810958,19104,University of Pennsylvania,3.5,653,+12153870378
+Tyson Bees Food Truck,tyson-bees-food-truck-philadelphia,$,Korean,Food Stands,,-75.1917114,39.9503212,19104,33rd St and Spruce St,3.5,142,+12151111111
+Pari Cafe Creperie,pari-cafe-creperie-philadelphia-2,$,French,Desserts,Creperies,-75.1934281799124,39.9509979677728,19104,3417 Spruce St,4,72,+12152226500
+Thai Singha House,thai-singha-house-philadelphia-2,$$,Thai,,,-75.2001854441803,39.9552758150015,19104,3900 Chesnut St,4,48,+12153828001
+Street Food Philly,street-food-philly-philadelphia,$$,Food Stands,Street Vendors,,-75.1890793,39.9575882,19104,33rd and Arch St,4,37,+12673917539
+Beefsteak,beefsteak-philadelphia-2,$,Vegetarian,Fast Food,,-75.194303179138,39.9509373153123,19104,3417 Spruce St,4,15,
+Crown Fried Chicken,crown-fried-chicken-philadelphia-18,$,American (Traditional),Chicken Wings,,-75.20202,39.95702,19104,4002 Market St,4,23,+12153872021
+New Deck Tavern,new-deck-tavern-philadelphia,$$,American (Traditional),Irish,Gastropubs,-75.1926040649414,39.9534645080566,19104,3408 Sansom St,3.5,309,+12153864600
+Kim's Oriental Food,kims-oriental-food-philadelphia,$,Food Stands,,,-75.1975536346436,39.9538821376806,19104,37th St and Walnut St,4,72,
+Jerry's Kitchen,jerrys-kitchen-philadelphia,$,Food Trucks,Vegan,,-75.18908,39.95759,19104,33RD And Arch St,4.5,29,+16104001532
+HubBub Coffee,hubbub-coffee-philadelphia-4,$,Cafes,Coffee & Tea,,-75.198746,39.9510812,19104,3736 Spruce St,3.5,52,+12153870700
+Mad Greek Restaurant and Pizza,mad-greek-restaurant-and-pizza-philadelphia-2,$,Pizza,Greek,,-75.19292,39.95846,19104,3517 Lancaster Ave,4,46,+12152222739
+Undrgrnd Donuts,undrgrnd-donuts-philadelphia,$,Donuts,Food Stands,,-75.189549,39.957401,19104,3300 Arch St,4,36,
+BrazBQ,brazbq-philadelphia-3,$,Brazilian,Food Trucks,,-75.193059,39.955743,19104,3500 Market St,4,31,+12152085755
+Cozara,cozara-philadelphia-2,$$,Japanese,Tapas/Small Plates,,-75.189418396434,39.9537713200814,19104,33rd & Chestnut,3.5,115,+12672337488
+Gigi and Big R,gigi-and-big-r-philadelphia,$,Caribbean,Food Trucks,,-75.1992111,39.9512787,19104,38th and Spruce,4,60,+12159241210
+Mad Mex - University City,mad-mex-university-city-philadelphia-3,$$,Tex-Mex,Mexican,,-75.1935187050184,39.9533493174969,19104,3401 Walnut St,3,557,+12153822221
+Baby Blues BBQ,baby-blues-bbq-philadelphia-2,$$,Barbeque,,,-75.192420413012,39.953536845429,19104,3402 Sansom St,3.5,274,+12152224444
+Dimitrio & Frida's Food Cart,dimitrio-and-fridas-food-cart-philadelphia,$,Food Stands,Sandwiches,Food Trucks,-75.19004,39.95256,19104,S 33rd St and Walnut St,5,7,
+Kimey's Place,kimeys-place-philadelphia,$,Delis,Grocery,Breakfast & Brunch,-75.19155,39.96233,19104,3401 Hamilton St,4.5,18,+12153865990
+Indian Sizzler,indian-sizzler-philadelphia,$$,Indian,,,-75.1947,39.95929,19104,3651 Lancaster Ave,5,11,+12156470252
+City Tap House,city-tap-house-philadelphia-5,$$,American (New),Pubs,,-75.2013524735412,39.9543092611596,19104,Radian Balcony,3.5,560,+12156620105
+Wahoo's Fish Taco,wahoos-fish-taco-philadelphia,$$,Tex-Mex,,,-75.1869216,39.9535944,19104,3180 Chestnut St,3.5,60,+12677379876
+James G. Kaskey Memorial Park,james-g-kaskey-memorial-park-philadelphia,,Parks,Botanical Gardens,,-75.19722,39.95582,19104,,5,7,+12158987175
+Lemon Grass Thai Restaurant,lemon-grass-thai-restaurant-philadelphia,$$,Thai,,,-75.194789,39.959277,19104,3630 Lancaster Ave,3.5,170,+12152228042
+"Yue Kee, Mobile Kitchen",yue-kee-mobile-kitchen-philadelphia,$,Chinese,Food Stands,,-75.1990582,39.9527397,19104,238 S 38th St,3.5,71,+16108127189
+Abner's Cheesesteaks,abners-cheesesteaks-philadelphia,$,Sandwiches,Pizza,Cheesesteaks,-75.1988373,39.9553528,19104,3813 Chestnut St,3.5,127,+12156620100
+Penn Park,penn-park-philadelphia,,Parks,,,-75.18627,39.950642,19104,,4.5,9,
+honeygrow,honeygrow-philadelphia-3,$$,Salad,Vegan,,-75.1977623,39.9536348,19104,3731 Walnut St,3.5,48,+12152220400
+Sang Kee Noodle House,sang-kee-noodle-house-philadelphia,$$,Dim Sum,Noodles,,-75.1937815,39.9547198,19104,3549 Chestnut St,3,293,+12153878808
+Spencer Eta Burger,spencer-eta-burger-philadelphia,$,Burgers,Sandwiches,American (New),-75.1908344,39.9591543,19104,227 N 34th St,4,21,+12158219358
+Dump-N-Roll,dump-n-roll-philadelphia,$,Food Trucks,Japanese,Italian,-75.19187,39.95552,19104,3400 Market St,4.5,53,+12158338269
+iPho Food Cart,ipho-food-cart-philadelphia,$,Food Trucks,Vietnamese,,-75.1895454584447,39.9545095693419,19104,33RD St And Chestnut St,4.5,12,
+South Street Bridge,south-street-bridge-philadelphia,,Landmarks & Historical Buildings,,,-75.18680528218,39.946790588511,19146,Schuylkill River,4,21,
+Replica Creative,replica-creative-philadelphia-3,$,Printing Services,Coffee & Tea,,-75.1970550767212,39.9566606959255,19104,3711 Market St,4,14,+12155831212
+Hai Street Kitchen & Co,hai-street-kitchen-and-co-philadelphia-5,$$,Japanese,Asian Fusion,,-75.202179,39.9546814,19104,125 S 40th St,3.5,82,+12153499482
+Texas Wiener,texas-wiener-philadelphia-2,$,American (New),Diners,Breakfast & Brunch,-75.20204,39.96317,19104,3963 Lancaster Ave,4.5,16,+12153877722
+Savas,savas-philadelphia,$$,Pizza,American (Traditional),,-75.19261,39.9583,19104,3505 Lancaster Ave,3.5,143,+12152227777
+William Street Common,william-street-common-philadelphia-2,$$,American (Traditional),Bars,Venues & Event Spaces,-75.19995,39.9552,19104,3900 Chestnut St,3.5,71,+12153974693
+Halal Gyro King,halal-gyro-king-philadelphia-2,$,Street Vendors,Food Stands,Halal,-75.1941223,39.9561882,19104,36th & Market,5,5,
+Beck's Cajun Cafe,becks-cajun-cafe-philadelphia-2,$,Cajun/Creole,,,-75.1893145126905,39.956751678407,,30th St Station,3.5,28,+12153822800
+Modern Eye,modern-eye-philadelphia,$$$,Optometrists,Eyewear & Opticians,,-75.1931722,39.9530642,19104,3419 Walnut St,4.5,78,+12153865953
+Tandoor Authentic Indian Restaurant,tandoor-authentic-indian-restaurant-philadelphia-7,$$,Indian,,,-75.202451,39.9551144,19104,106 S 40th St,3.5,148,+12152227122
+Beijing Restaurant,beijing-restaurant-philadelphia,$,Chinese,,,-75.198065612094,39.951003703315,19104,3714 Spruce St,3,138,+12152225242
+Smokey Joe's Tavern,smokey-joes-tavern-philadelphia-2,$,Bars,Pizza,,-75.2028336,39.9538174,19104,208 S 40th St,3.5,72,+12152220770
+Wawa Food Markets,wawa-food-markets-philadelphia-10,$,Delis,Coffee & Tea,Convenience Stores,-75.1957866,39.9546982,19104,3604 Chestnut St,3.5,44,+12152226422
+Ochatto,ochatto-philadelphia,$$,Japanese,Bubble Tea,Noodles,-75.1958062,39.9547006,19104,3608 Chestnut St,3.5,57,+12153825555
+Wawa Food Markets,wawa-food-markets-philadelphia-24,$,Convenience Stores,Delis,Coffee & Tea,-75.198998833588,39.9510885597117,19104,3744 Spruce St,3.5,35,+12153870029
+Bo Sing,bo-sing-philadelphia,$,Chinese,Asian Fusion,,-75.2023697,39.9569588,19104,4006 Market St,4.5,6,+12153828888
+Tang's,tangs-philadelphia,$,Chinese,Food Stands,,-75.19723,39.9510099,19104,37th St and Spruce St,4,18,
+Saigon Cuisine,saigon-cuisine-philadelphia,$$,Vietnamese,Chinese,,-75.202664,39.9555996,19104,4000 Chestnut St,3,81,+12152229777
+Ramen Bar,ramen-bar-philadelphia-5,$$,Ramen,Bars,,-75.1920144,39.9575513,19104,3438-48 Lancaster Ave,4,12,+12159215804
+Jake's Sandwich Board,jakes-sandwich-board-philadelphia-2,$,Sandwiches,Caterers,,-75.20218,39.95468,19104,125 S 40th St,3.5,45,+12159219580
+Landmark Americana,landmark-americana-philadelphia,$$,American (New),Sports Bars,,-75.1906506718341,39.955958656785,19104,3333 Market St,3,251,+12152224500
+U-Town,u-town-philadelphia,$$,Korean,Asian Fusion,Japanese,-75.2025566533018,39.9549740920251,19104,110 S 40th St,3,77,+12153821110
+Au Bon Pain,au-bon-pain-philadelphia-3,$,Cafes,Sandwiches,Breakfast & Brunch,-75.1962727917403,39.9480509614077,19104,421 Curie Blvd,3.5,25,+12153826160
+Jimmy John's,jimmy-johns-philadelphia-3,$,Sandwiches,,,-75.2008,39.95403,19104,3925 Walnut St,3,55,+12152227827
+The Blarney Stone,the-blarney-stone-philadelphia-2,$,Bars,Burgers,Karaoke,-75.2008043,39.9547916,19104,3929 Sansom St,3.5,38,+12152225340
+Yoshi,yoshi-philadelphia,$,Sushi Bars,Ice Cream & Frozen Yogurt,,-75.2000587460327,39.9620123878762,19103,Suburban Station,3.5,44,+12155750199
+Chipotle Mexican Grill,chipotle-mexican-grill-philadelphia-8,$,Mexican,Fast Food,,-75.201484769396,39.9541211180548,19104,3925 Walnut St,3,97,+12152220632
+Green Line Cafe - 40th Street,green-line-cafe-40th-street-philadelphia-2,$,Coffee & Tea,Sandwiches,,-75.20237,39.95632,19104,28 S 40th St,3.5,23,+12154756653
+Sugar Philly Truck,sugar-philly-truck-philadelphia,$,Desserts,Street Vendors,,-75.19868,39.95362,19104,38th & Walnut St,4.5,152,
+Mizu,mizu-philadelphia,$$,Sushi Bars,,,-75.2022328,39.9552752,19104,111 S 40th St,3,102,+12153821745
+Axis Pizza,axis-pizza-philadelphia,$,Pizza,,,-75.19464,39.95523,19104,20 S 36th St,3,85,+12153822199
+Ed's Buffalo Wings & Pizza,eds-buffalo-wings-and-pizza-philadelphia,$,Pizza,Seafood,,-75.19281,39.9584,19104,3513 Lancaster Ave,3,92,+12152224000
+Gul's Breakfast & Lunch Cart,guls-breakfast-and-lunch-cart-philadelphia,$,Food Stands,,,-75.19415,39.95622,19104,36th & Market,4.5,10,
+Dunkin' Donuts,dunkin-donuts-philadelphia-40,$,Donuts,Coffee & Tea,,-75.193849,39.9531449,19104,3437 Walnut St,3.5,24,+12152227955
+Tortas Frontera,tortas-frontera-philadelphia,$$,Mexican,,,-75.1951828,39.9521523,19104,3601 Locust Walk,3,43,
+Kitchen Gia,kitchen-gia-philadelphia-2,$$,Italian,Salad,Sandwiches,-75.193261043163,39.947800029758,19104,3400 Civic Center Blvd,3,30,+12153861350
+King's Wok Chinese Food,kings-wok-chinese-food-philadelphia,$,Chinese,Food Trucks,,-75.19171,39.95032,19104,S 33rd St & South St,3,16,+12675750296
+Academic Bistro,academic-bistro-philadelphia,,American (New),,,-75.18861,39.95793,19104,Paul Peck Problem Solving & Research Building,5,3,+12158952986
+Cheese E Wagon,cheese-e-wagon-philadelphia,$,Food Trucks,Cheese Shops,,-75.1899441,39.9539809741111,19104,In Front of Drexel University Law School,4.5,45,+12674446835
+Jersey Mike's Subs,jersey-mikes-subs-philadelphia-3,$$,Sandwiches,Fast Food,Delis,-75.1850508020386,39.9546414525844,19104,Amtrack 30th Street Station,4,19,+12152222133
+Penn Museum,penn-museum-philadelphia-4,,Museums,Colleges & Universities,,-75.1909183,39.9495968,19104,3260 South Street,4.5,82,+12158984000
+Winterfell Dessert,winterfell-dessert-philadelphia,$,Shaved Ice,Desserts,Bubble Tea,-75.20239,39.95625,19104,32 S 40th St,4.5,68,+12153874561
+Children's Hospital of Philadelphia Cafeteria,childrens-hospital-of-philadelphia-cafeteria-philadelphia,$,Cafes,,,-75.1954269,39.9470482,19104,Children's Hospital of Philadelphia,3.5,15,
+Big Blue Lunch Truck,big-blue-lunch-truck-philadelphia,$,Breakfast & Brunch,Food Trucks,,-75.193461,39.955792,19104,3508 Market St,4.5,7,
+Starbucks,starbucks-philadelphia-2,$$,Coffee & Tea,,,-75.19230866551,39.953037746043,19104,3401 Walnut St,3,44,+12153871914
+Distrito Taco Truck,distrito-taco-truck-philadelphia-2,$,Food Stands,Mexican,,-75.196819,39.959695,19104,,3,54,+12672847979
+Vernalicious,vernalicious-philadelphia-2,$,Street Vendors,Food Trucks,,-75.1891360133332,39.9576776613948,19133,,4.5,61,+16104704802
+House of Pita Hanan,house-of-pita-hanan-philadelphia,$,Middle Eastern,Food Stands,Street Vendors,-75.19868,39.95362,19104,38th & Walnut St,3.5,20,+12672265692
+Steak Queen,steak-queen-philadelphia,$,Sandwiches,Food Stands,Breakfast & Brunch,-75.19863,39.95244,19104,38th and Locust Walk,4,12,+12672055906
+Waterfront Gourmet Cafe & Deli,waterfront-gourmet-cafe-and-deli-philadelphia-3,$,Cafes,Delis,,-75.1864319,39.9522552,19104,3131 Walnut St,4.5,4,+12673085108
+Penne Restaurant & Wine Bar,penne-restaurant-and-wine-bar-philadelphia-3,$$$,Italian,Wine Bars,,-75.19599765319,39.953415846794,19104,3600 Sansom St,2.5,78,+12152220200
+Calle Del Sabor,calle-del-sabor-philadelphia,$,Food Trucks,,,-75.1947067544922,39.9602008008322,19104,Frankford and Girard Nights,4.5,39,+12672305562
+We Assemble It,we-assemble-it-philadelphia-2,,Furniture Assembly,,,-75.19993,39.96244,19103,,5,31,+12678156344
+Lovash Indian Cart,lovash-indian-cart-philadelphia,$,Indian,,,-75.1964378356934,39.9509213207279,19104,37th Spruce St,3.5,12,
+"The Inn At Penn, A Hilton Hotel",the-inn-at-penn-a-hilton-hotel-philadelphia-2,$$$,Hotels,,,-75.195826,39.953618,19104,3600 Sansom St,4,80,+12152220200
+Lucky's Mexican Spot Food Truck,luckys-mexican-spot-food-truck-philadelphia,$,Food Trucks,Mexican,,-75.19723,39.9510099,19176,37th and Spruce St,3,17,
+Cosi,cosi-philadelphia-3,$,Sandwiches,,,-75.194957290775,39.95367089741,19104,140 S 36th St,2.5,98,+12152224545
+Adolf Biecker Studio,adolf-biecker-studio-philadelphia,$$,Hair Salons,Nail Salons,,-75.1921387,39.9534492,19104,138 S 34th St,4,91,+12154185550
+Nom Nom Ramen,nom-nom-ramen-philadelphia-3,$$,Ramen,,,-75.1928651,39.953173,19104,3401 Walnut St,2.5,44,+12159880898
+Starbucks,starbucks-philadelphia-64,$$,Coffee & Tea,,,-75.1935259855853,39.9477030217977,19104,3400 Civic Center Blvd,3.5,12,+12677888233
+Brysi,brysi-philadelphia,$,Sandwiches,Coffee & Tea,Juice Bars & Smoothies,-75.1903877,39.9511808,19104,233 S 33rd St,3.5,10,+12155737918
+Dos Hermanos,dos-hermanos-philadelphia,$,Food Trucks,,,-75.1905152,39.9556196,19104,3350 Market St,4.5,32,+12676068356
+Royal Tea Truck,royal-tea-truck-philadelphia,$,Food Trucks,Bubble Tea,,-75.189072,39.95562,19104,33rd St & Market St,4,31,+12677129092
+Cavanaugh's Restaurant,cavanaughs-restaurant-philadelphia,$$,Bars,Burgers,American (Traditional),-75.19992,39.95453,19104,119 S 39th St,2.5,85,+12153864889
+Ali Baba Magic Food,ali-baba-magic-food-philadelphia,$,Food Stands,,,-75.19678,39.95338,19104,37th and Walnut,4,8,
+Hamilton Restaurant,hamilton-restaurant-philadelphia,$$,Diners,,,-75.2024307,39.9569702,19104,4008 Market St,4,9,+12153863870
+Philadelphia Runner,philadelphia-runner-philadelphia-3,$$,Sporting Goods,Shoe Stores,,-75.1962769850134,39.9534959801531,19104,3621 Walnut St,4.5,21,+12156625100
+Children's Hospital of Philadelphia,childrens-hospital-of-philadelphia-philadelphia-2,,Hospitals,Pediatricians,,-75.1947,39.94844,19104,3401 Civic Center Blvd,4,37,+18008792467
+Schmear It,schmear-it-philadelphia,$,Food Trucks,,,-75.1990010399475,39.9521211626772,19104,,4,53,+12157923892
+Neighborhood Bike Works,neighborhood-bike-works-philadelphia,$,Bikes,Bike Repair/Maintenance,,-75.20101,39.96277,19104,3939 Lancaster Ave,5,19,+12153860316
+Cornerstone Bed & Breakfast,cornerstone-bed-and-breakfast-philadelphia,,Bed & Breakfast,,,-75.18982,39.96134,19104,3300 Baring St,4.5,15,+12153876065
+Drexel Pizza Restaurant,drexel-pizza-restaurant-philadelphia,$,Pizza,Sandwiches,,-75.1889114,39.9578896,19104,107 N 33rd St,3,32,+12152224722
+Squeaky Green by Thomas,squeaky-green-by-thomas-philadelphia-2,,Home Cleaning,Office Cleaning,,-75.1997751,39.9551238,19104,101 S 39th St,5,10,+16109319257
+Brexel Cafe,brexel-cafe-philadelphia-2,$,Middle Eastern,Falafel,Hookah Bars,-75.1893177,39.9606641,19104,305 N 33rd St,3.5,17,+12152222272
+Dos Hermanos Taco Truck,dos-hermanos-taco-truck-columbus-3,$,Food Trucks,Mexican,,-75.1953934,39.9583587,43212,,3,24,+16142265286
+House of Our Own,house-of-our-own-philadelphia,$,Bookstores,,,-75.2018814,39.9512711,19104,3920 Spruce St,4.5,33,+12152221576
+Redcap's Corner,redcaps-corner-philadelphia,$$,Toy Stores,Hobby Shops,,-75.1941499,39.95906,19104,3617 Lancaster Ave,4.5,18,+12153874040
+El Rosa Cucina Mexicana,el-rosa-cucina-mexicana-philadelphia,$,Food Stands,,,-75.1893921,39.958786,19104,200 Block 33rd St,5,2,
+Tarka Restaurant,tarka-restaurant-philadelphia,$$,Indian,Pakistani,Buffets,-75.19859,39.95559,19104,3801 Chestnut St,3,64,+12677137797
+Institute of Contemporary Art,institute-of-contemporary-art-philadelphia,,Art Museums,,,-75.194875,39.954277,19104,118 S 36th St,4,32,+12158987108
+Saladworks,saladworks-philadelphia-10,$,Vegetarian,Salad,Soup,-75.19794,39.950956,19104,3728 Spruce St,2.5,26,+12152228899
+Fatboy & Slim's,fatboy-and-slims-philadelphia-2,$,Burgers,Sandwiches,,-75.2008043,39.9547916,19104,3929 Sansom St,3,11,+12153820621
+Corner Bakery Cafe,corner-bakery-cafe-philadelphia-4,$$,Cafes,Breakfast & Brunch,Bakeries,-75.1968805919266,39.956916464816,19104,3737 Market St,3,18,+12153496290
+WXPN Radio,wxpn-radio-philadelphia,,Radio Stations,,,-75.185112,39.9522018,19104,3025 Walnut St,4,44,+12158986677
+Saxbys Coffee,saxbys-coffee-philadelphia-12,$,Coffee & Tea,Juice Bars & Smoothies,,-75.1907578,39.9574509,19104,65 N 34th St,3,14,
+Jimmy John's,jimmy-johns-philadelphia-4,$,Sandwiches,,,-75.193324880426,39.947669093341,19104,3400 Civic Center Blvd,3,15,+12153820805
+7-Eleven,7-eleven-philadelphia-16,$,Fast Food,,,-75.1924896,39.9555893,19104,3440 Market St,4.5,3,+12152221317
+Spring Chinese Restaurant,spring-chinese-restaurant-philadelphia,$,Chinese,,,-75.19655,39.96035,19104,3739 Lancaster Ave,3,31,+12152221000
+Blaze Fast Fire'd Pizza,blaze-fast-fired-pizza-philadelphia-2,$,Salad,Pizza,Fast Food,-75.19189,39.9572,19104,3400 Lancaster Ave,4.5,15,+12672195145
+Ricky Cafe,ricky-cafe-philadelphia,,Breakfast & Brunch,Street Vendors,Sandwiches,-75.1885843276978,39.9555927734985,19104,2-4 N 32nd St,4,4,+12673035529
+Fatboy and Slim's,fatboy-and-slims-philadelphia,$$,American (Traditional),Sports Bars,Pubs,-75.2008043,39.9547916,19104,3929 Sansom St,4,8,+12152225340
+Kami,kami-philadelphia,,Korean,Street Vendors,,-75.1883011,39.957634,19104,3233-3299 Arch St,4.5,3,
+Los Compadres,los-compadres-philadelphia,$,Food Trucks,Mexican,,-75.1910637,39.9553865,19145,3300 Market St,3.5,6,+12675912084
+Drexel Recreation Center,drexel-recreation-center-philadelphia,,Recreation Centers,,,-75.1901721954346,39.9564974193751,19104,3301 Market St,4,21,+12155713777
+Times Square Gyro,times-square-gyro-philadelphia,$,Middle Eastern,Street Vendors,,-75.1992111,39.9512787,19104,Spruce and 38th St,4.5,3,
+Quiznos,quiznos-philadelphia-16,$,Sandwiches,Fast Food,,-75.19289,39.9532,19104,3401 Walnut St,3.5,9,+12153873736
+Ted's Pizza Express,teds-pizza-express-philadelphia,$,Pizza,,,-75.1966476,39.9603615,19104,3741 Lancaster Ave,3.5,9,+12152223033
+Insomnia Cookies,insomnia-cookies-philadelphia-4,$,Bakeries,Ice Cream & Frozen Yogurt,Food Delivery Services,-75.1913531535031,39.9572661020824,19104,3400 Lancaster Ave,4,36,+18776326654
+World Wide Burrito,world-wide-burrito-philadelphia,$,Food Trucks,,,-75.20648,39.9577,19104,34th Market St,4.5,11,
+Joe's Cafe,joes-cafe-philadelphia,$,Coffee & Tea,,,-75.1957438,39.9519506,19104,3620 Locust,3,8,
+Desi Hut Cafe & Grill,desi-hut-cafe-and-grill-philadelphia,$,Indian,Pakistani,,-75.1947,39.95929,19104,3651 Lancaster Ave,3.5,18,+12157953873
+Spread Bagelry,spread-bagelry-philadelphia-4,$$,Breakfast & Brunch,Bagels,Coffee & Tea,-75.1943960040808,39.9545367385025,19104,3602 Chestnut St,3,41,+12152220283
+California Pizza,california-pizza-philadelphia-2,$,Pizza,Salad,Wraps,-75.1891009993735,39.9605065969905,19104,3231 Powelton Ave,2.5,32,+12153878700
+Fresh Donuts,fresh-donuts-philadelphia-5,$,Donuts,,,-75.2006302,39.9620514,19104,3914 Lancaster Ave,4.5,11,+12152228119
+International House Philadelphia,international-house-philadelphia-philadelphia,,Performing Arts,Cinema,University Housing,-75.197005,39.9551244,19104,3701 Chestnut St,3.5,24,+12153875125
+Doctor Cycles,doctor-cycles-philadelphia,$,Bikes,Bike Repair/Maintenance,,-75.1937789,39.9588224,19104,3601 Lancaster Ave,4,23,+12158236780
+Bento Box,bento-box-philadelphia,$,Food Trucks,Japanese,,-75.1974792,39.9538994,19104,3713 Walnut St,3.5,3,
+Saturn Club,saturn-club-philadelphia,$$,Hair Salons,Hair Removal,Skin Care,-75.19311,39.95352,19104,3426 Sansom St,3.5,78,+12153878981
+Central Auto Service,central-auto-service-philadelphia,,Auto Repair,Oil Change Stations,,-75.2003479,39.9623184,19104,3917 Lancaster Ave,4.5,22,+12153864205
+University of Pennsylvania,university-of-pennsylvania-philadelphia,,Colleges & Universities,,,-75.1939087,39.9531441,19104,3451 Walnut St,4,36,+12158985000
+Bodyrock Bootcamp & Executive Training,bodyrock-bootcamp-and-executive-training-philadelphia,,Gyms,Trainers,,-75.19946,39.96129,19104,3858 Lancaster Ave,4.5,11,+12152407621
+New York Gyro Halal Food Cart,new-york-gyro-halal-food-cart-philadelphia-3,$,Food Trucks,,,-75.1992615,39.9512766,19104,38th & Spruce,4,20,
+The Whirly Pig,the-whirly-pig-philadelphia,$$,Street Vendors,Food Trucks,,-75.189549,39.957401,19104,3300 Arch St,4,15,+18563576821
+Logan Circle,logan-circle-philadelphia,,Landmarks & Historical Buildings,,,-75.19993,39.96244,19103,,3.5,7,
+All Seasons Cleaners,all-seasons-cleaners-philadelphia,$$,Dry Cleaning & Laundry,,,-75.2021318,39.9554079,19104,101 S 40th St,4,24,+12153869886
+Franklin Field,franklin-field-philadelphia,,Stadiums & Arenas,,,-75.1904144,39.9511566,19104,235 S 33rd St,4.5,8,+12158986151
+Insomnia Cookies,insomnia-cookies-philadelphia,$,Bakeries,Desserts,Ice Cream & Frozen Yogurt,-75.1942340590685,39.9510626215343,19104,Houston Hall,3.5,49,+18776326654
+Veterinary Hospital University of Pennsylvania,veterinary-hospital-university-of-pennsylvania-philadelphia,,Veterinarians,,,-75.2009886229879,39.9506189281476,19104,3800 Spruce St,3.5,91,+12158984680
+Dunkin' Donuts,dunkin-donuts-philadelphia-153,$,Donuts,Coffee & Tea,,-75.202179,39.9546814,19104,125 S 40th St,3,9,+12152441344
+KAMI philadelphia,kami-philadelphia-philadelphia,$,Street Vendors,,,-75.1890793,39.9575882,19104,N 33rd and Arch St,4,21,
+Pi Lam,pi-lam-philadelphia,$,Music Venues,,,-75.20169,39.95125,19104,3914 Spruce St,4.5,11,
+Grays Ferry Crescent,grays-ferry-crescent-philadelphia,,Parks,,,-75.2021455764771,39.9424082580652,19146,,4.5,3,+12152226030
+Pennsylvania Optometrics Vision Center,pennsylvania-optometrics-vision-center-philadelphia-2,$$$,Optometrists,Eyewear & Opticians,,-75.1941605,39.9560394,19104,3600 Market St,4.5,11,+12153873600
+Rana Halal Cuisine,rana-halal-cuisine-philadelphia,$$,Middle Eastern,Halal,,-75.19281,39.9584,19104,3513 Lancaster Ave,4,8,+12152227136
+Penn Book Center,penn-book-center-philadelphia,$$$,Bookstores,,,-75.1921597030391,39.9533242186801,19195,130 S 34th St,4,27,+12152227600
+Seasons at Drexel,seasons-at-drexel-philadelphia,$$,Sandwiches,,,-75.189743,39.9541206,19104,33rd and Chestnut St,3,8,
+Pizza Wings Steaks,pizza-wings-steaks-philadelphia,$,Chicken Wings,Pizza,Sandwiches,-75.189224,39.960644,19104,3235 Powelton Ave,2.5,33,+12152221397
