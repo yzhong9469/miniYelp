@@ -19,4 +19,11 @@ public class User {
 	public void updateRatings(Restaurant restaurant, int rating){
 		this.ratings.put(restaurant, rating);
 	}
+	
+	public HashMap<Restaurant,Integer> getRatings(){
+		return this.ratings;
+	}
+	public String getId(){
+		return this.login_id;
+	}
 }
