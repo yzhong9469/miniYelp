@@ -6,14 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 
 public class RecommendRestaurant implements Recommend {
-	private ArrayList<Restaurant> recList;
 	private RestaurantFileParser restaurantParser;
-	
+
 	public RecommendRestaurant(){
-	restaurantParser = new RestaurantFileParser();
+		restaurantParser = new RestaurantFileParser();
 	}
-	
-	
+
+
 	public ArrayList<Restaurant> getHighRatings(User user){
 		ArrayList<Restaurant> list = new ArrayList<Restaurant>();
 		HashMap<Restaurant,Integer> userRatings = user.getRatings();
@@ -24,7 +23,7 @@ public class RecommendRestaurant implements Recommend {
 		}
 		return list;
 	}
-	
+
 	public HashMap<String,Integer> getCategory(ArrayList<Restaurant> resList){
 		HashMap<String,Integer> categoryCt = new HashMap<String,Integer>();
 		for (int i = 0; i < resList.size(); i++){
@@ -41,7 +40,7 @@ public class RecommendRestaurant implements Recommend {
 		}
 		return categoryCt;
 	}
-	
+
 	public ArrayList<String> selectCategory(HashMap<String,Integer> categoryCt){
 		ArrayList<String> cg = new ArrayList<String>();
 		if (categoryCt.size() <= 5){
@@ -65,16 +64,43 @@ public class RecommendRestaurant implements Recommend {
 		}
 		return cg;
 	}
-	
-	public ArrayList<Restaurant> getReclist(User user){
-		ArrayList<Restaurant> reclist = new ArrayList<Restaurant>();
-		List<Restaurant> resList = restaurantParser.getRestaurantlist();
+
+	public List<Restaurant> getReclist(User user){
+		List<Restaurant> reclist = new ArrayList<Restaurant>();
+		List<Restaurant> reslist = restaurantParser.getRestaurantlist();
 		if (user.getRatings().isEmpty()){
-			for (int i = 0; i < resList.size(); i++){
-				
+			for (int i = 0; i < reslist.size(); i++){
+				if(reslist.get(i).getRating() >= 4.5){
+					reclist.add(reslist.get(i));
+				}
 			}
+			Collections.shuffle(reclist);
+		} else {
+			ArrayList<Restaurant> highRatings = getHighRatings(user);
+			HashMap<String,Integer> categoryCt = getCategory(highRatings);
+			ArrayList<String> selectCat = selectCategory(categoryCt);
+			for (int i = 0; i < selectCat.size(); i++){
+				String cg = selectCat.get(i);
+				for (int j = 0; j < reslist.size(); i++){
+					if (reslist.get(j).getCategories().contains(cg) && reslist.get(j).getRating() >= 4.5
+							&& !user.getRatings().containsKey(reslist.get(j))){
+						reclist.add(reslist.get(j));
+					}
+				}
+				if (reclist.size() < 10){
+					for (int k = 0; k < reslist.size(); i++){
+						while(reclist.size()<10){
+							if (reslist.get(k).getCategories().contains(cg) && reslist.get(k).getRating() == 4
+									&& !user.getRatings().containsKey(reslist.get(k))){
+								reclist.add(reslist.get(k));
+							}
+						}
+					}
+				}
+			}
+			Collections.shuffle(reclist);
 		}
-		return reclist;
+		return reclist.subList(0,10);
 	}
 	@Override
 	public List<Restaurant> recommRestaurant() {
