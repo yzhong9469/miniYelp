@@ -21,10 +21,10 @@ public class RestaurantFileParser extends DataParser {
 	private static final int PHONE_INDEX = 12;
 	private static final int FIELDS = 13;
 	
-	private List<Restaurant> restaurants;
+	private RestaurantCollection restaurants;
 	
 	public RestaurantFileParser () {
-		restaurants = new ArrayList<>();
+		restaurants = RestaurantCollection.getInstance();
 	}
 	
 	public void loadData(String inputfile) {
@@ -66,7 +66,7 @@ public class RestaurantFileParser extends DataParser {
 				phone = restaurant[PHONE_INDEX];
 				
 				Restaurant r = new Restaurant(id, name, price, categories, longitude, latitude, zipcode, address, rating, reviewCount, phone);
-				restaurants.add(r);
+				restaurants.addRestaurant(r);;
 			}
 			
 			reader.close();
@@ -74,10 +74,6 @@ public class RestaurantFileParser extends DataParser {
 			//TO DO: add exception
 		} 
 
-	}
-	
-	public List<Restaurant> getRestaurantList(){
-		return this.restaurants;
 	}
 
 }
