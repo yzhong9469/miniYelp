@@ -1,10 +1,11 @@
 package edu.upenn.cit594.miniYelp;
 
-import java.awt.FlowLayout;
+import java.awt.*;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Rectangle;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -25,6 +26,12 @@ public class LoginView extends JPanel{
 	
 	BufferedImage background;
 	String message = "Wrong Password!";
+	
+	private JTextField email = new JTextField(10);
+	private JPasswordField password = new JPasswordField(10);
+	
+	private JButton login = new JButton("Login");
+	private JButton register = new JButton("register");
 	/**
 	 * 
 	 */
@@ -38,21 +45,32 @@ public class LoginView extends JPanel{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		//super("Login");
 		setSize(800, 500);
 		setLayout(new GridBagLayout());
 				
 		JPanel fields = setField();
 		
 		add(fields);
-		//setContentPane(border);
-//        JLabel background=new JLabel(new ImageIcon("U-Penn.jpg"));
-//        add(background);
-//        background.setLayout(new FlowLayout());
-		
-		
+	}
+	
+	public String getEmail(){
+		return email.getText();
+	}
+	
+	public char[] getPassword(){
+		return password.getPassword();
+	}
+	
+	public void setMessage(String s){
+		message = s;
+	}
+	
+	public void setLoginAction(ActionListener a){
+		login.addActionListener(a);
+	}
+	
+	public void setRegisterAction(ActionListener a){
+		register.addActionListener(a);
 	}
 	
 	public JPanel setField(){
@@ -79,18 +97,19 @@ public class LoginView extends JPanel{
         gbc.gridwidth = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.weightx = 1;
-        fields.add(new JTextField(10), gbc);
+        fields.add(email, gbc);
+        
         gbc.gridy++;
-        fields.add(new JPasswordField(10), gbc);
+        fields.add(password, gbc);
 
         gbc.gridx = 1;
         gbc.gridy++;
         gbc.gridwidth = 1;
         gbc.weightx = 0;
         gbc.fill = GridBagConstraints.NONE;
-        fields.add(new JButton("Login"), gbc);
+        fields.add(login, gbc);
         gbc.gridx++;
-        fields.add(new JButton("Register"), gbc);
+        fields.add(register, gbc);
         
         JLabel error = new JLabel(message);
         error.setBorder(new EmptyBorder(5,5,0,5));

@@ -1,6 +1,8 @@
 package edu.upenn.cit594.miniYelp;
 
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.*;
 
 import javax.swing.ImageIcon;
@@ -24,21 +26,29 @@ public class ViewTest {
 //        miniYelp.setLayout(new FlowLayout());
 //        miniYelp.setVisible(true);
 		
-		
+		JPanel search = new SearchView();
+		search.setVisible(true);
         
 		JPanel login = new LoginView();
 		login.setVisible(true);
+		((LoginView) login).setLoginAction(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				miniYelp.remove(login);
+				miniYelp.add(search);
+				miniYelp.setVisible(true);
+			}
+			
+		});
+		
 		miniYelp.add(login);
-		//miniYelp.pack();
 		
 		miniYelp.setVisible(true);
-//		miniYelp.setVisible(true);
-//		
-		JPanel search = new SearchView();
-		search.setVisible(true);
-		miniYelp.remove(login);
-		miniYelp.add(search);
-		miniYelp.setVisible(true);
+		
+		
+		
 //		miniYelp.remove(search);
 		
 		

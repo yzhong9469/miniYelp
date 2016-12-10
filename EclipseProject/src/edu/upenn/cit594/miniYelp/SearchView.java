@@ -9,6 +9,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
@@ -42,17 +43,22 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	
 	private final JMapViewerTree treeMap;
 	
-	private String category;
-	private String price;
-	private String rating;
-	private String review;
+	private String category = "";
+	private String price = "";
+	private String rating = "";
+	private String review = "";
 	
-	
+	JButton searchButton = new JButton("Search");
 	
 	private JLabel categoryLabel = new JLabel("Category:");
 	private JLabel priceLabel = new JLabel("Price:");
 	private JLabel ratingLabel = new JLabel("Rating:");
 	private JLabel reviewLabel = new JLabel("Review Count:");
+	
+	private String[] categoryChoice = new String[] {""};
+	private String[] priceChoice = new String[] {""};
+	private String[] ratingChoice = new String[] {""};
+	private String[] reviewChoice = new String[] {""};
 
 	private JTextPane textPane = new JTextPane();
 	/*
@@ -153,7 +159,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		 * the first filter choice
 		 */
 		panelTop.add(categoryLabel);
-		JComboBox<String> categorySelector = new JComboBox<>(new String[] {"","Chinese","American","Food Truck"});
+		JComboBox<String> categorySelector = new JComboBox<>(categoryChoice);
 		categorySelector.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
@@ -167,7 +173,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		 * the second filter choice
 		 */
 		panelTop.add(priceLabel);
-		JComboBox<String> priceSelector = new JComboBox<>(new String[] {"","$","$$","$$$"});
+		JComboBox<String> priceSelector = new JComboBox<>(priceChoice);
 		priceSelector.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
@@ -181,8 +187,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		 * the third filter choice
 		 */
 		panelTop.add(ratingLabel);
-	   	JComboBox<String> ratingSelector = new JComboBox<>(new String[] {"","5",">4",">3",
-	  		 							">2",">1"});
+	   	JComboBox<String> ratingSelector = new JComboBox<>(ratingChoice);
 	   	ratingSelector.addItemListener(new ItemListener() {
 	   		@Override
 	   		public void itemStateChanged(ItemEvent e) {
@@ -196,7 +201,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		 * the fourth filter choice
 		 */
 	   	panelTop.add(reviewLabel);
-	   	JComboBox<String> reviewSelector = new JComboBox<>(new String[] {"",">200",">100",">50"});
+	   	JComboBox<String> reviewSelector = new JComboBox<>(reviewChoice);
 	   	reviewSelector.addItemListener(new ItemListener() {
 	   		@Override
 	   		public void itemStateChanged(ItemEvent e) {
@@ -209,15 +214,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	   	/*
 		 * trigger search operation
 		 */
-	   	JButton searchButton = new JButton("Search");
 	   	panelTop.add(searchButton);
-	   	searchButton.addActionListener(new ActionListener() {
-	       	@Override
-	       	public void actionPerformed(ActionEvent e) {
-	       		// do something, trigger search operation
-	       	}
-	   	});
-	   	
 	   	
 	   	JButton showAll = new JButton("Show All Markers");
 	   	showAll.addActionListener(new ActionListener() {
@@ -238,8 +235,41 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		map().addMapMarker(marker);
 	}
 	
+	public void addMarkers(ArrayList<MapMarkerDot> markers){
+		for (MapMarkerDot m : markers){
+			map().addMapMarker(m);
+		}
+	}
+	
+	public void addDescription(ArrayList<String> desc) throws BadLocationException{
+		StyledDocument doc = textPane.getStyledDocument();
+		for (String s : desc){
+			doc.insertString(0, s, null);
+		}
+	}
+	
+	public void addSearchListener(ActionListener search){
+	   	searchButton.addActionListener(search);
+	}
+	
 	public void removeMarkers(){
 		map().removeAllMapMarkers();
+	}
+	
+	public void setCategoryChoice(String[] choice){
+		categoryChoice = choice;
+	}
+	
+	public void setPriceChoice(String[] choice){
+		priceChoice = choice;
+	}
+	
+	public void setRatingChoice(String[] choice){
+		ratingChoice = choice;
+	}
+	
+	public void setReviewChoice(String[] choice){
+		reviewChoice = choice;
 	}
 	
 	public String getCategory(){
