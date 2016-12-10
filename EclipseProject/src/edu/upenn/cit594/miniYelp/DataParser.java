@@ -35,7 +35,7 @@ public abstract class DataParser {
 	
 	public void loadData(String inputfile) {}
 	
-	public void writeData(String outputfile) {}
+	public void writeData() {}
 	
 
 }
