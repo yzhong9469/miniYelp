@@ -21,7 +21,6 @@ public class RestaurantFileParser extends DataParser {
 	private static final int PHONE_INDEX = 12;
 	private static final int FIELDS = 13;
 	
-	//private String header;
 	private List<Restaurant> restaurants;
 	
 	public RestaurantFileParser () {
@@ -29,7 +28,7 @@ public class RestaurantFileParser extends DataParser {
 	}
 	
 	public void loadData(String inputfile) {
-		if (isValidPath(inputfile)) {
+		if (!isValidPath(inputfile)) {
 			throw new IllegalArgumentException("Invalid input file");
 		}
 		
@@ -42,7 +41,7 @@ public class RestaurantFileParser extends DataParser {
 		
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(inputfile));
-			//header = reader.readLine();
+			reader.readLine();
 			
 			while ((line = reader.readLine()) != null) {
 				String[] restaurant = line.split(",");
@@ -72,19 +71,13 @@ public class RestaurantFileParser extends DataParser {
 			
 			reader.close();
 		} catch (IOException e) {
-			
+			//TO DO: add exception
 		} 
-		
-		
-		
+
 	}
 	
-	public List<Restaurant> getRestaurantlist(){
+	public List<Restaurant> getRestaurantList(){
 		return this.restaurants;
 	}
-	
-	
-	
-	
-	
+
 }
