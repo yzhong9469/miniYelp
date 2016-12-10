@@ -4,14 +4,14 @@ import java.util.HashMap;
 
 
 public class User {
-	private String emailAddress;
-	private String user_name;
+	private String userId;
+	private String username;
 	private String password;
 	private HashMap<Restaurant,Integer> ratings;
 	
-	public User(String loginId, String userName, String password){
-		this.emailAddress = emailAddress;
-		this.user_name = userName;
+	public User(String userId, String username, String password){
+		this.userId = userId;
+		this.username = username;
 		this.password = password;
 		this.ratings = new HashMap<Restaurant,Integer>();
 	}
@@ -23,8 +23,9 @@ public class User {
 	public HashMap<Restaurant,Integer> getRatings(){
 		return this.ratings;
 	}
+	
 	public String getId(){
-		return this.emailAddress;
-		}
+		return this.userId;
+	}
 
 }
