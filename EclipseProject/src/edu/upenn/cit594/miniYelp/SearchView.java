@@ -37,7 +37,7 @@ import org.openstreetmap.gui.jmapviewer.tilesources.OsmTileSource;
 * @author Yan Zhong
 *
 */
-public class SearchView extends JFrame implements JMapViewerEventListener {
+public class SearchView extends JPanel implements JMapViewerEventListener {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -50,7 +50,7 @@ public class SearchView extends JFrame implements JMapViewerEventListener {
 	* Constructs the {@code Demo}.
 	*/
 	public SearchView() {
-		super("Search");
+		//super("Search");
 		setSize(800, 500);
 	
 		treeMap = new JMapViewerTree("Zones");
@@ -60,7 +60,7 @@ public class SearchView extends JFrame implements JMapViewerEventListener {
 		map().addJMVListener(this);
 		
 		setLayout(new BorderLayout());
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	   
 		JPanel panel = new JPanel(new BorderLayout());
 	   
