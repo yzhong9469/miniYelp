@@ -79,6 +79,9 @@ public class RestaurantFileParser extends DataParser {
 		
 	}
 	
+	public List<Restaurant> getRestaurantlist(){
+		return this.restaurants;
+	}
 	
 	
 	

@@ -4,4 +4,6 @@ import java.util.List;
 
 public interface Recommend {
 	public List<Restaurant> recommRestaurant();
+	
+	
 }
