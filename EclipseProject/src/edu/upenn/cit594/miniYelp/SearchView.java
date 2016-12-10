@@ -10,12 +10,11 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.StyledDocument;
+
+import java.awt.*;
 
 import org.openstreetmap.gui.jmapviewer.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
@@ -42,25 +41,30 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	private static final long serialVersionUID = 1L;
 	
 	private final JMapViewerTree treeMap;
-	private JLabel category = new JLabel("Category:");
-	private JLabel price = new JLabel("Price:");
-	private JLabel rating = new JLabel("Rating:");
-	private JLabel review = new JLabel("Review Count:");
-	/**
+	
+	private String category;
+	private String price;
+	private String rating;
+	private String review;
+	
+	
+	
+	private JLabel categoryLabel = new JLabel("Category:");
+	private JLabel priceLabel = new JLabel("Price:");
+	private JLabel ratingLabel = new JLabel("Rating:");
+	private JLabel reviewLabel = new JLabel("Review Count:");
+
+	private JTextPane textPane = new JTextPane();
+	/*
 	* Constructs the {@code Demo}.
 	*/
-	public SearchView() {
-		//super("Search");
+	public SearchView() throws BadLocationException {
 		setSize(800, 500);
 	
 		treeMap = new JMapViewerTree("Zones");
-	
-		// Listen to the map viewer for user operations so components will
-		// receive events and update
-		map().addJMVListener(this);
-		
+	   	
+	   	// layout settings
 		setLayout(new BorderLayout());
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	   
 		JPanel panel = new JPanel(new BorderLayout());
 	   
@@ -76,105 +80,47 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		JLabel helpLabel = new JLabel("Drag to move,\n "
 	           + "double click to zoom.");
 		helpPanel.add(helpLabel);
-	//   
-	//   JButton button = new JButton("setDisplayToFitMapMarkers");
-	//   button.addActionListener(new ActionListener() {
-	//       @Override
-	//       public void actionPerformed(ActionEvent e) {
-	//           map().setDisplayToFitMapMarkers();
-	//       }
-	//   });
-	   
-		map().setTileSource((TileSource) new OsmTileSource.Mapnik());
 		
-		/*
-		 * the first filter choice
-		 */
-		panelTop.add(category);
-		JComboBox<String> categorySelector = new JComboBox<>(new String[] {"","Chinese","American","Food Truck"});
-		categorySelector.addItemListener(new ItemListener() {
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-	           //map().setTileSource((TileSource) e.getItem());
-	      	 //do something, send back
-				System.out.println(e.getItem());
-	       }	
-		});
-		panelTop.add(categorySelector);
 		
-		/*
-		 * the second filter choice
-		 */
-		panelTop.add(price);
-		JComboBox<String> priceSelector = new JComboBox<>(new String[] {"","$","$$","$$$"});
-		priceSelector.addItemListener(new ItemListener() {
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-	           //map().setTileSource((TileSource) e.getItem());
-	      	 //do something, send back
-				System.out.println(e.getItem());
-			}
-		});
-		panelTop.add(priceSelector);
+		// set text panel to display information
+		JScrollPane paneScrollPane = new JScrollPane(textPane);
+		textPane.setEditable(false);
+		paneScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		paneScrollPane.setPreferredSize(new Dimension(250, 155));
+		paneScrollPane.setMinimumSize(new Dimension(10, 10));
 		
-		/*
-		 * the third filter choice
-		 */
-		panelTop.add(rating);
-	   	JComboBox<String> ratingSelector = new JComboBox<>(new String[] {"","5",">4",">3",
-	  		 							">2",">1"});
-	   	ratingSelector.addItemListener(new ItemListener() {
-	   		@Override
-	   		public void itemStateChanged(ItemEvent e) {
-	           //map().setTileSource((TileSource) e.getItem());
-	      	 //do something, send back
-	   			System.out.println(e.getItem());
-	   		}
-	   	});
-	   	panelTop.add(ratingSelector);
-	   
-	   	/*
-		 * the fourth filter choice
-		 */
-	   	panelTop.add(review);
-	   	JComboBox<String> reviewSelector = new JComboBox<>(new String[] {"",">200",">100",">50"});
-	   	reviewSelector.addItemListener(new ItemListener() {
-	   		@Override
-	   		public void itemStateChanged(ItemEvent e) {
-	           //map().setTileSource((TileSource) e.getItem());
-	      	 //do something, send back
-	   			System.out.println(e.getItem());
-	   		}
-	   	});
-	   	panelTop.add(reviewSelector);
-	   	
-	   	/*
-		 * trigger search operation
-		 */
-	   	JButton searchButton = new JButton("Search");
-	   	panelTop.add(searchButton);
-	   	searchButton.addActionListener(new ActionListener() {
-	       	@Override
-	       	public void actionPerformed(ActionEvent e) {
-	       		// do something, trigger search operation
-	       	}
-	   	});
-	   	
-	   	/*
-	   	 * map settings
-	   	 */
-	   	map().setZoomContolsVisible(true);
-	   	treeMap.setVisible(true);
-	   	add(treeMap, BorderLayout.CENTER);
+		add(paneScrollPane, BorderLayout.WEST);
+		
+		StyledDocument doc = textPane.getStyledDocument();
+		for (int i = 0; i < 40; i++){
+			doc.insertString(0, "Hello\n", null);
+		}
+		
+        addButtons(panelTop);
 	   	
 	   	/*
 	   	 * how to add marker example
 	   	 */
-	   	MapMarkerDot testMarker = new MapMarkerDot("Van Pelt",new Coordinate(39.952676, -75.194000));
-	   	map().addMapMarker(testMarker);
-	   	map().setDisplayPosition(new Coordinate(39.952676, -75.194000), 16);
+	   	MapMarkerDot vanPelt = new MapMarkerDot("Van Pelt",new Coordinate(39.952676, -75.194000));
+	   	addMarkers(vanPelt);
+	   	
+	   	setMap();
+	}
 	
-	   	map().addMouseListener(new MouseAdapter() {
+	private JMapViewer map() {
+		return treeMap.getViewer();
+	}
+	
+	private void setMap(){
+		map().addJMVListener(this);
+		
+		/*
+	   	 * map settings
+	   	 */
+		map().setTileSource((TileSource) new OsmTileSource.Mapnik());
+	   	map().setZoomContolsVisible(true);
+	   	
+		map().addMouseListener(new MouseAdapter() {
 	   		@Override
 	   		public void mouseClicked(MouseEvent e) {
 	   			if (e.getButton() == MouseEvent.BUTTON1) {
@@ -195,18 +141,128 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	   			}
 	   		}
 	   	});
+	   	
+	   	map().setDisplayPosition(new Coordinate(39.952676, -75.194000), 16);
+	   	treeMap.setVisible(true);
+	   	add(treeMap, BorderLayout.CENTER);
 	}
 	
-	private JMapViewer map() {
-		return treeMap.getViewer();
+	private void addButtons(JPanel panelTop){
+
+		/*
+		 * the first filter choice
+		 */
+		panelTop.add(categoryLabel);
+		JComboBox<String> categorySelector = new JComboBox<>(new String[] {"","Chinese","American","Food Truck"});
+		categorySelector.addItemListener(new ItemListener() {
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				category = e.getItem().toString();
+				System.out.println(e.getItem());
+	       }	
+		});
+		panelTop.add(categorySelector);
+		
+		/*
+		 * the second filter choice
+		 */
+		panelTop.add(priceLabel);
+		JComboBox<String> priceSelector = new JComboBox<>(new String[] {"","$","$$","$$$"});
+		priceSelector.addItemListener(new ItemListener() {
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				price = e.getItem().toString();
+				System.out.println(e.getItem());
+			}
+		});
+		panelTop.add(priceSelector);
+		
+		/*
+		 * the third filter choice
+		 */
+		panelTop.add(ratingLabel);
+	   	JComboBox<String> ratingSelector = new JComboBox<>(new String[] {"","5",">4",">3",
+	  		 							">2",">1"});
+	   	ratingSelector.addItemListener(new ItemListener() {
+	   		@Override
+	   		public void itemStateChanged(ItemEvent e) {
+	   			rating = e.getItem().toString();
+	   			System.out.println(e.getItem());
+	   		}
+	   	});
+	   	panelTop.add(ratingSelector);
+	   
+	   	/*
+		 * the fourth filter choice
+		 */
+	   	panelTop.add(reviewLabel);
+	   	JComboBox<String> reviewSelector = new JComboBox<>(new String[] {"",">200",">100",">50"});
+	   	reviewSelector.addItemListener(new ItemListener() {
+	   		@Override
+	   		public void itemStateChanged(ItemEvent e) {
+	   			review = e.getItem().toString();
+	   			System.out.println(e.getItem());
+	   		}
+	   	});
+	   	panelTop.add(reviewSelector);
+	   	
+	   	/*
+		 * trigger search operation
+		 */
+	   	JButton searchButton = new JButton("Search");
+	   	panelTop.add(searchButton);
+	   	searchButton.addActionListener(new ActionListener() {
+	       	@Override
+	       	public void actionPerformed(ActionEvent e) {
+	       		// do something, trigger search operation
+	       	}
+	   	});
+	   	
+	   	
+	   	JButton showAll = new JButton("Show All Markers");
+	   	showAll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                map().setDisplayToFitMapMarkers();
+            }
+        });
+        panelTop.add(showAll);
 	}
 	
+	public void addText(String s) throws BadLocationException{
+		StyledDocument doc = textPane.getStyledDocument();
+		doc.insertString(0, s, null);
+	}
+
+	public void addMarkers(MapMarkerDot marker){
+		map().addMapMarker(marker);
+	}
+	
+	public void removeMarkers(){
+		map().removeAllMapMarkers();
+	}
+	
+	public String getCategory(){
+		return category;
+	}
+	
+	public String getRating(){
+		return rating;
+	}
+	
+	public String getPrice(){
+		return price;
+	}
+	
+	public String getReview(){
+		return review;
+	}
 	@Override
-	public void processCommand(JMVCommandEvent command) {
-		if (command.getCommand().equals(JMVCommandEvent.COMMAND.ZOOM) ||
-	           command.getCommand().equals(JMVCommandEvent.COMMAND.MOVE)) {
-	       //updateZoomParameters();
-		}
+	public void processCommand(JMVCommandEvent arg0) {
+		
 	}
+	
+	
+	
 }
 

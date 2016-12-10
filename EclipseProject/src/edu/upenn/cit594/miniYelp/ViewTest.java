@@ -8,10 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.BadLocationException;
 
 public class ViewTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws BadLocationException {
 		JFrame miniYelp = new JFrame();
 		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		miniYelp.setSize(800, 500);
@@ -33,10 +34,11 @@ public class ViewTest {
 		miniYelp.setVisible(true);
 //		miniYelp.setVisible(true);
 //		
-//		JPanel search = new SearchView();
-//		search.setVisible(true);
-//		miniYelp.add(search);
-//		miniYelp.setVisible(true);
+		JPanel search = new SearchView();
+		search.setVisible(true);
+		miniYelp.remove(login);
+		miniYelp.add(search);
+		miniYelp.setVisible(true);
 //		miniYelp.remove(search);
 		
 		
