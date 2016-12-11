@@ -44,8 +44,10 @@ public class RestaurantFileParser extends DataParser {
 			reader.readLine();
 			
 			while ((line = reader.readLine()) != null) {
+				//System.out.println(line);
 				String[] restaurant = line.split(",");
-				if (restaurant == null || restaurant.length != FIELDS) continue;
+				//System.out.println(restaurant.length);
+				if (restaurant == null || restaurant.length > FIELDS) continue;
 				
 				name = restaurant[NAME_INDEX];
 				id = restaurant[ID_INDEX];
@@ -57,13 +59,26 @@ public class RestaurantFileParser extends DataParser {
 					categories.add(restaurant[CATEGORIES_INDEX + i]);
 				}
 				
-				longitude = Double.parseDouble(restaurant[LONGITUDE_INDEX]);
-				latitude = Double.parseDouble(restaurant[LATITUDE_INDEX]);
+				//System.out.println("longitude: " + restaurant[LONGITUDE_INDEX] + "; latitude: " + restaurant[LATITUDE_INDEX]);
+				try {
+					longitude = Double.parseDouble(restaurant[LONGITUDE_INDEX]);
+				} catch(NumberFormatException e) {
+					longitude = 0;
+				}
+				
+				try {
+					latitude = Double.parseDouble(restaurant[LATITUDE_INDEX]);
+				} catch(NumberFormatException e) {
+					latitude = 0;
+				}
+				
 				zipcode = restaurant[ZIPCODE_INDEX];
 				address = restaurant[ADDRESS_INDEX];
 				rating = Float.parseFloat(restaurant[RATING_INDEX]);
 				reviewCount = Integer.parseInt(restaurant[REVIEWCOUNT_INDEX]);
-				phone = restaurant[PHONE_INDEX];
+				
+				if (restaurant.length == FIELDS) phone = restaurant[PHONE_INDEX];
+				else phone = "";
 				
 				Restaurant r = new Restaurant(id, name, price, categories, longitude, latitude, zipcode, address, rating, reviewCount, phone);
 				restaurants.addRestaurant(r);;
@@ -71,9 +86,7 @@ public class RestaurantFileParser extends DataParser {
 			
 			reader.close();
 		} catch (IOException e) {
-			//TO DO: add exception
+			System.out.println("Open " + inputfile + " failed: " + e.getMessage());
 		} 
-
 	}
-
 }
