@@ -40,7 +40,7 @@ public class SearchRestaurant implements Search {
 			if (!res.getPrice().equals(pricerange) && pricerange != ""){
 				continue;
 			}
-			if (res.getRating() != rating && filters[2] != "" ){
+			if (res.getRating() < rating && filters[2] != "" ){
 				continue;
 			}
 			if (res.getReviewCount() >= reviewCount || filters[3] == ""){

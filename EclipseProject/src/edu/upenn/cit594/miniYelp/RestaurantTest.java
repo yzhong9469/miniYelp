@@ -13,7 +13,7 @@ public class RestaurantTest {
 		String[] filter = {"","","",""};
 		test = sr.searchRestaurant(filter);
 		for(int i = 0; i<test.size(); i++){
-			System.out.println(test.get(i).toString(i));
+			System.out.println(test.get(i));
 		}
 	}
 
