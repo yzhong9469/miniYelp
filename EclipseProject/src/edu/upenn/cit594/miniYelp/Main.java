@@ -1,20 +1,27 @@
 package edu.upenn.cit594.miniYelp;
 
-import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.*;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.text.BadLocationException;
 
-public class ViewTest {
+public class Main {
 
-	public static void main(String[] args) throws BadLocationException {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			runMiniYelp();
+		} catch(BadLocationException e) {
+			
+		}
+
+	}
+	
+	
+	
+	public static void runMiniYelp() throws BadLocationException {
 		JFrame miniYelp = new JFrame();
 		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		miniYelp.setSize(800, 500);
@@ -88,13 +95,6 @@ public class ViewTest {
 		
 		miniYelp.setVisible(true);
 		
-		
-		
-//		miniYelp.remove(search);
-		
-		
-		//new SearchView().setVisible(true);
-
 	}
 
 }

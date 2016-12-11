@@ -37,35 +37,19 @@ import org.openstreetmap.gui.jmapviewer.tilesources.OsmTileSource;
 * @author Yan Zhong
 *
 */
-public class SearchView extends JPanel implements JMapViewerEventListener {
+public class RecommendView extends JPanel implements JMapViewerEventListener {
 
 	private static final long serialVersionUID = 1L;
 	
 	private final JMapViewerTree treeMap;
 	
-	private String category = "";
-	private String price = "";
-	private String rating = "";
-	private String review = "";
+	JButton returnButton = new JButton("Return");
 	
-	JButton searchButton = new JButton("Search");
-	JButton recommendButton = new JButton("Get recommendation");
-	
-	private JLabel categoryLabel = new JLabel("Category:");
-	private JLabel priceLabel = new JLabel("Price:");
-	private JLabel ratingLabel = new JLabel("Rating:");
-	private JLabel reviewLabel = new JLabel("Review Count:");
-	
-	private String[] categoryChoice = new String[] {""};
-	private String[] priceChoice = new String[] {""};
-	private String[] ratingChoice = new String[] {""};
-	private String[] reviewChoice = new String[] {""};
-
 	private JTextPane textPane = new JTextPane();
 	/*
 	* Constructs the {@code Demo}.
 	*/
-	public SearchView() throws BadLocationException {
+	public RecommendView() throws BadLocationException {
 		setSize(800, 500);
 	
 		treeMap = new JMapViewerTree("Zones");
@@ -155,67 +139,10 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	}
 	
 	private void addButtons(JPanel panelTop, JPanel panelBottom){
-
-		/*
-		 * the first filter choice
-		 */
-		panelTop.add(categoryLabel);
-		JComboBox<String> categorySelector = new JComboBox<>(categoryChoice);
-		categorySelector.addItemListener(new ItemListener() {
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-				category = e.getItem().toString();
-				System.out.println(e.getItem());
-	       }	
-		});
-		panelTop.add(categorySelector);
-		
-		/*
-		 * the second filter choice
-		 */
-		panelTop.add(priceLabel);
-		JComboBox<String> priceSelector = new JComboBox<>(priceChoice);
-		priceSelector.addItemListener(new ItemListener() {
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-				price = e.getItem().toString();
-				System.out.println(e.getItem());
-			}
-		});
-		panelTop.add(priceSelector);
-		
-		/*
-		 * the third filter choice
-		 */
-		panelTop.add(ratingLabel);
-	   	JComboBox<String> ratingSelector = new JComboBox<>(ratingChoice);
-	   	ratingSelector.addItemListener(new ItemListener() {
-	   		@Override
-	   		public void itemStateChanged(ItemEvent e) {
-	   			rating = e.getItem().toString();
-	   			System.out.println(e.getItem());
-	   		}
-	   	});
-	   	panelTop.add(ratingSelector);
-	   
-	   	/*
-		 * the fourth filter choice
-		 */
-	   	panelTop.add(reviewLabel);
-	   	JComboBox<String> reviewSelector = new JComboBox<>(reviewChoice);
-	   	reviewSelector.addItemListener(new ItemListener() {
-	   		@Override
-	   		public void itemStateChanged(ItemEvent e) {
-	   			review = e.getItem().toString();
-	   			System.out.println(e.getItem());
-	   		}
-	   	});
-	   	panelTop.add(reviewSelector);
 	   	
 	   	/*
 		 * trigger search operation
 		 */
-	   	panelBottom.add(searchButton);
 	   	
 	   	JButton showAll = new JButton("Show All Markers");
 	   	showAll.addActionListener(new ActionListener() {
@@ -226,7 +153,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
         });
         panelBottom.add(showAll);
         
-        panelBottom.add(recommendButton);
+        panelBottom.add(returnButton);
 	}
 	
 	public void addText(String s) throws BadLocationException{
@@ -251,49 +178,14 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		}
 	}
 	
-	public void addSearchListener(ActionListener search){
-	   	searchButton.addActionListener(search);
-	}
-	
-	public void addRecommendListener(ActionListener recommend){
-	   	recommendButton.addActionListener(recommend);
+	public void addReturnListener(ActionListener search){
+	   	returnButton.addActionListener(search);
 	}
 	
 	public void removeMarkers(){
 		map().removeAllMapMarkers();
 	}
 	
-	public void setCategoryChoice(String[] choice){
-		categoryChoice = choice;
-	}
-	
-	public void setPriceChoice(String[] choice){
-		priceChoice = choice;
-	}
-	
-	public void setRatingChoice(String[] choice){
-		ratingChoice = choice;
-	}
-	
-	public void setReviewChoice(String[] choice){
-		reviewChoice = choice;
-	}
-	
-	public String getCategory(){
-		return category;
-	}
-	
-	public String getRating(){
-		return rating;
-	}
-	
-	public String getPrice(){
-		return price;
-	}
-	
-	public String getReview(){
-		return review;
-	}
 	@Override
 	public void processCommand(JMVCommandEvent arg0) {
 		
