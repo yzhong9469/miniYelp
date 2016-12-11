@@ -7,20 +7,20 @@ public class User {
 	private String userId;
 	private String username;
 	private String password;
-	private HashMap<Restaurant,Double> ratings;
+	private HashMap<String,Double> ratings;
 	
 	public User(String userId, String username, String password) {
 		this.userId = userId;
 		this.username = username;
 		this.password = password;
-		this.ratings = new HashMap<Restaurant, Double>();
+		this.ratings = new HashMap<String, Double>();
 	}
 	
-	public void updateRatings(Restaurant restaurant, double rating) {
-		this.ratings.put(restaurant, rating);
+	public void updateRatings(String restaurantId, double rating) {
+		this.ratings.put(restaurantId, rating);
 	}
 	
-	public HashMap<Restaurant, Double> getRatings() {
+	public HashMap<String, Double> getRatings() {
 		return this.ratings;
 	}
 	
@@ -36,8 +36,8 @@ public class User {
 		StringBuilder sb = new StringBuilder();
 		sb.append(userId + "\t" + username + "\t" + password + "\t");
 		
-		for (Restaurant r : ratings.keySet()) {
-			sb.append(r.getId() + ":" + ratings.get(r) + ";");
+		for (String rid : ratings.keySet()) {
+			sb.append(rid + ":" + ratings.get(rid) + ";");
 		}
 		
 		sb.setLength(sb.length() - 1);

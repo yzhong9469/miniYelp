@@ -7,6 +7,7 @@ import java.util.List;
 
 public class RecommendRestaurant implements Recommend {
 	private RestaurantFileParser restaurantParser;
+	private RestaurantCollection restaurantCollection;
 
 	public RecommendRestaurant(){
 		restaurantParser = new RestaurantFileParser();
@@ -15,10 +16,10 @@ public class RecommendRestaurant implements Recommend {
 
 	public ArrayList<Restaurant> getHighRatings(User user){
 		ArrayList<Restaurant> list = new ArrayList<Restaurant>();
-		HashMap<Restaurant,Integer> userRatings = user.getRatings();
-		for (Restaurant restaurant:userRatings.keySet()){
-			if (userRatings.get(restaurant) >= restaurant.getRating()){
-				list.add(restaurant);
+		HashMap<String,Double> userRatings = user.getRatings();
+		for (String rid:userRatings.keySet()){
+			if (userRatings.get(rid) >= rid.getRating()){
+				list.add(rid);
 			}
 		}
 		return list;

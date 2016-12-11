@@ -18,6 +18,9 @@ public class RestaurantCollection {
 		return restCollection;
 	}
 	
+	public HashMap<String,Restaurant> getCollection(){
+		return this.restaurants;
+	}
 	/**
 	 * 
 	 * @param restaurantId
