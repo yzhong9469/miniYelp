@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -25,7 +26,7 @@ public class LoginView extends JPanel{
 	
 	
 	BufferedImage background;
-	String message = "Wrong Password!";
+	//String message = "Wrong Password!";
 	
 	private JTextField email = new JTextField(10);
 	private JPasswordField password = new JPasswordField(10);
@@ -54,16 +55,22 @@ public class LoginView extends JPanel{
 	}
 	
 	public String getEmail(){
+		System.out.println(email.getText() + "1");
 		return email.getText();
 	}
 	
 	public char[] getPassword(){
+		System.out.println(password.getPassword());
 		return password.getPassword();
 	}
 	
-	public void setMessage(String s){
-		message = s;
-	}
+	void displayErrorMessage(String errorMessage) {
+        JOptionPane.showMessageDialog(this, errorMessage);
+    }
+	
+//	public void setMessage(String s){
+//		message = s;
+//	}
 	
 	public void setLoginAction(ActionListener a){
 		login.addActionListener(a);
@@ -111,12 +118,12 @@ public class LoginView extends JPanel{
         gbc.gridx++;
         fields.add(register, gbc);
         
-        JLabel error = new JLabel(message);
-        error.setBorder(new EmptyBorder(5,5,0,5));
-        gbc.gridx = 0;
-        gbc.gridy++;
-        gbc.gridwidth = 3;
-        fields.add(error, gbc);
+//        JLabel error = new JLabel(message);
+//        error.setBorder(new EmptyBorder(5,5,0,5));
+//        gbc.gridx = 0;
+//        gbc.gridy++;
+//        gbc.gridwidth = 3;
+//        fields.add(error, gbc);
         return fields;
 	}
 	

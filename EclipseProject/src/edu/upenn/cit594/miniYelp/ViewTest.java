@@ -40,7 +40,20 @@ public class ViewTest {
 				miniYelp.add(search);
 				miniYelp.setVisible(true);
 			}
-			
+		});
+		
+		((LoginView) login).setRegisterAction(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (((LoginView) login).getEmail().length() == 0){
+					((LoginView) login).displayErrorMessage("Email cannot be empty");
+				}else if (((LoginView) login).getPassword().length == 0){
+					((LoginView) login).displayErrorMessage("Password cannot be empty");
+				}else{
+					((LoginView) login).displayErrorMessage("Wrong password!");
+				}
+			}
 		});
 		
 		miniYelp.add(login);
