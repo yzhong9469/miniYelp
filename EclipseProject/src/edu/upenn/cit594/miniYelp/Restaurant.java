@@ -139,9 +139,9 @@ public class Restaurant implements Comparable<Restaurant>{
 	@Override
 	public int compareTo(Restaurant o) {
 		if (this.rating > o.rating){
-			return 1;
-		} else if (this.rating < o.rating) {
 			return -1;
+		} else if (this.rating < o.rating) {
+			return 1;
 		} else {
 			return 0;
 		}
