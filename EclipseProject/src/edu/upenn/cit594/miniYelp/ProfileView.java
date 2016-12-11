@@ -60,11 +60,11 @@ public class ProfileView extends JPanel{
 	public ProfileView(User user) throws BadLocationException{
 		
 		try {
-			background = ImageIO.read(new File("U-Penn.jpg"));
+			background = ImageIO.read(new File("U-Penn2.jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		setSize(800, 500);
+		setSize(1210, 740);
 		setLayout(new GridBagLayout());
 		this.user = user;
 		System.out.println(user);
