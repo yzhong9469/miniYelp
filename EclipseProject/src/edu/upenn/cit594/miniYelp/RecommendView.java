@@ -39,7 +39,7 @@ import org.openstreetmap.gui.jmapviewer.tilesources.OsmTileSource;
 *
 */
 public class RecommendView extends JPanel implements JMapViewerEventListener {
-
+	//instance variables
 	private static final long serialVersionUID = 1L;
 	
 	private final JMapViewerTree treeMap;
@@ -47,6 +47,7 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 	JButton returnButton = new JButton("Return");
 	
 	private JTextPane textPane = new JTextPane();
+	
 	/*
 	* Constructs the {@code Demo}.
 	*/
@@ -89,28 +90,31 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 		
         addButtons(panelTop, panelBottom);
 	   	
-	   	/*
-	   	 * how to add marker example
-	   	 */
+	   	// how to add marker example
 	   	MapMarkerDot vanPelt = new MapMarkerDot("Van Pelt",new Coordinate(39.952676, -75.194000));
 	   	addMarkers(vanPelt);
 	   	
 	   	setMap();
 	}
 	
+	/**
+	 * Get the map view
+	 * @return JMapViewer
+	 */
 	private JMapViewer map() {
 		return treeMap.getViewer();
 	}
 	
+	/**
+	 * Set up the map 
+	 */
 	private void setMap(){
 		map().addJMVListener(this);
 		
-		/*
-	   	 * map settings
-	   	 */
+		//map settings
 		map().setTileSource((TileSource) new OsmTileSource.Mapnik());
 	   	map().setZoomContolsVisible(true);
-	   	
+	   	//add listener
 		map().addMouseListener(new MouseAdapter() {
 	   		@Override
 	   		public void mouseClicked(MouseEvent e) {
@@ -119,7 +123,7 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 	   			}
 	   		}
 	   	});
-	
+		//add listener
 	   	map().addMouseMotionListener(new MouseAdapter() {
 	   		@Override
 	   		public void mouseMoved(MouseEvent e) {
@@ -138,12 +142,13 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 	   	add(treeMap, BorderLayout.CENTER);
 	}
 	
+	/**
+	 * Add buttons
+	 * @param panelTop
+	 * @param panelBottom
+	 */
 	private void addButtons(JPanel panelTop, JPanel panelBottom){
-	   	
-	   	/*
-		 * trigger search operation
-		 */
-	   	
+	   	//trigger search operation 
 	   	JButton showAll = new JButton("Show All Markers");
 	   	showAll.addActionListener(new ActionListener() {
             @Override
@@ -156,15 +161,28 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
         panelBottom.add(returnButton);
 	}
 	
+	/**
+	 * Add text
+	 * @param s
+	 * @throws BadLocationException
+	 */
 	public void addText(String s) throws BadLocationException{
 		StyledDocument doc = textPane.getStyledDocument();
 		doc.insertString(0, s, null);
 	}
-
+	
+	/**
+	 * Add map markers
+	 * @param marker
+	 */
 	public void addMarkers(MapMarkerDot marker){
 		map().addMapMarker(marker);
 	}
 	
+	/**
+	 * Add map markers 
+	 * @param restaurants
+	 */
 	public void addMarkers(List<Restaurant> restaurants){
 		removeMarkers();
 		int i = 1;
@@ -176,6 +194,11 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 		}
 	}
 	
+	/**
+	 * Add restaurants descriptions
+	 * @param restaurants
+	 * @throws BadLocationException
+	 */
 	public void addDescription(List<Restaurant> restaurants) throws BadLocationException{
 		StyledDocument doc = textPane.getStyledDocument();
 		doc.remove(0, doc.getLength());
@@ -186,14 +209,24 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 		}
 	}
 	
+	/**
+	 * Add listener
+	 * @param search
+	 */
 	public void addReturnListener(ActionListener search){
 	   	returnButton.addActionListener(search);
 	}
 	
+	/**
+	 * Remove markers
+	 */
 	public void removeMarkers(){
 		map().removeAllMapMarkers();
 	}
 	
+	/**
+	 * Map default implementation
+	 */
 	@Override
 	public void processCommand(JMVCommandEvent arg0) {
 		
