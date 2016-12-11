@@ -2,64 +2,78 @@ package edu.upenn.cit594.miniYelp;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.text.BadLocationException;
 
 public class Main {
+	
+	private JFrame miniYelp;
+	private JPanel search;
+	private JPanel recommend;
+	private JPanel login;
+	private RestaurantFileParser restParser;
+	
+	
+	
+	public Main() throws BadLocationException{
+		miniYelp = new JFrame();
+		search = new SearchView();
+		recommend = new RecommendView();
+		login = new LoginView();
+		restParser = new RestaurantFileParser();
+		restParser.loadData("restaurant.csv");
+		
+	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		try {
-			runMiniYelp();
-		} catch(BadLocationException e) {
-			
+			Main main = new Main();
+			main.runMiniYelp();
+		} catch (BadLocationException e) {
 		}
 
 	}
 	
-	
-	
-	public static void runMiniYelp() throws BadLocationException {
-		JFrame miniYelp = new JFrame();
-		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		miniYelp.setSize(800, 500);
+	public void runMiniYelp(){
+		setup();
+		setActions();
 		miniYelp.setVisible(true);
+	}
+	
+	private void setup(){
+		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		miniYelp.setSize(800, 525);
+		miniYelp.setVisible(true);
+		miniYelp.setResizable(false);
 		
-//		
-//		JLabel background=new JLabel(new ImageIcon("U-Penn.jpg"));
-//        miniYelp.add(background);
-//        miniYelp.setLayout(new FlowLayout());
-//        miniYelp.setVisible(true);
-		
-		JPanel search = new SearchView();
 		search.setVisible(false);
-		JPanel recommend = new RecommendView();
 		recommend.setVisible(false);
-		
-		JPanel login = new LoginView();
 		login.setVisible(true);
 		
 		
 		miniYelp.add(search);
 		miniYelp.add(recommend);
         miniYelp.add(login);
+		
+	}
+	
+	
+	public void setActions() {
+		
 		((RecommendView) recommend).addReturnListener(new ActionListener(){
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				recommend.setVisible(false);
 				search.setVisible(true);
-				miniYelp.setVisible(true);
-				
+				miniYelp.setVisible(true);	
 			}
-			
-			
 		});
 		
 		((SearchView) search).addRecommendListener(new ActionListener(){
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				search.setVisible(false);
@@ -68,9 +82,18 @@ public class Main {
 			}
 		});
 		
+		((SearchView) search).addSearchListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					performSearch();
+				} catch (BadLocationException e1) {
+				}
+			}
+		});
+		
 		
 		((LoginView) login).setLoginAction(new ActionListener(){
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				login.setVisible(false);
@@ -80,7 +103,6 @@ public class Main {
 		});
 		
 		((LoginView) login).setRegisterAction(new ActionListener(){
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (((LoginView) login).getEmail().length() == 0){
@@ -93,7 +115,18 @@ public class Main {
 			}
 		});
 		
-		miniYelp.setVisible(true);
+	}
+	
+	private void performSearch() throws BadLocationException{
+		String category = ((SearchView) search).getCategory();
+		String price = ((SearchView) search).getPrice();
+		String rating = ((SearchView) search).getRating();
+		String review = ((SearchView) search).getReview();
+		SearchRestaurant sr = new SearchRestaurant();
+		String[] filter = {category, price, rating, review};
+		ArrayList<Restaurant> result = (ArrayList<Restaurant>) sr.searchRestaurant(filter);
+		((SearchView) search).addMarkers(result);
+		((SearchView) search).addDescription(result);
 		
 	}
 

@@ -16,8 +16,10 @@ public class ViewTest {
 
 	public static void main(String[] args) throws BadLocationException {
 		JFrame miniYelp = new JFrame();
+		miniYelp.setLayout(new BorderLayout());
 		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		miniYelp.setSize(800, 500);
+		miniYelp.setSize(800, 525);
+		miniYelp.setResizable(false);
 		miniYelp.setVisible(true);
 		
 //		
@@ -35,15 +37,16 @@ public class ViewTest {
 		login.setVisible(true);
 		
 		
-		miniYelp.add(search);
-		miniYelp.add(recommend);
-        miniYelp.add(login);
+		miniYelp.add(search, BorderLayout.CENTER);
+		miniYelp.add(recommend, BorderLayout.CENTER);
+        miniYelp.add(login, BorderLayout.CENTER);
 		((RecommendView) recommend).addReturnListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				recommend.setVisible(false);
 				search.setVisible(true);
+				search.repaint();
 				miniYelp.setVisible(true);
 				
 			}
