@@ -98,10 +98,8 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		
 		add(paneScrollPane, BorderLayout.WEST);
 		
-		StyledDocument doc = textPane.getStyledDocument();
-		for (int i = 0; i < 40; i++){
-			doc.insertString(0, "Hello\n", null);
-		}
+		setPriceChoice();
+		setRatingChoice();
 		
         addButtons(panelTop, panelBottom);
 	   	
@@ -238,16 +236,24 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		map().addMapMarker(marker);
 	}
 	
-	public void addMarkers(ArrayList<MapMarkerDot> markers){
-		for (MapMarkerDot m : markers){
+	public void addMarkers(ArrayList<Restaurant> restaurants){
+		removeMarkers();
+		int i = 1;
+		for (Restaurant r : restaurants){
+			MapMarkerDot m = new MapMarkerDot(i + "", 
+					new Coordinate(r.getLatitude(), r.getLongitude()));
 			map().addMapMarker(m);
+			i++;
 		}
 	}
 	
-	public void addDescription(ArrayList<String> desc) throws BadLocationException{
+	public void addDescription(ArrayList<Restaurant> restaurants) throws BadLocationException{
 		StyledDocument doc = textPane.getStyledDocument();
-		for (String s : desc){
-			doc.insertString(0, s, null);
+		doc.remove(0, doc.getLength());
+		int i = 1;
+		for (Restaurant r : restaurants){
+			doc.insertString(doc.getLength(), r.toString(i) + "\n", null);
+			i++;
 		}
 	}
 	
@@ -267,12 +273,12 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		categoryChoice = choice;
 	}
 	
-	public void setPriceChoice(String[] choice){
-		priceChoice = choice;
+	public void setPriceChoice(){
+		priceChoice = new String[]{"", "$", "$$", "$$$"};
 	}
 	
-	public void setRatingChoice(String[] choice){
-		ratingChoice = choice;
+	public void setRatingChoice(){
+		ratingChoice = new String[]{"", "5", "4", "3", "2", "1"};
 	}
 	
 	public void setReviewChoice(String[] choice){
