@@ -218,7 +218,7 @@ public class ProfileView extends JPanel{
         gbc.gridwidth = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.weightx = 1;
-        fields.add(new JLabel(user.getUsername()), gbc);
+        fields.add(new JLabel(user.getId()), gbc);
         
         
         gbc.gridy++;
@@ -281,7 +281,7 @@ public class ProfileView extends JPanel{
     }
 	
 	public static void main(String[] args) throws BadLocationException{
-		User u = new User("abc@gmail.com","abc@gmail.com","abc@gmail.com");
+		User u = new User("abc@gmail.com","abc@gmail.com");
 		System.out.println(u);
 		u.updateRatings("123", 4.0);
 		u.updateRatings("345", 2.0);
