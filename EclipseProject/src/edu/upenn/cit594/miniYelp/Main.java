@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.text.BadLocationException;
@@ -63,8 +64,6 @@ public class Main {
 		search.setVisible(false);
 		recommend.setVisible(false);
 		login.setVisible(true);
-		
-		
 		
 		miniYelp.add(search);
 		miniYelp.add(recommend);
@@ -126,15 +125,7 @@ public class Main {
 						try {
 							profile = new ProfileView(user);
 							profile.setVisible(false);
-							((ProfileView) profile).addReturnAction(new ActionListener(){
-
-								@Override
-								public void actionPerformed(ActionEvent e) {
-									profile.setVisible(false);
-									search.setVisible(true);
-									miniYelp.setVisible(true);	
-								}
-							});
+							setProfile(profile);
 							miniYelp.add(profile);
 						} catch (BadLocationException e1) {
 						}
@@ -166,15 +157,7 @@ public class Main {
 						try {
 							profile = new ProfileView(user);
 							profile.setVisible(false);
-							((ProfileView) profile).addReturnAction(new ActionListener(){
-
-								@Override
-								public void actionPerformed(ActionEvent e) {
-									profile.setVisible(false);
-									search.setVisible(true);
-									miniYelp.setVisible(true);	
-								}
-							});
+							setProfile(profile);
 							miniYelp.add(profile);
 						} catch (BadLocationException e1) {
 						}
@@ -206,6 +189,41 @@ public class Main {
 			}
 			
 		});
+		
+		
+	}
+	
+	private void setProfile(JPanel profile){
+		((ProfileView) profile).addReturnAction(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				profile.setVisible(false);
+				search.setVisible(true);
+				miniYelp.setVisible(true);	
+			}
+		});
+		
+		((ProfileView) profile).addInnerFindAction(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String input = ((ProfileView) profile).getInput();
+				List<Restaurant> result = RestaurantCollection.getInstance().getSimilarRestaurants(input);
+				String[] choice = new String[result.size()+1];
+				choice[0] = "";
+				int i = 1;
+				for (Restaurant r : result){
+					String single = r.getName() + "\t" + r.getAddress();
+					choice[i] = single;
+					i++;
+				}
+				DefaultComboBoxModel model = new DefaultComboBoxModel(choice);
+				((ProfileView) profile).setSelector(model);
+				((ProfileView) profile).setRestaurantChoice(result);
+			}
+		});
+		
 	}
 	
 	private void performSearch() throws BadLocationException{

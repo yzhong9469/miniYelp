@@ -28,6 +28,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.StyledDocument;
+import java.util.List;
 
 public class ProfileView extends JPanel{
 	
@@ -45,13 +46,12 @@ public class ProfileView extends JPanel{
 	JComboBox<String> ratingSelector = new JComboBox<>(new String[] {"5","4","3","2","1"});
 	JComboBox<String> restaurantSelector = new JComboBox<>(new String [] {"", "Starbucks"});
 	private String selectedRating = "";
-	private String selectedRestaurant = "";
+	private String selectedRestaurantID = "";
 	
 	private JButton innerFind = new JButton("Find");
 	private JButton innerAdd = new JButton("Add");
 	
-	private ArrayList<Restaurant> rests = new ArrayList<>();
-	
+	private List<Restaurant> choice;
 	
 	/**
 	 * 
@@ -126,27 +126,6 @@ public class ProfileView extends JPanel{
         gbc.fill = GridBagConstraints.NONE;
         fields.add(innerFind, gbc);
         
-        innerFind.addActionListener(new ActionListener(){
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String input = restaurant.getText();
-				
-				String[] choice = {"","asdf","asdf","ddd","Starbucks"};
-				//fields.remove(restaurantSelector);
-				//restaurantSelector = new JComboBox<>(choice);
-				//gbc.gridx = 1;
-				//gbc.gridy = 1;
-				//gbc.gridwidth = 1;
-				//fields.add(restaurantSelector, gbc);
-				DefaultComboBoxModel model = new DefaultComboBoxModel(choice);
-				restaurantSelector.setModel(model);
-				System.out.println("Changed");
-				
-			}
-        	
-        });
-        
         ratingSelector.addItemListener(new ItemListener() {
     		@Override
     		public void itemStateChanged(ItemEvent e) {
@@ -165,13 +144,6 @@ public class ProfileView extends JPanel{
         gbc.gridy = 1;
         gbc.gridwidth = 1;
         fields.add(restaurantSelector, gbc);
-        
-        restaurantSelector.addItemListener(new ItemListener() {
-    		@Override
-    		public void itemStateChanged(ItemEvent e) {
-    			selectedRestaurant = e.getItem().toString();
-           }	
-    	});
 
         gbc.gridx = 2;
         gbc.gridy = 2;
@@ -185,14 +157,11 @@ public class ProfileView extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				int index = restaurantSelector.getSelectedIndex();
 				//user.updateRatings(rests.get(index).getId(), Double.parseDouble(selectedRating));
-				user.updateRatings(restaurantSelector.getSelectedItem().toString(), 
+				user.updateRatings(choice.get(index - 1).getId(), 
 								Double.parseDouble(ratingSelector.getSelectedItem().toString()));
-				System.out.println(user);
 				try {
 					displayRating();
 				} catch (BadLocationException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
 				}
 			}
         });
@@ -201,6 +170,22 @@ public class ProfileView extends JPanel{
         fields.add(innerAdd, gbc);
         
         return fields;
+	}
+	
+	public void setSelectedRestaurantID(String ID){
+		selectedRestaurantID = ID;
+	}
+	
+	public void setRestaurantChoice(List<Restaurant> choice){
+		this.choice = choice;
+	}
+	
+	public int getSelectedIndex(){
+		return restaurantSelector.getSelectedIndex();
+	}
+	
+	public void addInnerAddAction(ActionListener a){
+		innerAdd.addActionListener(a);
 	}
 	
 	public void addReturnAction(ActionListener a){
@@ -274,10 +259,22 @@ public class ProfileView extends JPanel{
 		
 		doc.remove(0, doc.getLength());
 		for (String id : ratings.keySet()){
-			//Restaurant r = rc.getRestaurant(id);
-			//doc.insertString(0, r.getName() + ": " + ratings.get(id), null);
-			doc.insertString(doc.getLength(), id + ": " + ratings.get(id) + "\n", null);
+			Restaurant r = rc.getRestaurant(id);
+			doc.insertString(0, r.getName() + ": " + ratings.get(id), null);
+			//doc.insertString(doc.getLength(), id + ": " + ratings.get(id) + "\n", null);
 		}
+	}
+	
+	public void addInnerFindAction(ActionListener a){
+		innerFind.addActionListener(a);
+	}
+	
+	public String getInput(){
+		return restaurant.getText();
+	}
+	
+	public void setSelector(DefaultComboBoxModel model){
+		restaurantSelector.setModel(model);
 	}
 	
 	@Override

@@ -25,7 +25,9 @@ public class User {
 	 * @param rating
 	 */
 	public void updateRatings(String restaurantId, double rating) {
-		this.ratings.put(restaurantId, rating);
+		if (RestaurantCollection.getInstance().getCollection().keySet().contains(restaurantId)){
+			this.ratings.put(restaurantId, rating);
+		}
 	}
 	
 	/**
