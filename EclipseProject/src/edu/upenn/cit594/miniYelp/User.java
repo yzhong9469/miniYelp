@@ -45,11 +45,12 @@ public class User {
 	public String getId() {
 		return this.userId;
 	}
+
+	public boolean ratedRestaurantBefore(String id) {
+		return ratings.containsKey(id);
+	}
 	
-	/**
-	 * Gets user's username
-	 * @return
-	 */
+
 	public String getUsername(){
 		return this.username;
 	}

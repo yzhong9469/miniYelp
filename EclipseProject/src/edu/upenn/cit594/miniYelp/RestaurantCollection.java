@@ -1,6 +1,7 @@
 package edu.upenn.cit594.miniYelp;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class RestaurantCollection {
 	private static RestaurantCollection restCollection;
@@ -40,6 +41,10 @@ public class RestaurantCollection {
 		if (restaurant == null) return;
 
 		restaurants.put(restaurant.getId(), restaurant);
+	}
+	
+	public Set<String> getAllRestaurants() {
+		return restaurants.keySet();
 	}
 
 }
