@@ -3,7 +3,7 @@ package edu.upenn.cit594.miniYelp;
 import java.util.HashMap;
 
 /**
- * This class stores information of individual users, as well as the ratings
+ * Stores information of individual users, as well as the ratings
  * the users have made. 
  * @author Ziyi
  *
