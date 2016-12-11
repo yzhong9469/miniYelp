@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * This class searches restaurant that meets certain criteria.
+ * @author Ziyi
+ *
+ */
 public class SearchRestaurant implements Search {
 	private ArrayList<Restaurant> searchResults;;
 	private RestaurantCollection rescollection;

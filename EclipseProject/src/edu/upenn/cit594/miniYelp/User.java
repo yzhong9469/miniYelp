@@ -2,7 +2,12 @@ package edu.upenn.cit594.miniYelp;
 
 import java.util.HashMap;
 
-
+/**
+ * This class stores information of individual users, as well as the ratings
+ * the users have made. 
+ * @author Ziyi
+ *
+ */
 public class User {
 	private String userId;
 	private String username;
@@ -16,22 +21,42 @@ public class User {
 		this.ratings = new HashMap<String, Double>();
 	}
 	
+	/**
+	 * Updates user's rating for individual restaurant
+	 * @param restaurantId
+	 * @param rating
+	 */
 	public void updateRatings(String restaurantId, double rating) {
 		this.ratings.put(restaurantId, rating);
 	}
 	
+	/**
+	 * Gets user's ratings
+	 * @return
+	 */
 	public HashMap<String, Double> getRatings() {
 		return this.ratings;
 	}
 	
+	/**
+	 * Gets user's id
+	 * @return
+	 */
 	public String getId() {
 		return this.userId;
 	}
 	
+	/**
+	 * Gets user's username
+	 * @return
+	 */
 	public String getUsername(){
 		return this.username;
 	}
 	
+	/**
+	 * Printable version to display user's information and ratings
+	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(userId + "\t" + username + "\t" + password + "\t");
