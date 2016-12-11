@@ -44,21 +44,26 @@ public class Main {
 
 	}
 	
-	public void runMiniYelp(){
+	public void runMiniYelp() throws BadLocationException{
 		setup();
 		setActions();
 		miniYelp.setVisible(true);
 	}
 	
-	private void setup(){
+	private void setup() throws BadLocationException{
 		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		miniYelp.setSize(1210, 740);
 		miniYelp.setVisible(true);
 		miniYelp.setResizable(false);
 		
+		List<String> choice = RestaurantCollection.getInstance().getCategoryilst();
+		((SearchView) search).setCategoryChoice(choice);
+		
+		search.setVisible(true);
 		search.setVisible(false);
 		recommend.setVisible(false);
 		login.setVisible(true);
+		
 		
 		
 		miniYelp.add(search);

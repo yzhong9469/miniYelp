@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.imageio.ImageIO;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -125,6 +126,26 @@ public class ProfileView extends JPanel{
         gbc.fill = GridBagConstraints.NONE;
         fields.add(innerFind, gbc);
         
+        innerFind.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String input = restaurant.getText();
+				
+				String[] choice = {"","asdf","asdf","ddd","Starbucks"};
+				//fields.remove(restaurantSelector);
+				//restaurantSelector = new JComboBox<>(choice);
+				//gbc.gridx = 1;
+				//gbc.gridy = 1;
+				//gbc.gridwidth = 1;
+				//fields.add(restaurantSelector, gbc);
+				DefaultComboBoxModel model = new DefaultComboBoxModel(choice);
+				restaurantSelector.setModel(model);
+				System.out.println("Changed");
+				
+			}
+        	
+        });
         
         ratingSelector.addItemListener(new ItemListener() {
     		@Override

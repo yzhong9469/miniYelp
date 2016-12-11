@@ -10,6 +10,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
@@ -52,6 +53,8 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	JButton recommendButton = new JButton("Get recommendation");
 	JButton gotoProfile = new JButton("My Profile");
 	JButton exit = new JButton("Exit");
+	
+	JComboBox<String> categorySelector;
 	
 	private JLabel categoryLabel = new JLabel("Category:");
 	private JLabel priceLabel = new JLabel("Price:");
@@ -161,7 +164,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		 * the first filter choice
 		 */
 		panelTop.add(categoryLabel);
-		JComboBox<String> categorySelector = new JComboBox<>(categoryChoice);
+		categorySelector = new JComboBox<>(categoryChoice);
 		categorySelector.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
@@ -283,8 +286,18 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		map().removeAllMapMarkers();
 	}
 	
-	public void setCategoryChoice(String[] choice){
-		categoryChoice = choice;
+	public void setCategoryChoice(List<String> choice){
+		
+		String[] c = new String[choice.size()+1];
+		int i = 1;
+		for (String s : choice){
+			c[i] = s;
+			i++;
+		}
+		c[0] = "";
+		categoryChoice = c;
+		DefaultComboBoxModel model = new DefaultComboBoxModel(categoryChoice);
+		categorySelector.setModel(model);
 	}
 	
 	public void setPriceChoice(){
