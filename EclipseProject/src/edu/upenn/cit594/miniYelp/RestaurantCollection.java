@@ -7,6 +7,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * 
+ * @author MHu
+ *
+ */
 public class RestaurantCollection {
 	private static RestaurantCollection restCollection;
 
@@ -28,6 +33,7 @@ public class RestaurantCollection {
 	public HashMap<String,Restaurant> getCollection(){
 		return this.restaurants;
 	}
+	
 	/**
 	 * 
 	 * @param restaurantId
@@ -52,6 +58,24 @@ public class RestaurantCollection {
 	public Set<String> getAllRestaurants() {
 		return restaurants.keySet();
 	}
+	
+	
+	public List<Restaurant> getSimilarRestaurants(String keyword) {
+		keyword = keyword.toLowerCase();
+		ArrayList<Restaurant> result = new ArrayList<>();
+		
+		for (String key : restaurants.keySet()) {
+			String title = restaurants.get(key).getName().toLowerCase();
+			String pattern = "(.*)" + keyword + "(.*)";
+
+			if (title.matches(pattern)) {
+				result.add(restaurants.get(key));
+			}	
+		}
+
+		return result;
+	}
+	
 
 	/**
 	 * 
@@ -92,6 +116,6 @@ public class RestaurantCollection {
 		List<String> sortlist = new ArrayList<String>(categorylist);
 		Collections.sort(sortlist);
 	    return sortlist;
-}
+	}
 
 }
