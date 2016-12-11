@@ -1,6 +1,7 @@
 package edu.upenn.cit594.miniYelp;
 
 import java.util.List;
+import java.util.Set;
 
 public class Restaurant {
 	private String id;
@@ -59,6 +60,14 @@ public class Restaurant {
 
 	public void setCategories(List<String> categories) {
 		this.categories = categories;
+	}
+	
+	public boolean containCategories(Set<String> c) {
+		for (int i = 0; i < categories.size(); i++) {
+			if (c.contains(categories.get(i))) return true;
+		}
+		
+		return false;
 	}
 
 	public double getLongitude() {

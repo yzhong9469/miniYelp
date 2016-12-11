@@ -28,6 +28,11 @@ public class User {
 		return this.userId;
 	}
 	
+
+	public boolean ratedRestaurantBefore(String id) {
+		return ratings.containsKey(id);
+	}
+	
 	public String getUsername(){
 		return this.username;
 	}
