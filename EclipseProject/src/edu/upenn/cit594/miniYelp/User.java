@@ -28,6 +28,10 @@ public class User {
 		return this.userId;
 	}
 	
+	public String getUsername(){
+		return this.username;
+	}
+	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(userId + "\t" + username + "\t" + password + "\t");

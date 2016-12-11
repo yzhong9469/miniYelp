@@ -49,6 +49,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	private String review = "";
 	
 	JButton searchButton = new JButton("Search");
+	JButton recommendButton = new JButton("Get recommendation");
 	
 	private JLabel categoryLabel = new JLabel("Category:");
 	private JLabel priceLabel = new JLabel("Price:");
@@ -102,7 +103,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 			doc.insertString(0, "Hello\n", null);
 		}
 		
-        addButtons(panelTop);
+        addButtons(panelTop, panelBottom);
 	   	
 	   	/*
 	   	 * how to add marker example
@@ -153,7 +154,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	   	add(treeMap, BorderLayout.CENTER);
 	}
 	
-	private void addButtons(JPanel panelTop){
+	private void addButtons(JPanel panelTop, JPanel panelBottom){
 
 		/*
 		 * the first filter choice
@@ -214,7 +215,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	   	/*
 		 * trigger search operation
 		 */
-	   	panelTop.add(searchButton);
+	   	panelBottom.add(searchButton);
 	   	
 	   	JButton showAll = new JButton("Show All Markers");
 	   	showAll.addActionListener(new ActionListener() {
@@ -223,7 +224,9 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
                 map().setDisplayToFitMapMarkers();
             }
         });
-        panelTop.add(showAll);
+        panelBottom.add(showAll);
+        
+        panelBottom.add(recommendButton);
 	}
 	
 	public void addText(String s) throws BadLocationException{
