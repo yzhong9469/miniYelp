@@ -44,10 +44,19 @@ public class User {
 		return this.userId;
 	}
 
+	/**
+	 * determine if a restaurant has been rated by this user before
+	 * @param id restaurant id
+	 * @return true if this user rated the given restaurant before; otherwise false
+	 */
 	public boolean ratedRestaurantBefore(String id) {
 		return ratings.containsKey(id);
 	}
 	
+	/**
+	 * get password
+	 * @return password
+	 */
 	public String getPassword() {
 		return this.password;
 	}

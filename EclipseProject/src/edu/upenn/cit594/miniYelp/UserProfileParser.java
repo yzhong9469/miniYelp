@@ -9,12 +9,24 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class UserProfileParser extends DataParser{
-	private static final int EMAIL_INDEX = 0;
-	private static final int PASSWORD_INDEX = 1;
-	private static final int RATING_INDEX = 2;
-	private static final int FIELDS = 3;
+/**
+ * UserProfileParser
+ * read in file which contains the information of registered users
+ * store each user's email, password and rated restaurants as an 
+ * User object
+ * 
+ * @author MHu
+ *
+ */
+public class UserProfileParser extends DataParser {
+	private static final int EMAIL_INDEX = 0; //index of email in user_profile.txt
+	private static final int PASSWORD_INDEX = 1; //index of password in user_profile.txt
+	private static final int RATING_INDEX = 2; //index of rated restaurants in user_profile.txt
+	private static final int FIELDS = 3; //total number of fields
 	
+	/**
+	 * read in user_profile.txt and store all registered users' info
+	 */
 	public void loadData(String inputfile) {
 		if (!isValidPath(inputfile)) {
 			throw new IllegalArgumentException("Invalid input file");
@@ -35,6 +47,7 @@ public class UserProfileParser extends DataParser{
 					continue;
 				}
 				
+				//get all restaurants the user had rated before
 				String[] ratedRestaurants = user[RATING_INDEX].split(";");
 				for (String restaurantRating : ratedRestaurants) {
 					String[] record = restaurantRating.split(":");
@@ -47,13 +60,16 @@ public class UserProfileParser extends DataParser{
 			
 			reader.close();
 		} catch (IOException e) {
-			//TO DO: add exception
+			System.out.println("Open " + inputfile + " failed: " + e.getMessage());
 		} 
 	}
 	
 	
+	/**
+	 * record registered users' information to local file
+	 */
 	public void writeData() {
-		String outputfile = "user_record.txt";
+		String outputfile = "user_profile.txt";
 		UserCollection users = UserCollection.getInstance();
 
 		try {
@@ -66,11 +82,8 @@ public class UserProfileParser extends DataParser{
 			}
 			writer.close();
 		} catch (IOException e) {
-			//TO DO: add exception
-		} 
-		
+			System.out.println("Write user_profile.txt failed");
+		} 	
 	}
 	
-	
-
 }
