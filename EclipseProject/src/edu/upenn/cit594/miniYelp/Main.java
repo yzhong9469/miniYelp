@@ -50,7 +50,7 @@ public class Main {
 	
 	private void setup(){
 		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		miniYelp.setSize(800, 525);
+		miniYelp.setSize(1210, 740);
 		miniYelp.setVisible(true);
 		miniYelp.setResizable(false);
 		

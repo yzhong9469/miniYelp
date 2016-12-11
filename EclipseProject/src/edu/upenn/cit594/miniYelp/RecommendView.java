@@ -51,7 +51,7 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 	* Constructs the {@code Demo}.
 	*/
 	public RecommendView() throws BadLocationException {
-		setSize(800, 500);
+		setSize(1210, 740);
 	
 		treeMap = new JMapViewerTree("Zones");
 	   	
