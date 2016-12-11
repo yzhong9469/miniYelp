@@ -48,7 +48,7 @@ public class SearchRestaurant implements Search {
 				searchResults.add(res);
 			}
 		}
-		Collections.sort(searchResults,Collections.reverseOrder());
+		Collections.sort(searchResults);
 		return searchResults;
 	}
 	

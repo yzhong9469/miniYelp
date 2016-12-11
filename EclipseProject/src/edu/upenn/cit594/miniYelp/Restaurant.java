@@ -143,7 +143,11 @@ public class Restaurant implements Comparable<Restaurant>{
 		} else if (this.rating < o.rating) {
 			return 1;
 		} else {
-			return 0;
+			if (this.reviewCount >= o.reviewCount){
+				return -1;
+			} else {
+				return 1;
+			}
 		}
 	}
 }
