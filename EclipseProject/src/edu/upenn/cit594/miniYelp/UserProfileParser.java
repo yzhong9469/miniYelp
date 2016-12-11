@@ -23,7 +23,6 @@ public class UserProfileParser extends DataParser{
 		
 		String line;
 		UserCollection users = UserCollection.getInstance();
-		RestaurantCollection restaurants = RestaurantCollection.getInstance();
 
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(inputfile));
@@ -40,12 +39,8 @@ public class UserProfileParser extends DataParser{
 				String[] ratedRestaurants = user[RATING_INDEX].split(";");
 				for (String restaurantRating : ratedRestaurants) {
 					String[] record = restaurantRating.split(":");
-					if (record.length != 2) continue;
-					
-					Restaurant r = restaurants.getRestaurant(record[0]);
-					if (r == null) continue; //TO IMPROVE: how to deal with situation
-					
-					u.updateRatings(r, Double.parseDouble(record[1]));
+					if (record.length != 2) continue;					
+					u.updateRatings(record[0], Double.parseDouble(record[1]));
 				}
 				
 				users.addUser(u);
