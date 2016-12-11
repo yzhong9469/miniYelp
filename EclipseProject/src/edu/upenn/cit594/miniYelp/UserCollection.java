@@ -19,6 +19,7 @@ public class UserCollection implements Iterable<Entry<String, User>> {
 		this.users = new HashMap<String,User>();
 	}
 	
+	//singleton
 	public static UserCollection getInstance() {
 		if (userCollection == null) {
 			userCollection = new UserCollection();

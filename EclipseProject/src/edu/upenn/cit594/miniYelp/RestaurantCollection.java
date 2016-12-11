@@ -8,21 +8,24 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * RestaurantCollection
  * 
  * @author MHu
  *
  */
 public class RestaurantCollection {
+	//instance variables
 	private static RestaurantCollection restCollection;
-
 	private HashMap<String, Restaurant> restaurants;
 	private HashMap<String,Integer> categorycount;
 	private HashSet<String> categorylist;
 
+	//constructor
 	private RestaurantCollection() {
 		this.restaurants = new HashMap<String, Restaurant>();
 	}
 
+	//singleton
 	public static RestaurantCollection getInstance() {
 		if (restCollection == null) {
 			restCollection = new RestaurantCollection();
@@ -35,7 +38,7 @@ public class RestaurantCollection {
 	}
 	
 	/**
-	 * 
+	 * get the restaurant for a given id
 	 * @param restaurantId
 	 * @return
 	 */
@@ -46,7 +49,7 @@ public class RestaurantCollection {
 	}
 
 	/**
-	 * 
+	 * add a restaurant to the collection
 	 * @param restaurant
 	 */
 	public void addRestaurant(Restaurant restaurant) {
@@ -55,11 +58,20 @@ public class RestaurantCollection {
 		restaurants.put(restaurant.getId(), restaurant);
 	}
 
+	/**
+	 * get all restaurants' id in the collection
+	 * @return
+	 */
 	public Set<String> getAllRestaurants() {
 		return restaurants.keySet();
 	}
 	
-	
+	/**
+	 * get all restaurants which have a similar name with the entered
+	 * keyword
+	 * @param keyword
+	 * @return
+	 */
 	public List<Restaurant> getSimilarRestaurants(String keyword) {
 		keyword = keyword.toLowerCase();
 		ArrayList<Restaurant> result = new ArrayList<>();
