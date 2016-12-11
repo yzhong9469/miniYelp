@@ -1,6 +1,7 @@
 package edu.upenn.cit594.miniYelp;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -47,8 +48,10 @@ public class SearchRestaurant implements Search {
 				searchResults.add(res);
 			}
 		}
+		Collections.sort(searchResults);
 		return searchResults;
 	}
+	
 	
 
 }
