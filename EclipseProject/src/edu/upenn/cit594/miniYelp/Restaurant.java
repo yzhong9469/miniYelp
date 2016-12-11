@@ -3,7 +3,14 @@ package edu.upenn.cit594.miniYelp;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Restaurant
+ * 
+ * @author MHu
+ *
+ */
 public class Restaurant implements Comparable<Restaurant>{
+	//instance variables
 	private String id;
 	private String name;
 	private String price;
@@ -16,6 +23,7 @@ public class Restaurant implements Comparable<Restaurant>{
 	private int reviewCount;
 	private String phone;
 	
+	//constructor
 	public Restaurant(String id, String name, String price, List<String> categories, double longitude, double latitude, String zipcode, String address, float rating, int reviewCount, String phone) {
 		this.id = id;
 		this.name = name;
@@ -30,38 +38,58 @@ public class Restaurant implements Comparable<Restaurant>{
 		this.phone = phone;
 	}
 
+	/**
+	 * getter methods
+	 */
 	public String getId() {
 		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getPrice() {
 		return price;
-	}
-
-	public void setPrice(String price) {
-		this.price = price;
 	}
 
 	public List<String> getCategories() {
 		return categories;
 	}
 
-	public void setCategories(List<String> categories) {
-		this.categories = categories;
+	public double getLongitude() {
+		return longitude;
 	}
-	
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public float getRating() {
+		return rating;
+	}
+
+	public int getReviewCount() {
+		return reviewCount;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	/**
+	 * determine if the restaurant belongs to a set of categories
+	 * @param c a set of categories
+	 * @return true if the restaurants belongs to; otherwise false
+	 */
 	public boolean containCategories(Set<String> c) {
 		for (int i = 0; i < categories.size(); i++) {
 			if (c.contains(categories.get(i))) return true;
@@ -69,73 +97,29 @@ public class Restaurant implements Comparable<Restaurant>{
 		
 		return false;
 	}
-
-	public double getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
-	}
-
-	public double getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
-
-	public String getZipcode() {
-		return zipcode;
-	}
-
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public float getRating() {
-		return rating;
-	}
-
-	public void setRating(float rating) {
-		this.rating = rating;
-	}
-
-	public int getReviewCount() {
-		return reviewCount;
-	}
-
-	public void setReviewCount(int reviewCount) {
-		this.reviewCount = reviewCount;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
 	
-	public String toString(int i){
-		String s = i + ". " + getName() + "\t" + getPrice() + "\n";
-		s += "Rating: " + getRating() + "\t" + "Reviews: " + getReviewCount() + "\n";
-		s += getAddress() + "\n";
+	/**
+	 * printable version to display restaurant's information
+	 * @param index
+	 * @return
+	 */
+	public String toString(int index) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(index + ". ");
+		sb.append(this.name + "\t" + this.price + "\n");
+		sb.append("Rating: " + this.rating + "\tReviews: " + this.reviewCount + "\n");
+		sb.append(this.address + "\n");
+		
 		String category = getCategories().toString().substring(1);
 		category = category.substring(0, category.length() - 1);
-		s += category + "\n";
-		return s;
+		
+		sb.append(category + "\n");
+		return sb.toString();
 	}
 
+	/**
+	 * ordered by rating and review count descendingly
+	 */
 	@Override
 	public int compareTo(Restaurant o) {
 		if (this.rating > o.rating){

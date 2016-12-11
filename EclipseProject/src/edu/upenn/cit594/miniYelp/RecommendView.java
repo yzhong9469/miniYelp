@@ -73,7 +73,6 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 	           + "double click to zoom.");
 		helpPanel.add(helpLabel);
 		
-		
 		// set text panel to display information
 		JScrollPane paneScrollPane = new JScrollPane(textPane);
 		textPane.setEditable(false);
