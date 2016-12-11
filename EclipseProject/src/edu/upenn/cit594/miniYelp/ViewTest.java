@@ -27,17 +27,47 @@ public class ViewTest {
 //        miniYelp.setVisible(true);
 		
 		JPanel search = new SearchView();
-		search.setVisible(true);
-        
+		search.setVisible(false);
+		JPanel recommend = new RecommendView();
+		recommend.setVisible(false);
+		
 		JPanel login = new LoginView();
 		login.setVisible(true);
+		
+		
+		miniYelp.add(search);
+		miniYelp.add(recommend);
+        miniYelp.add(login);
+		((RecommendView) recommend).addReturnListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				recommend.setVisible(false);
+				search.setVisible(true);
+				miniYelp.setVisible(true);
+				
+			}
+			
+			
+		});
+		
+		((SearchView) search).addRecommendListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				search.setVisible(false);
+				recommend.setVisible(true);
+				miniYelp.setVisible(true);
+			}
+		});
+		
+		
 		((LoginView) login).setLoginAction(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				miniYelp.remove(login);
-				miniYelp.add(search);
+				login.setVisible(false);
+				search.setVisible(true);
 				miniYelp.setVisible(true);
 			}
 		});
@@ -55,8 +85,6 @@ public class ViewTest {
 				}
 			}
 		});
-		
-		miniYelp.add(login);
 		
 		miniYelp.setVisible(true);
 		

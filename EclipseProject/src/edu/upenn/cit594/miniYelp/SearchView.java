@@ -255,6 +255,10 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	   	searchButton.addActionListener(search);
 	}
 	
+	public void addRecommendListener(ActionListener recommend){
+	   	recommendButton.addActionListener(recommend);
+	}
+	
 	public void removeMarkers(){
 		map().removeAllMapMarkers();
 	}
