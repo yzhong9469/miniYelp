@@ -8,58 +8,63 @@ import javax.swing.JPanel;
 import javax.swing.text.BadLocationException;
 
 public class Main {
+	
+	private JFrame miniYelp;
+	private JPanel search;
+	private JPanel recommend;
+	private JPanel login;
+	
+	public Main() throws BadLocationException{
+		miniYelp = new JFrame();
+		search = new SearchView();
+		recommend = new RecommendView();
+		login = new LoginView();
+	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		try {
-			runMiniYelp();
-		} catch(BadLocationException e) {
-			
+			Main main = new Main();
+			main.runMiniYelp();
+		} catch (BadLocationException e) {
 		}
 
 	}
 	
+	public void runMiniYelp(){
+		setup();
+		setActions();
+		miniYelp.setVisible(true);
+	}
 	
-	
-	public static void runMiniYelp() throws BadLocationException {
-		JFrame miniYelp = new JFrame();
+	private void setup(){
 		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		miniYelp.setSize(800, 500);
 		miniYelp.setVisible(true);
 		
-//		
-//		JLabel background=new JLabel(new ImageIcon("U-Penn.jpg"));
-//        miniYelp.add(background);
-//        miniYelp.setLayout(new FlowLayout());
-//        miniYelp.setVisible(true);
-		
-		JPanel search = new SearchView();
 		search.setVisible(false);
-		JPanel recommend = new RecommendView();
 		recommend.setVisible(false);
-		
-		JPanel login = new LoginView();
 		login.setVisible(true);
-		
 		
 		miniYelp.add(search);
 		miniYelp.add(recommend);
         miniYelp.add(login);
+		
+	}
+	
+	
+	public void setActions() {
+		
 		((RecommendView) recommend).addReturnListener(new ActionListener(){
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				recommend.setVisible(false);
 				search.setVisible(true);
-				miniYelp.setVisible(true);
-				
+				miniYelp.setVisible(true);	
 			}
-			
-			
 		});
 		
 		((SearchView) search).addRecommendListener(new ActionListener(){
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				search.setVisible(false);
@@ -70,7 +75,6 @@ public class Main {
 		
 		
 		((LoginView) login).setLoginAction(new ActionListener(){
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				login.setVisible(false);
@@ -80,7 +84,6 @@ public class Main {
 		});
 		
 		((LoginView) login).setRegisterAction(new ActionListener(){
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (((LoginView) login).getEmail().length() == 0){
@@ -92,8 +95,6 @@ public class Main {
 				}
 			}
 		});
-		
-		miniYelp.setVisible(true);
 		
 	}
 
