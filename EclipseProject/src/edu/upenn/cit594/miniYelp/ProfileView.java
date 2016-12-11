@@ -37,7 +37,7 @@ public class ProfileView extends JPanel{
 	
 	
 	private JButton add = new JButton("Add rating");
-	private JButton remove = new JButton("Remove rating");
+	private JButton returnToSearch = new JButton("Return");
 	private JTextPane textPane = new JTextPane();
 	
 	private JTextField restaurant = new JTextField(10);
@@ -173,9 +173,7 @@ public class ProfileView extends JPanel{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
 			}
-        	
         });
         
         
@@ -184,8 +182,8 @@ public class ProfileView extends JPanel{
         return fields;
 	}
 	
-	public void setRegisterAction(ActionListener a){
-		remove.addActionListener(a);
+	public void addReturnAction(ActionListener a){
+		returnToSearch.addActionListener(a);
 	}
 	
 	public JPanel setField() throws BadLocationException{
@@ -243,7 +241,7 @@ public class ProfileView extends JPanel{
         gbc.fill = GridBagConstraints.NONE;
         fields.add(add, gbc);
         gbc.gridx++;
-        fields.add(remove, gbc);
+        fields.add(returnToSearch, gbc);
         
         return fields;
 	}

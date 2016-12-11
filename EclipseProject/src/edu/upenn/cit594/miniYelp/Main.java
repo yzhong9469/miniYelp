@@ -15,6 +15,7 @@ public class Main {
 	private JPanel search;
 	private JPanel recommend;
 	private JPanel login;
+	private JPanel profile;
 	private RestaurantFileParser restParser;
 	private UserProfileParser userParser;
 	private User user;
@@ -25,6 +26,7 @@ public class Main {
 		search = new SearchView();
 		recommend = new RecommendView();
 		login = new LoginView();
+		
 		restParser = new RestaurantFileParser();
 		restParser.loadData("restaurant.csv");
 		userParser = new UserProfileParser();
@@ -104,25 +106,101 @@ public class Main {
 		((LoginView) login).setLoginAction(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				login.setVisible(false);
-				search.setVisible(true);
-				miniYelp.setVisible(true);
+				String email = ((LoginView) login).getEmail();
+				String password = new String(((LoginView) login).getPassword());
+				if (email.length() == 0){
+					((LoginView) login).displayErrorMessage("Email cannot be empty");
+				}else if (password.length() == 0){
+					((LoginView) login).displayErrorMessage("Password cannot be empty");
+				}else{
+					User user = UserCollection.getInstance().login(email, password);
+					if (user == null){
+						((LoginView) login).displayErrorMessage("Wrong username or password!");
+					}else{
+						Main.this.user = user;
+						try {
+							profile = new ProfileView(user);
+							profile.setVisible(false);
+							((ProfileView) profile).addReturnAction(new ActionListener(){
+
+								@Override
+								public void actionPerformed(ActionEvent e) {
+									profile.setVisible(false);
+									search.setVisible(true);
+									miniYelp.setVisible(true);	
+								}
+							});
+							miniYelp.add(profile);
+						} catch (BadLocationException e1) {
+						}
+						login.setVisible(false);
+						search.setVisible(true);
+						miniYelp.setVisible(true);
+					}
+				}
+				
 			}
 		});
+		
 		
 		((LoginView) login).setRegisterAction(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (((LoginView) login).getEmail().length() == 0){
+				String email = ((LoginView) login).getEmail();
+				String password = new String(((LoginView) login).getPassword());
+				if (email.length() == 0){
 					((LoginView) login).displayErrorMessage("Email cannot be empty");
-				}else if (((LoginView) login).getPassword().length == 0){
+				}else if (password.length() == 0){
 					((LoginView) login).displayErrorMessage("Password cannot be empty");
 				}else{
-					((LoginView) login).displayErrorMessage("Wrong password!");
+					User user = UserCollection.getInstance().register(email, password);
+					if (user == null){
+						((LoginView) login).displayErrorMessage("This email address has already been userd!");
+					}else{
+						Main.this.user = user;
+						try {
+							profile = new ProfileView(user);
+							profile.setVisible(false);
+							((ProfileView) profile).addReturnAction(new ActionListener(){
+
+								@Override
+								public void actionPerformed(ActionEvent e) {
+									profile.setVisible(false);
+									search.setVisible(true);
+									miniYelp.setVisible(true);	
+								}
+							});
+							miniYelp.add(profile);
+						} catch (BadLocationException e1) {
+						}
+						login.setVisible(false);
+						search.setVisible(true);
+						miniYelp.setVisible(true);
+					}
 				}
 			}
 		});
 		
+		((SearchView) search).addProfileListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				profile.setVisible(true);
+				search.setVisible(false);
+				miniYelp.setVisible(true);
+			}
+			
+		});
+		
+		((SearchView) search).addExitListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				userParser.writeData();
+				System.exit(0);
+			}
+			
+		});
 	}
 	
 	private void performSearch() throws BadLocationException{
