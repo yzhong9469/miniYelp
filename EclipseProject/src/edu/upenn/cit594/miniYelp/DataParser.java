@@ -4,38 +4,55 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.logging.Logger;
 
+/**
+ * DataParser
+ * isValidPath(): determine if a filename is valid 
+ * loadData(): abstract method
+ * writeData(): abstract method
+ * 
+ * @author MHu
+ *
+ */
 public abstract class DataParser {
-	protected final Logger Log = Logger.getLogger(DataParser.class.getName());
 	
+	/**
+	 * determine if a filename is valid
+	 * @param filename - name of input file
+	 * @return true if the filename is valid; otherwise false
+	 */
 	public boolean isValidPath(String filename) {
 		Path path;
 		
 		try {
 			path = Paths.get(filename);
 		} catch (InvalidPathException ex) {
-			Log.severe("Invalid Path: input path to " + filename + " is invalid.");
+			System.out.println(filename + " is invalide: " + ex.getMessage());
 			return false;
 		}
 		
 		if (Files.notExists(path)) {
-			Log.severe("Invalid File: input file " + filename + " does not exist.");
+			System.out.println(filename + " does not exist.");
 			return false;
 		}
 		
 		if (!Files.isReadable(path)) {
-			Log.severe("Invalid File: no read accessbility to input file " + filename + ".");
+			System.out.println(filename + " is not accessable.");
 			return false;
 		}
 		
 		return true;
 	}
 	
-	
+	/**
+	 * parse and store data from input file
+	 * @param inputfile
+	 */
 	public void loadData(String inputfile) {}
 	
+	/**
+	 * write data put to local file
+	 */
 	public void writeData() {}
-	
 
 }

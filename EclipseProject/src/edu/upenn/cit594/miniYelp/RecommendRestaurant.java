@@ -17,11 +17,11 @@ public class RecommendRestaurant implements Recommend {
 	}
 
 	private ArrayList<String> getHighRatedRestaurantID(User user){
-		System.out.println(user.getId() + " " + user.getUsername());
+		//System.out.println(user.getId() + " " + user.getUsername());
 		
 		ArrayList<String> list = new ArrayList<>();
 		HashMap<String, Double> userRatings = user.getRatings();
-		System.out.println(userRatings.toString());
+		//System.out.println(userRatings.toString());
 		
 		for (String id : userRatings.keySet()) {
 			System.out.println(rc.getRestaurant(id));
