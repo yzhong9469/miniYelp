@@ -8,6 +8,8 @@ import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -23,6 +25,8 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.StyledDocument;
 
 public class ProfileView extends JPanel{
 	
@@ -45,13 +49,15 @@ public class ProfileView extends JPanel{
 	private JButton innerFind = new JButton("Find");
 	private JButton innerAdd = new JButton("Add");
 	
+	private ArrayList<Restaurant> rests = new ArrayList<>();
+	
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2L;
 	
-	public ProfileView(User user){
+	public ProfileView(User user) throws BadLocationException{
 		
 		try {
 			background = ImageIO.read(new File("U-Penn.jpg"));
@@ -61,6 +67,7 @@ public class ProfileView extends JPanel{
 		setSize(800, 500);
 		setLayout(new GridBagLayout());
 		this.user = user;
+		System.out.println(user);
 		
 		JPanel fields = setField();
 		
@@ -155,11 +162,8 @@ public class ProfileView extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String name = restaurant.getText();
-				//user.updateRatings(name, Double.parseDouble(selectedRating));
-				System.out.println(ratingSelector.getSelectedIndex());
-				System.out.println(restaurantSelector.getSelectedIndex());
-				
+				int index = restaurantSelector.getSelectedIndex();
+				user.updateRatings(rests.get(index).getId(), Double.parseDouble(selectedRating));
 			}
         	
         });
@@ -174,7 +178,7 @@ public class ProfileView extends JPanel{
 		remove.addActionListener(a);
 	}
 	
-	public JPanel setField(){
+	public JPanel setField() throws BadLocationException{
 		JPanel fields = new JPanel();
 		fields.setLayout(new GridBagLayout());
 		fields.setBorder(new EmptyBorder(20,20,20,20));
@@ -217,7 +221,7 @@ public class ProfileView extends JPanel{
 		paneScrollPane.setMinimumSize(new Dimension(10, 10));
 		
 		// add in text, create a function
-		
+		displayRating();
 		fields.add(paneScrollPane, gbc);
 		
 		
@@ -232,6 +236,17 @@ public class ProfileView extends JPanel{
         fields.add(remove, gbc);
         
         return fields;
+	}
+	
+	private void displayRating() throws BadLocationException{
+		RestaurantCollection rc = RestaurantCollection.getInstance();
+		HashMap<String, Double> ratings = user.getRatings();
+		StyledDocument doc = textPane.getStyledDocument();
+		for (String id : ratings.keySet()){
+			//Restaurant r = rc.getRestaurant(id);
+			//doc.insertString(0, r.getName() + ": " + ratings.get(id), null);
+			doc.insertString(0, id + ": " + ratings.get(id), null);
+		}
 	}
 	
 	@Override
@@ -253,8 +268,13 @@ public class ProfileView extends JPanel{
         }
     }
 	
-	public static void main(String[] args){
-		JPanel test = new ProfileView(new User("abc","abc","abc"));
+	public static void main(String[] args) throws BadLocationException{
+		User u = new User("abc@gmail.com","abc@gmail.com","abc@gmail.com");
+		System.out.println(u);
+		u.updateRatings("123", 4.0);
+		u.updateRatings("345", 2.0);
+		JPanel test = new ProfileView(u);
+		
 		test.setVisible(true);
 		JFrame miniYelp = new JFrame();
 		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -294,8 +294,6 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	public void processCommand(JMVCommandEvent arg0) {
 		
 	}
-	
-	
-	
+
 }
 
