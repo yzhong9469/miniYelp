@@ -1,0 +1,3 @@
+manh@seas.upenn.edu	123456	lyns-philadelphia-2:5;white-dog-cafe-philadelphia-2:4
+yanzhong@seas.upenn.edu 654321 lyns-philadelphia-2:1;white-dog-cafe-philadelphia-2:2
+asdf@gmail.com 111111

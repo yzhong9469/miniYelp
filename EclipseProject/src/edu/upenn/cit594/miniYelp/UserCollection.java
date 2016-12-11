@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 public class UserCollection implements Iterable<Entry<String, User>> {
 	private static UserCollection userCollection;
 	
-	private HashMap<String,User> users;
+	private HashMap<String, User> users;
 	
 	private UserCollection() {
 		this.users = new HashMap<String,User>();
@@ -38,6 +38,24 @@ public class UserCollection implements Iterable<Entry<String, User>> {
 	@Override
 	public Iterator<Entry<String, User>> iterator() {
 		return users.entrySet().iterator();
+	}
+	
+	public User login(String id, String password) {
+		if (id == null || password == null) return null;
+		
+		User u = users.get(id);
+		if (u == null) return null;
+		
+		if (password.equals(u.getPassword())) return u;
+		else return null; 
+	}
+	
+	public User register(String id, String password) {
+		if (users.containsKey(id)) return null;
+
+		User u = new User(id, password);
+		users.put(id, u);
+		return u;
 	}
 
 }

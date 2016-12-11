@@ -3,6 +3,7 @@ package edu.upenn.cit594.miniYelp;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,7 +16,8 @@ public class Main {
 	private JPanel recommend;
 	private JPanel login;
 	private RestaurantFileParser restParser;
-	
+	private UserProfileParser userParser;
+	private User user;
 	
 	
 	public Main() throws BadLocationException{
@@ -25,6 +27,8 @@ public class Main {
 		login = new LoginView();
 		restParser = new RestaurantFileParser();
 		restParser.loadData("restaurant.csv");
+		userParser = new UserProfileParser();
+		userParser.loadData("user_profile.txt");
 		
 	}
 
@@ -46,7 +50,7 @@ public class Main {
 	
 	private void setup(){
 		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		miniYelp.setSize(800, 525);
+		miniYelp.setSize(1210, 740);
 		miniYelp.setVisible(true);
 		miniYelp.setResizable(false);
 		
@@ -78,6 +82,10 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				search.setVisible(false);
 				recommend.setVisible(true);
+				try {
+					performRecommend();
+				} catch (BadLocationException e1) {
+				}
 				miniYelp.setVisible(true);
 			}
 		});
@@ -128,6 +136,14 @@ public class Main {
 		((SearchView) search).addMarkers(result);
 		((SearchView) search).addDescription(result);
 		
+	}
+	
+	private void performRecommend() throws BadLocationException{
+		User user = UserCollection.getInstance().getUser("manh@seas.upenn.edu");
+		RecommendRestaurant rr = new RecommendRestaurant();
+		List<Restaurant> result = rr.recommRestaurant(user);
+		((RecommendView) recommend).addMarkers(result);
+		((RecommendView) recommend).addDescription(result);
 	}
 
 }

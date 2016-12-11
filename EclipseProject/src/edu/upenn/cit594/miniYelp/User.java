@@ -10,13 +10,11 @@ import java.util.HashMap;
  */
 public class User {
 	private String userId;
-	private String username;
 	private String password;
 	private HashMap<String,Double> ratings;
 	
-	public User(String userId, String username, String password) {
+	public User(String userId, String password) {
 		this.userId = userId;
-		this.username = username;
 		this.password = password;
 		this.ratings = new HashMap<String, Double>();
 	}
@@ -50,9 +48,8 @@ public class User {
 		return ratings.containsKey(id);
 	}
 	
-
-	public String getUsername(){
-		return this.username;
+	public String getPassword() {
+		return this.password;
 	}
 	
 	/**
@@ -60,7 +57,7 @@ public class User {
 	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(userId + "\t" + username + "\t" + password + "\t");
+		sb.append(userId + "\t" + password + "\t");
 		
 		for (String rid : ratings.keySet()) {
 			sb.append(rid + ":" + ratings.get(rid) + ";");

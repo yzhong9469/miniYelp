@@ -11,10 +11,9 @@ import java.util.Map.Entry;
 
 public class UserProfileParser extends DataParser{
 	private static final int EMAIL_INDEX = 0;
-	private static final int USERNAME_INDEX = 1;
-	private static final int PASSWORD_INDEX = 2;
-	private static final int RATING_INDEX = 3;
-	private static final int FIELDS = 4;
+	private static final int PASSWORD_INDEX = 1;
+	private static final int RATING_INDEX = 2;
+	private static final int FIELDS = 3;
 	
 	public void loadData(String inputfile) {
 		if (!isValidPath(inputfile)) {
@@ -29,7 +28,7 @@ public class UserProfileParser extends DataParser{
 
 			while ((line = reader.readLine()) != null) {
 				String[] user = line.split("\t");
-				User u = new User(user[EMAIL_INDEX], user[USERNAME_INDEX], user[PASSWORD_INDEX]);
+				User u = new User(user[EMAIL_INDEX], user[PASSWORD_INDEX]);
 				
 				if (user.length < FIELDS) {
 					users.addUser(u);
