@@ -12,9 +12,13 @@ public class RestaurantTest {
 		
 		String[] filter = {"","","","300"};
 		test = sr.searchRestaurant(filter);
-		for(int i = 0; i<test.size(); i++){
-			System.out.println(test.get(i).toString(i));
-		}
+//		for(int i = 0; i<test.size(); i++){
+//			System.out.println(test.get(i).toString(i));
+//		}
+		
+		RestaurantCollection rc = RestaurantCollection.getInstance();
+		System.out.println(rc.getCategoryilst());
 	}
+		
 
 }
