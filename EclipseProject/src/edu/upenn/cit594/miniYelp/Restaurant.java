@@ -125,4 +125,14 @@ public class Restaurant {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	
+	public String toString(int i){
+		String s = i + ". " + getName() + "\t" + getPrice() + "\n";
+		s += "Rating: " + getRating() + "\t" + "Reviews: " + getReviewCount() + "\n";
+		s += getAddress() + "\n";
+		String category = getCategories().toString().substring(1);
+		category = category.substring(0, category.length() - 1);
+		s += category + "\n";
+		return s;
+	}
 }
