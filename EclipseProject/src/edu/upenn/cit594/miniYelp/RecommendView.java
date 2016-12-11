@@ -10,6 +10,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
@@ -165,16 +166,24 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 		map().addMapMarker(marker);
 	}
 	
-	public void addMarkers(ArrayList<MapMarkerDot> markers){
-		for (MapMarkerDot m : markers){
+	public void addMarkers(List<Restaurant> restaurants){
+		removeMarkers();
+		int i = 1;
+		for (Restaurant r : restaurants){
+			MapMarkerDot m = new MapMarkerDot(i + "", 
+					new Coordinate(r.getLatitude(), r.getLongitude()));
 			map().addMapMarker(m);
+			i++;
 		}
 	}
 	
-	public void addDescription(ArrayList<String> desc) throws BadLocationException{
+	public void addDescription(List<Restaurant> restaurants) throws BadLocationException{
 		StyledDocument doc = textPane.getStyledDocument();
-		for (String s : desc){
-			doc.insertString(0, s, null);
+		doc.remove(0, doc.getLength());
+		int i = 1;
+		for (Restaurant r : restaurants){
+			doc.insertString(doc.getLength(), r.toString(i) + "\n", null);
+			i++;
 		}
 	}
 	
