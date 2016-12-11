@@ -9,19 +9,29 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Random;
 
+/**
+ * RecommendRestaurant
+ * 
+ * @author MHu
+ *
+ */
 public class RecommendRestaurant implements Recommend {
 	RestaurantCollection rc;
 	
+	//constructor
 	public RecommendRestaurant() {
 		rc = RestaurantCollection.getInstance();
 	}
 
-	private ArrayList<String> getHighRatedRestaurantID(User user){
-		//System.out.println(user.getId() + " " + user.getUsername());
-		
+	/**
+	 * get a list of restaurant ID, which the given user rated higher
+	 * than the restaurant's average rating
+	 * @param user - login user
+	 * @return a list of restaurant ID
+	 */
+	private ArrayList<String> getHighRatedRestaurantID(User user){		
 		ArrayList<String> list = new ArrayList<>();
 		HashMap<String, Double> userRatings = user.getRatings();
-		//System.out.println(userRatings.toString());
 		
 		for (String id : userRatings.keySet()) {
 			System.out.println(rc.getRestaurant(id));
@@ -32,6 +42,11 @@ public class RecommendRestaurant implements Recommend {
 		return list;
 	}
 	
+	/**
+	 * helper class for priority queue
+	 * @author MHu
+	 *
+	 */
 	private class Point implements Comparable<Point> {
 		String id;
 		int count;
@@ -49,10 +64,13 @@ public class RecommendRestaurant implements Recommend {
 		public String getId() {
 			return id;
 		}
-		
 	}
 	
-
+	/**
+	 * get top five most frequent categories among a list of restaurant ID
+	 * @param resList - a list of restaurant ID
+	 * @return top five most frequent categories
+	 */
 	public HashSet<String> getUserFavoriteCategories(ArrayList<String> resList){
 		HashMap<String,Integer> categoryCt = new HashMap<String,Integer>();
 		
@@ -74,6 +92,7 @@ public class RecommendRestaurant implements Recommend {
 			if (pq.size() > 5) pq.poll();
 		}
 		
+		//store the result in a hashset
 		HashSet<String> favoriteCategories = new HashSet<String>();
 		while (!pq.isEmpty()) {
 			favoriteCategories.add(pq.poll().getId());
@@ -82,13 +101,25 @@ public class RecommendRestaurant implements Recommend {
 		return favoriteCategories;
 	}
 	
-
+	/**
+	 * recommend at most ten restaurants for a given user
+	 * if the user has not rated any restaurants before, randomly recommend
+	 * any restaurants which has a rating greater or equal to 4.5
+	 * 
+	 * if the user has rated some restaurants before, get the user's favorite
+	 * restaurant categories first, then randomly recommend restaurants belong 
+	 * to those categories and has a rating greater or equal to 4.5 or 4.0
+	 * 
+	 * the return result is ordered by rating and review count descendingly
+	 * 
+	 */
 	@Override
 	public List<Restaurant> recommRestaurant(User user) {
 		ArrayList<Restaurant> result = new ArrayList<>();
 		List<Restaurant> topTenResult;
 		Iterator<String> it = rc.getAllRestaurants().iterator();
 		
+		//if the user has not rated any restaurant before
 		if (user.getRatings().isEmpty()){
 			while (it.hasNext()) {
 				Restaurant r = rc.getRestaurant(it.next());
@@ -103,22 +134,23 @@ public class RecommendRestaurant implements Recommend {
 			return topTenResult;
 		}
 		
-		ArrayList<String> restIDs = getHighRatedRestaurantID(user);
-		HashSet<String> favoriteCategories = getUserFavoriteCategories(restIDs);
+		ArrayList<String> restIDs = getHighRatedRestaurantID(user); //get high rated restaurant from user's profile
+		HashSet<String> favoriteCategories = getUserFavoriteCategories(restIDs); // get user's favourite categories
 		ArrayList<Restaurant> backup = new ArrayList<>();
 		
 		while (it.hasNext()) {
 			Restaurant r = rc.getRestaurant(it.next());
 			if (user.ratedRestaurantBefore(r.getId()) || !r.containCategories(favoriteCategories)) continue;
 			
-			if (r.getRating() >= 4.5) result.add(r);
-			else if (r.getRating() == 4) backup.add(r);
+			if (r.getRating() >= 4.5) result.add(r); //restaurants with rating >= 4.5
+			else if (r.getRating() == 4) backup.add(r); //restaurants with rating == 4
 			else continue;
 		}
 		
 		int index = new Random().nextInt(backup.size());
 		int s1 = result.size(), s2 = backup.size();
 		
+		//if less than 10 restaurants with rating >= 4.5, add restaurants with rating of 4.0 in the results
 		if (s1 + s2 < 10) {
 			result.addAll(backup);
 		} else if (s1 < 10){
