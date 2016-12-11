@@ -269,20 +269,21 @@ public class ProfileView extends JPanel{
     }
 	
 	public static void main(String[] args) throws BadLocationException{
-		User u = new User("abc@gmail.com","abc@gmail.com","abc@gmail.com");
-		System.out.println(u);
-		u.updateRatings("123", 4.0);
-		u.updateRatings("345", 2.0);
-		JPanel test = new ProfileView(u);
-		
-		test.setVisible(true);
-		JFrame miniYelp = new JFrame();
-		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		miniYelp.setSize(800, 500);
-		
-		
-		miniYelp.add(test);
-		miniYelp.setVisible(true);
+		System.out.println("asdf");
+//		User u = new User("abc@gmail.com","abc@gmail.com","abc@gmail.com");
+//		System.out.println(u);
+//		u.updateRatings("123", 4.0);
+//		u.updateRatings("345", 2.0);
+//		JPanel test = new ProfileView(u);
+//		
+//		test.setVisible(true);
+//		JFrame miniYelp = new JFrame();
+//		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		miniYelp.setSize(800, 500);
+//		
+//		
+//		miniYelp.add(test);
+//		miniYelp.setVisible(true);
 	}
 
 }
