@@ -51,7 +51,4 @@ public class SearchRestaurant implements Search {
 		Collections.sort(searchResults);
 		return searchResults;
 	}
-	
-	
-
 }
