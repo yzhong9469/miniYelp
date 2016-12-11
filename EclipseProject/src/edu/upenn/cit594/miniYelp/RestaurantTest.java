@@ -10,11 +10,15 @@ public class RestaurantTest {
 		testParser.loadData("restaurant.csv");
 		SearchRestaurant sr = new SearchRestaurant();
 		
-		String[] filter = {"","","","25"};
+		String[] filter = {"","","","300"};
 		test = sr.searchRestaurant(filter);
-		for(int i = 0; i<test.size(); i++){
-			System.out.println(test.get(i).toString(i));
-		}
+//		for(int i = 0; i<test.size(); i++){
+//			System.out.println(test.get(i).toString(i));
+//		}
+		
+		RestaurantCollection rc = RestaurantCollection.getInstance();
+		System.out.println(rc.getCategoryilst());
 	}
+		
 
 }
