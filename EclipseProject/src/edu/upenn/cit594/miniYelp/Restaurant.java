@@ -3,7 +3,7 @@ package edu.upenn.cit594.miniYelp;
 import java.util.List;
 import java.util.Set;
 
-public class Restaurant {
+public class Restaurant implements Comparable<Restaurant>{
 	private String id;
 	private String name;
 	private String price;
@@ -134,5 +134,16 @@ public class Restaurant {
 		category = category.substring(0, category.length() - 1);
 		s += category + "\n";
 		return s;
+	}
+
+	@Override
+	public int compareTo(Restaurant o) {
+		if (this.rating > o.rating){
+			return -1;
+		} else if (this.rating < o.rating) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 }

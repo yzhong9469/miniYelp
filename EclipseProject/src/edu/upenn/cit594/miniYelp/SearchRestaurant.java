@@ -49,5 +49,6 @@ public class SearchRestaurant implements Search {
 		}
 		return searchResults;
 	}
+	
 
 }
