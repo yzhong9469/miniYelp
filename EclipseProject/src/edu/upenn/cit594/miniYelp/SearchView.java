@@ -100,6 +100,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		
 		setPriceChoice();
 		setRatingChoice();
+		setReviewChoice();
 		
         addButtons(panelTop, panelBottom);
 	   	
@@ -281,8 +282,8 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		ratingChoice = new String[]{"", "5", "4", "3", "2", "1"};
 	}
 	
-	public void setReviewChoice(String[] choice){
-		reviewChoice = choice;
+	public void setReviewChoice(){
+		reviewChoice = new String[]{"", "200", "100", "50", "25"};
 	}
 	
 	public String getCategory(){
