@@ -2,6 +2,7 @@ package edu.upenn.cit594.miniYelp;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,12 +14,18 @@ public class Main {
 	private JPanel search;
 	private JPanel recommend;
 	private JPanel login;
+	private RestaurantFileParser restParser;
+	
+	
 	
 	public Main() throws BadLocationException{
 		miniYelp = new JFrame();
 		search = new SearchView();
 		recommend = new RecommendView();
 		login = new LoginView();
+		restParser = new RestaurantFileParser();
+		restParser.loadData("restaurant.csv");
+		
 	}
 
 	public static void main(String[] args) {
@@ -39,12 +46,14 @@ public class Main {
 	
 	private void setup(){
 		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		miniYelp.setSize(800, 500);
+		miniYelp.setSize(800, 525);
 		miniYelp.setVisible(true);
+		miniYelp.setResizable(false);
 		
 		search.setVisible(false);
 		recommend.setVisible(false);
 		login.setVisible(true);
+		
 		
 		miniYelp.add(search);
 		miniYelp.add(recommend);
@@ -73,6 +82,16 @@ public class Main {
 			}
 		});
 		
+		((SearchView) search).addSearchListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					performSearch();
+				} catch (BadLocationException e1) {
+				}
+			}
+		});
+		
 		
 		((LoginView) login).setLoginAction(new ActionListener(){
 			@Override
@@ -95,6 +114,19 @@ public class Main {
 				}
 			}
 		});
+		
+	}
+	
+	private void performSearch() throws BadLocationException{
+		String category = ((SearchView) search).getCategory();
+		String price = ((SearchView) search).getPrice();
+		String rating = ((SearchView) search).getRating();
+		String review = ((SearchView) search).getReview();
+		SearchRestaurant sr = new SearchRestaurant();
+		String[] filter = {category, price, rating, review};
+		ArrayList<Restaurant> result = (ArrayList<Restaurant>) sr.searchRestaurant(filter);
+		((SearchView) search).addMarkers(result);
+		((SearchView) search).addDescription(result);
 		
 	}
 
