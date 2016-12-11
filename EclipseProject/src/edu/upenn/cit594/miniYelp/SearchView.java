@@ -51,7 +51,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	JButton searchButton = new JButton("Search");
 	JButton recommendButton = new JButton("Get recommendation");
 	JButton gotoProfile = new JButton("My Profile");
-	
+	JButton exit = new JButton("Exit");
 	
 	private JLabel categoryLabel = new JLabel("Category:");
 	private JLabel priceLabel = new JLabel("Price:");
@@ -230,6 +230,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
         panelBottom.add(recommendButton);
         
         panelBottom.add(gotoProfile);
+        panelBottom.add(exit);
 	}
 	
 	public void addText(String s) throws BadLocationException{
@@ -272,6 +273,10 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	
 	public void addProfileListener(ActionListener pAction){
 		gotoProfile.addActionListener(pAction);
+	}
+	
+	public void addExitListener(ActionListener eAction){
+		exit.addActionListener(eAction);
 	}
 	
 	public void removeMarkers(){
