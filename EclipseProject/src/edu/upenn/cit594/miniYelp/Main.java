@@ -30,7 +30,7 @@ public class Main {
 		login = new LoginView();
 		
 		restParser = new RestaurantFileParser();
-		restParser.loadData("restaurant.csv");
+		restParser.loadData("restaurant.txt");
 		userParser = new UserProfileParser();
 		userParser.loadData("user_profile.txt");
 		
