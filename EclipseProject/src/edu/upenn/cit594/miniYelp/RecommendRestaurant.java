@@ -80,7 +80,7 @@ public class RecommendRestaurant implements Recommend {
 			for (int j = 0; j < categories.size(); j++){
 				Integer ct = categoryCt.get(categories.get(j));
 				if (ct == null) ct = 0;
-				categoryCt.put(categories.get(i), ++ct);
+				categoryCt.put(categories.get(j), ++ct);
 			}
 		}
 		
