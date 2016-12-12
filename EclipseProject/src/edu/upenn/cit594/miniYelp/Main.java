@@ -88,11 +88,11 @@ public class Main {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				search.setVisible(false);
-				recommend.setVisible(true);
 				try {
 					performRecommend();
 				} catch (BadLocationException e1) {
 				}
+				recommend.setVisible(true);
 				miniYelp.setVisible(true);
 			}
 		});
@@ -242,7 +242,6 @@ public class Main {
 	}
 	
 	private void performRecommend() throws BadLocationException{
-		User user = UserCollection.getInstance().getUser("manh@seas.upenn.edu");
 		RecommendRestaurant rr = new RecommendRestaurant();
 		List<Restaurant> result = rr.recommRestaurant(user);
 		((RecommendView) recommend).addMarkers(result);

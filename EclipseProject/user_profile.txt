@@ -1,6 +1,7 @@
-a	a	boston-market-philadelphia-9:5.0;cosi-philadelphia-3:5.0;spencer-eta-burger-philadelphia:5.0;starbucks-philadelphia-3:5.0;sang-kee-noodle-house-philadelphia:5.0;starbucks-philadelphia-64:5.0;bobbys-burger-palace-philadelphia:4.0
+ff	ff	mediterranean-cafe-and-ice-cream-philadelphia:5.0;heidi-express-cafe-philadelphia:5.0;green-line-cafe-40th-street-philadelphia-2:5.0;a-quality-cafe-philadelphia:5.0;williams-cafe-philadelphia-2:5.0
+a	a	boston-market-philadelphia-9:5.0;cosi-philadelphia-3:5.0;spencer-eta-burger-philadelphia:5.0;starbucks-philadelphia-3:5.0;sang-kee-noodle-house-philadelphia:5.0;starbucks-philadelphia-64:5.0;bobbys-burger-palace-philadelphia:4.0;han-dynasty-philadelphia-3:5.0;handschumacher-dining-center-philadelphia:5.0
 asd	asd
-test	test
+test	test	mediterranean-cafe-and-ice-cream-philadelphia:5.0;kims-oriental-food-philadelphia:5.0;williams-cafe-philadelphia-2:5.0;beijing-restaurant-philadelphia:5.0;white-dog-cafe-philadelphia-2:5.0;khans-hot-dog-cart-philadelphia:5.0;starbucks-philadelphia-70:5.0;starbucks-philadelphia-3:5.0;starbucks-philadelphia-64:5.0;green-line-cafe-40th-street-philadelphia-2:5.0;a-quality-cafe-philadelphia:5.0;marks-cafe-philadelphia:5.0;world-cafe-live-philadelphia:5.0;han-dynasty-philadelphia-3:5.0;hong-kong-food-truck-philadelphia:5.0;kings-wok-chinese-food-philadelphia:5.0
 yanzhong@seas.upenn.edu	654321	lyns-philadelphia-2:1.0;white-dog-cafe-philadelphia-2:2.0
 asdf@gmail.com 111111	lyns-philadelphia-2:1;white-dog-cafe-philadelphia-2:2
 manh@seas.upenn.edu	123456	lyns-philadelphia-2:5.0;white-dog-cafe-philadelphia-2:4.0
