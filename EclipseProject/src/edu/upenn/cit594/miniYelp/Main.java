@@ -3,7 +3,6 @@ package edu.upenn.cit594.miniYelp;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
@@ -234,7 +233,6 @@ public class Main {
 		String review = ((SearchView) search).getReview();
 		SearchRestaurant sr = new SearchRestaurant();
 		String[] filter = {category, price, rating, review};
-		System.out.println(Arrays.toString(filter));
 		ArrayList<Restaurant> result = (ArrayList<Restaurant>) sr.searchRestaurant(filter);
 		((SearchView) search).addMarkers(result);
 		((SearchView) search).addDescription(result);
