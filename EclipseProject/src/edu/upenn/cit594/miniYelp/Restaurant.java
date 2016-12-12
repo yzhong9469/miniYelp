@@ -106,7 +106,7 @@ public class Restaurant implements Comparable<Restaurant>{
 	public String toString(int index) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(index + ". ");
-		sb.append(this.name + "\t" + this.price + "\n");
+		sb.append(this.name + "   " + this.price + "\n");
 		sb.append("Rating: " + this.rating + "\tReviews: " + this.reviewCount + "\n");
 		sb.append(this.address + "\n");
 		
