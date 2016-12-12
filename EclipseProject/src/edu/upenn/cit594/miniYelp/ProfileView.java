@@ -51,6 +51,8 @@ public class ProfileView extends JPanel{
 	private JButton innerFind = new JButton("Find");
 	private JButton innerAdd = new JButton("Add");
 	
+	JFrame popup = new JFrame();
+	
 	private List<Restaurant> choice;
 	
 	/**
@@ -73,7 +75,7 @@ public class ProfileView extends JPanel{
 		JPanel fields = setField();
 		
 		add(fields);
-		setLoginAction();
+		setAddAction();
 	}
 	
 	
@@ -85,16 +87,15 @@ public class ProfileView extends JPanel{
 		this.user = user;
 	}
 	
-	public void setLoginAction(){
+	public void setAddAction(){
 		add.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame popup = new JFrame();
-				popup.setSize(400, 200);
+				popup = new JFrame();
+				popup.setSize(900, 200);
 				JPanel innerField = setInnerField();
 				popup.add(innerField);
-				
 				popup.setVisible(true);
 				
 			}
@@ -161,8 +162,10 @@ public class ProfileView extends JPanel{
 								Double.parseDouble(ratingSelector.getSelectedItem().toString()));
 				try {
 					displayRating();
+					popup.setVisible(false);
 				} catch (BadLocationException e1) {
 				}
+				
 			}
         });
         
@@ -260,7 +263,7 @@ public class ProfileView extends JPanel{
 		doc.remove(0, doc.getLength());
 		for (String id : ratings.keySet()){
 			Restaurant r = rc.getRestaurant(id);
-			doc.insertString(0, r.getName() + ": " + ratings.get(id), null);
+			doc.insertString(doc.getLength(), r.getName() + ": " + ratings.get(id) + "\n", null);
 			//doc.insertString(doc.getLength(), id + ": " + ratings.get(id) + "\n", null);
 		}
 	}
