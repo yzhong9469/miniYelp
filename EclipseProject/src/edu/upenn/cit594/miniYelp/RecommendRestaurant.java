@@ -117,6 +117,7 @@ public class RecommendRestaurant implements Recommend {
 		ArrayList<Restaurant> result = new ArrayList<>();
 		List<Restaurant> topTenResult;
 		Iterator<String> it = rc.getAllRestaurants().iterator();
+		Iterator<String> it2 = rc.getAllRestaurants().iterator();
 		
 		//if the user has not rated any restaurant before
 		if (user.getRatings().isEmpty()){
@@ -164,6 +165,10 @@ public class RecommendRestaurant implements Recommend {
 			}
 		}
 		
+		while (result.size() < 10){
+			Restaurant r = rc.getRestaurant(it2.next());
+			if (r.getRating() >= 4.5) result.add(r);
+		}
 		topTenResult = result.subList(0, Math.min(10, result.size()));
 		Collections.sort(topTenResult);
 		
