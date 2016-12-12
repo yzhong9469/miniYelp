@@ -3,7 +3,6 @@ package edu.upenn.cit594.miniYelp;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
@@ -11,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.text.BadLocationException;
 
-public class Controller {
+public class Main {
 	
 	private JFrame miniYelp;
 	private JPanel search;
@@ -23,7 +22,7 @@ public class Controller {
 	private User user;
 	
 	
-	public Controller() throws BadLocationException{
+	public Main() throws BadLocationException{
 		miniYelp = new JFrame();
 		search = new SearchView();
 		recommend = new RecommendView();
@@ -34,6 +33,16 @@ public class Controller {
 		userParser = new UserProfileParser();
 		userParser.loadData("user_profile.txt");
 		
+	}
+
+	public static void main(String[] args) {
+		
+		try {
+			Main main = new Main();
+			main.runMiniYelp();
+		} catch (BadLocationException e) {
+		}
+
 	}
 	
 	public void runMiniYelp() throws BadLocationException{
@@ -112,7 +121,7 @@ public class Controller {
 					if (user == null){
 						((LoginView) login).displayErrorMessage("Wrong username or password!");
 					}else{
-						Controller.this.user = user;
+						Main.this.user = user;
 						try {
 							profile = new ProfileView(user);
 							profile.setVisible(false);
@@ -144,7 +153,7 @@ public class Controller {
 					if (user == null){
 						((LoginView) login).displayErrorMessage("This email address has already been userd!");
 					}else{
-						Controller.this.user = user;
+						Main.this.user = user;
 						try {
 							profile = new ProfileView(user);
 							profile.setVisible(false);
@@ -224,7 +233,6 @@ public class Controller {
 		String review = ((SearchView) search).getReview();
 		SearchRestaurant sr = new SearchRestaurant();
 		String[] filter = {category, price, rating, review};
-		System.out.println(Arrays.toString(filter));
 		ArrayList<Restaurant> result = (ArrayList<Restaurant>) sr.searchRestaurant(filter);
 		((SearchView) search).addMarkers(result);
 		((SearchView) search).addDescription(result);

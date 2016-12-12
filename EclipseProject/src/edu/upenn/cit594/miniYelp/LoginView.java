@@ -54,12 +54,10 @@ public class LoginView extends JPanel{
 	}
 	
 	public String getEmail(){
-		System.out.println(email.getText() + "1");
 		return email.getText();
 	}
 	
 	public char[] getPassword(){
-		System.out.println(password.getPassword());
 		return password.getPassword();
 	}
 	

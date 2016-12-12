@@ -183,7 +183,6 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				price = e.getItem().toString();
-				System.out.println(e.getItem());
 			}
 		});
 		panelTop.add(priceSelector);
@@ -197,7 +196,6 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	   		@Override
 	   		public void itemStateChanged(ItemEvent e) {
 	   			rating = e.getItem().toString();
-	   			System.out.println(e.getItem());
 	   		}
 	   	});
 	   	panelTop.add(ratingSelector);
@@ -211,7 +209,6 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	   		@Override
 	   		public void itemStateChanged(ItemEvent e) {
 	   			review = e.getItem().toString();
-	   			System.out.println(e.getItem());
 	   		}
 	   	});
 	   	panelTop.add(reviewSelector);
