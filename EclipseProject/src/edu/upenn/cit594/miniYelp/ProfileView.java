@@ -44,7 +44,7 @@ public class ProfileView extends JPanel{
 	
 	private JTextField restaurant = new JTextField(10);
 	JComboBox<String> ratingSelector = new JComboBox<>(new String[] {"5","4","3","2","1"});
-	JComboBox<String> restaurantSelector = new JComboBox<>(new String [] {"", "Starbucks"});
+	JComboBox<String> restaurantSelector = new JComboBox<>(new String [] {""});
 	private String selectedRating = "";
 	private String selectedRestaurantID = "";
 	
@@ -70,7 +70,6 @@ public class ProfileView extends JPanel{
 		setSize(1210, 740);
 		setLayout(new GridBagLayout());
 		this.user = user;
-		System.out.println(user);
 		
 		JPanel fields = setField();
 		
@@ -131,8 +130,6 @@ public class ProfileView extends JPanel{
     		@Override
     		public void itemStateChanged(ItemEvent e) {
     			selectedRating = e.getItem().toString();
-    			System.out.println(e);
-    			System.out.println(e.getItem());
            }	
     	});
         
@@ -158,14 +155,15 @@ public class ProfileView extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				int index = restaurantSelector.getSelectedIndex();
 				//user.updateRatings(rests.get(index).getId(), Double.parseDouble(selectedRating));
-				user.updateRatings(choice.get(index - 1).getId(), 
+				if (index != 0){
+					user.updateRatings(choice.get(index - 1).getId(), 
 								Double.parseDouble(ratingSelector.getSelectedItem().toString()));
-				try {
-					displayRating();
-					popup.setVisible(false);
-				} catch (BadLocationException e1) {
+					try {
+						displayRating();
+						popup.setVisible(false);
+					} catch (BadLocationException e1) {
+					}
 				}
-				
 			}
         });
         

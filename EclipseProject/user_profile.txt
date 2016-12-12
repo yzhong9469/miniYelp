@@ -1,4 +1,4 @@
-a	a	spencer-eta-burger-philadelphia:5.0;starbucks-philadelphia-3:5.0;sang-kee-noodle-house-philadelphia:5.0;starbucks-philadelphia-64:5.0;bobbys-burger-palace-philadelphia:4.0
+a	a	boston-market-philadelphia-9:5.0;cosi-philadelphia-3:5.0;spencer-eta-burger-philadelphia:5.0;starbucks-philadelphia-3:5.0;sang-kee-noodle-house-philadelphia:5.0;starbucks-philadelphia-64:5.0;bobbys-burger-palace-philadelphia:4.0
 asd	asd
 test	test
 yanzhong@seas.upenn.edu	654321	lyns-philadelphia-2:1.0;white-dog-cafe-philadelphia-2:2.0
