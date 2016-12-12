@@ -1,6 +1,11 @@
-package edu.upenn.cit594.miniYelp;
+package test;
 
 import java.util.List;
+
+import edu.upenn.cit594.miniYelp.Restaurant;
+import edu.upenn.cit594.miniYelp.RestaurantCollection;
+import edu.upenn.cit594.miniYelp.RestaurantFileParser;
+import edu.upenn.cit594.miniYelp.SearchRestaurant;
 
 public class RestaurantTest {
 
