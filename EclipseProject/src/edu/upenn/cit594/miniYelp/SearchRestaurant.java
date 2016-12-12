@@ -31,11 +31,11 @@ public class SearchRestaurant implements Search {
 		String category = filters[0];
 		String pricerange = filters[1];
 		//parse rating to float number
-		if (filters[2].length() != 0){
+		if (!filters[2].equals("All")){
 			rating = Float.parseFloat(filters[2]);
 		}
 		//parse review count to integer
-		if (filters[3].length() != 0){
+		if (!filters[3].equals("All")){
 			reviewCount = Integer.parseInt(filters[3]);
 		}
 		//get the restaurant collection
@@ -43,16 +43,16 @@ public class SearchRestaurant implements Search {
 		//add the restaurants that meet the screening criteria into the list
 		for (String rid:collection.keySet()){
 			Restaurant res = collection.get(rid);
-			if (!res.getCategories().contains(category) && category !=""){
+			if (!res.getCategories().contains(category) && category !="All"){
 				continue;
 			}
-			if (!res.getPrice().equals(pricerange) && pricerange != ""){
+			if (!res.getPrice().equals(pricerange) && pricerange != "All"){
 				continue;
 			}
-			if (res.getRating() < rating && filters[2] != "" ){
+			if (res.getRating() < rating && !filters[2].equals("All")){
 				continue;
 			}
-			if (res.getReviewCount() >= reviewCount || filters[3] == ""){
+			if (res.getReviewCount() >= reviewCount || filters[3].equals("All")){
 				searchResults.add(res);
 			}
 		}

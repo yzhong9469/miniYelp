@@ -44,10 +44,10 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	
 	private final JMapViewerTree treeMap;
 	
-	private String category = "";
-	private String price = "";
-	private String rating = "";
-	private String review = "";
+	private String category = "All";
+	private String price = "All";
+	private String rating = "All";
+	private String review = "All";
 	
 	JButton searchButton = new JButton("Search");
 	JButton recommendButton = new JButton("Get recommendation");
@@ -57,9 +57,9 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	JComboBox<String> categorySelector;
 	
 	private JLabel categoryLabel = new JLabel("Category:");
-	private JLabel priceLabel = new JLabel("Price:");
-	private JLabel ratingLabel = new JLabel("Rating:");
-	private JLabel reviewLabel = new JLabel("Review Count:");
+	private JLabel priceLabel = new JLabel("Price Range:");
+	private JLabel ratingLabel = new JLabel("Rating: ≥");
+	private JLabel reviewLabel = new JLabel("Review Count: ≥");
 	
 	private String[] categoryChoice = new String[] {""};
 	private String[] priceChoice = new String[] {""};
@@ -294,22 +294,22 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 			c[i] = s;
 			i++;
 		}
-		c[0] = "";
+		c[0] = "All";
 		categoryChoice = c;
 		DefaultComboBoxModel model = new DefaultComboBoxModel(categoryChoice);
 		categorySelector.setModel(model);
 	}
 	
 	public void setPriceChoice(){
-		priceChoice = new String[]{"", "$", "$$", "$$$"};
+		priceChoice = new String[]{"All", "$", "$$", "$$$"};
 	}
 	
 	public void setRatingChoice(){
-		ratingChoice = new String[]{"", "5", "4", "3", "2", "1"};
+		ratingChoice = new String[]{"All", "5", "4", "3", "2", "1"};
 	}
 	
 	public void setReviewChoice(){
-		reviewChoice = new String[]{"", "200", "100", "50", "25"};
+		reviewChoice = new String[]{"All", "200", "100", "50", "25"};
 	}
 	
 	public String getCategory(){
