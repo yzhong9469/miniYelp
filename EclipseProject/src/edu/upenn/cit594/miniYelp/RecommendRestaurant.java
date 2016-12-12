@@ -34,7 +34,6 @@ public class RecommendRestaurant implements Recommend {
 		HashMap<String, Double> userRatings = user.getRatings();
 		
 		for (String id : userRatings.keySet()) {
-			System.out.println(rc.getRestaurant(id));
 			if (userRatings.get(id) >= rc.getRestaurant(id).getRating()){
 				list.add(id);
 			}
@@ -149,7 +148,7 @@ public class RecommendRestaurant implements Recommend {
 		
 		int index = new Random().nextInt(backup.size());
 		int s1 = result.size(), s2 = backup.size();
-		
+		Collections.shuffle(result);
 		//if less than 10 restaurants with rating >= 4.5, add restaurants with rating of 4.0 in the results
 		if (s1 + s2 < 10) {
 			result.addAll(backup);
