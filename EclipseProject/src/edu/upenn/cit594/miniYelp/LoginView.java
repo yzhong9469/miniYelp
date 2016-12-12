@@ -26,13 +26,12 @@ public class LoginView extends JPanel{
 	
 	
 	BufferedImage background;
-	//String message = "Wrong Password!";
 	
 	private JTextField email = new JTextField(10);
 	private JPasswordField password = new JPasswordField(10);
 	
 	private JButton login = new JButton("Login");
-	private JButton register = new JButton("register");
+	private JButton register = new JButton("Register");
 	/**
 	 * 
 	 */
@@ -41,7 +40,7 @@ public class LoginView extends JPanel{
 	public LoginView(){
 		
 		try {
-			background = ImageIO.read(new File("U-Penn.jpg"));
+			background = ImageIO.read(new File("U-Penn2.jpg"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -117,13 +116,7 @@ public class LoginView extends JPanel{
         fields.add(login, gbc);
         gbc.gridx++;
         fields.add(register, gbc);
-        
-//        JLabel error = new JLabel(message);
-//        error.setBorder(new EmptyBorder(5,5,0,5));
-//        gbc.gridx = 0;
-//        gbc.gridy++;
-//        gbc.gridwidth = 3;
-//        fields.add(error, gbc);
+
         return fields;
 	}
 	
@@ -136,14 +129,6 @@ public class LoginView extends JPanel{
         double desired = 8 * 1.0 /5;
         double ratio = w * 1.0/h;
         
-//        if (h > 740 && w > 1210){
-//        	try {
-//				background = ImageIO.read(new File("U-Penn2.jpg"));
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//        }
-        
         if (h < 500 && w < 800){
         	g.drawImage(background, 0, 0, 800, 500, this);
         }else 
@@ -152,14 +137,7 @@ public class LoginView extends JPanel{
         }else{
         	g.drawImage(background, 0, 0, w, (int) (w/desired), this);
         }
-        
-//        if (h < 500){
-//        	g.drawImage(normal, 0, 0, getWidth(), 500, this);
-//        }else if (w > 800 || h > 500){
-//        	g.drawImage(normal, 0, 0, getWidth(), getHeight(), this);
-//        }else{
-//        	g.drawImage(normal, 0, 0, this);
-//        }
+
     }
 
 }

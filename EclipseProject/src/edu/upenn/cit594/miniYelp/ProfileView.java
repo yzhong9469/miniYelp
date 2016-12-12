@@ -38,7 +38,7 @@ public class ProfileView extends JPanel{
 	private User user;
 	
 	
-	private JButton add = new JButton("Add rating");
+	private JButton add = new JButton("Add Rating");
 	private JButton returnToSearch = new JButton("Return");
 	private JTextPane textPane = new JTextPane();
 	

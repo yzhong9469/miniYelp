@@ -50,7 +50,7 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	private String review = "All";
 	
 	JButton searchButton = new JButton("Search");
-	JButton recommendButton = new JButton("Get recommendation");
+	JButton recommendButton = new JButton("Get Recommendation");
 	JButton gotoProfile = new JButton("My Profile");
 	JButton exit = new JButton("Exit");
 	
