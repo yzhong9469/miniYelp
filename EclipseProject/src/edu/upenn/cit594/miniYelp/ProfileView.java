@@ -91,10 +91,9 @@ public class ProfileView extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame popup = new JFrame();
-				popup.setSize(400, 200);
+				popup.setSize(700, 200);
 				JPanel innerField = setInnerField();
 				popup.add(innerField);
-				
 				popup.setVisible(true);
 				
 			}
@@ -163,6 +162,7 @@ public class ProfileView extends JPanel{
 					displayRating();
 				} catch (BadLocationException e1) {
 				}
+				
 			}
         });
         
@@ -260,7 +260,7 @@ public class ProfileView extends JPanel{
 		doc.remove(0, doc.getLength());
 		for (String id : ratings.keySet()){
 			Restaurant r = rc.getRestaurant(id);
-			doc.insertString(0, r.getName() + ": " + ratings.get(id), null);
+			doc.insertString(doc.getLength(), r.getName() + ": " + ratings.get(id) + "\n", null);
 			//doc.insertString(doc.getLength(), id + ": " + ratings.get(id) + "\n", null);
 		}
 	}
