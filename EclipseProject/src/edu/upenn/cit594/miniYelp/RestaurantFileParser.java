@@ -56,7 +56,8 @@ public class RestaurantFileParser extends DataParser {
 			reader.readLine();
 			
 			while ((line = reader.readLine()) != null) {
-				String[] restaurant = line.split(",");
+				//System.out.println(line);
+				String[] restaurant = line.split("\t");
 				if (restaurant == null || restaurant.length > FIELDS) continue;
 				
 				name = restaurant[NAME_INDEX];
