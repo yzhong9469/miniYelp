@@ -146,7 +146,13 @@ public class RecommendRestaurant implements Recommend {
 			else continue;
 		}
 		
-		int index = new Random().nextInt(backup.size());
+		int index;
+		try {
+			index = new Random().nextInt(backup.size());
+		} catch (IllegalArgumentException e) {
+			index = 0;
+		}
+		
 		int s1 = result.size(), s2 = backup.size();
 		Collections.shuffle(result);
 		//if less than 10 restaurants with rating >= 4.5, add restaurants with rating of 4.0 in the results
