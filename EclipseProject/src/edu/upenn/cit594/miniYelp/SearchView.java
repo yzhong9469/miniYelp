@@ -112,9 +112,9 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	   	/*
 	   	 * how to add marker example
 	   	 */
-	   	MapMarkerDot vanPelt = new MapMarkerDot("Van Pelt",new Coordinate(39.952676, -75.194000));
-	   	addMarkers(vanPelt);
-	   	
+	   	//MyMapMarker vanPelt = new MyMapMarker("Van Pelt",new Coordinate(39.952676, -75.194000));
+	   	//addMarkers(vanPelt);
+	   	//map().addMapMarker(vanPelt);
 	   	setMap();
 	}
 	
@@ -169,7 +169,6 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				category = e.getItem().toString();
-				System.out.println(e.getItem());
 	       }	
 		});
 		panelTop.add(categorySelector);
@@ -246,7 +245,11 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		removeMarkers();
 		int i = 1;
 		for (Restaurant r : restaurants){
-			MapMarkerDot m = new MapMarkerDot(i + "", 
+			String display = i + "";
+			if (display.length() < 3){
+				display = "  " + display;
+			}
+			MyMapMarker m = new MyMapMarker(display, 
 					new Coordinate(r.getLatitude(), r.getLongitude()));
 			map().addMapMarker(m);
 			i++;

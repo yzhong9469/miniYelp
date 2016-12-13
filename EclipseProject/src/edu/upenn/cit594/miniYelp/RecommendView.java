@@ -89,11 +89,6 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 		}
 		
         addButtons(panelTop, panelBottom);
-	   	
-	   	// how to add marker example
-	   	MapMarkerDot vanPelt = new MapMarkerDot("Van Pelt",new Coordinate(39.952676, -75.194000));
-	   	addMarkers(vanPelt);
-	   	
 	   	setMap();
 	}
 	
@@ -187,13 +182,16 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 		removeMarkers();
 		int i = 1;
 		for (Restaurant r : restaurants){
-			MapMarkerDot m = new MapMarkerDot(i + "", 
+			String display = i + "";
+			if (display.length() < 3){
+				display = "  " + display;
+			}
+			MyMapMarker m = new MyMapMarker(display, 
 					new Coordinate(r.getLatitude(), r.getLongitude()));
 			map().addMapMarker(m);
 			i++;
 		}
 	}
-	
 	/**
 	 * Add restaurants descriptions
 	 * @param restaurants
