@@ -15,8 +15,8 @@ This java application is the final project for CIT 594 at University of Pennsylv
 * To exit the program, please click "Exit" on the main page, otherwise your personalize information might not be properly stored in our system.
 
 ## Requirements fullfilled
-We used Interfaces and Design Patterns in this project. 
-1. Design patterns used are MVC, Singleton. 
+1. We used Interfaces and Design Patterns in this project. 
+  * Design patterns used are MVC, Singleton. 
 2. Data structures used are ArrayList, HashMap, PriorityQueue(Heap). 
 3. We also used Java Graphics (swing) and external .jar library (JMapViewer).
 
