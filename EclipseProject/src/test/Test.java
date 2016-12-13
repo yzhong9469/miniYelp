@@ -1,7 +1,9 @@
-package edu.upenn.cit594.miniYelp;
+package test;
 
 
 import java.util.List;
+
+import edu.upenn.cit594.miniYelp.*;
 
 public class Test {
 
