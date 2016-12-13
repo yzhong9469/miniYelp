@@ -48,9 +48,10 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 	
 	private JTextPane textPane = new JTextPane();
 	
-	/*
-	* Constructs the {@code Demo}.
-	*/
+	/**
+	 * constructor, set up the view
+	 * @throws BadLocationException
+	 */
 	public RecommendView() throws BadLocationException {
 		setSize(1210, 740);
 	
@@ -138,9 +139,9 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 	}
 	
 	/**
-	 * Add buttons
-	 * @param panelTop
-	 * @param panelBottom
+	 * Add buttons to the view
+	 * @param panelTop the top row
+	 * @param panelBottom the bottom row
 	 */
 	private void addButtons(JPanel panelTop, JPanel panelBottom){
 	   	//trigger search operation 
@@ -157,8 +158,8 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 	}
 	
 	/**
-	 * Add text
-	 * @param s
+	 * Add text to the display panel
+	 * @param s text to be added
 	 * @throws BadLocationException
 	 */
 	public void addText(String s) throws BadLocationException{
@@ -175,8 +176,8 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 	}
 	
 	/**
-	 * Add map markers 
-	 * @param restaurants
+	 * Add a list of map markers 
+	 * @param restaurants a list of restaurant
 	 */
 	public void addMarkers(List<Restaurant> restaurants){
 		removeMarkers();
@@ -193,8 +194,8 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 		}
 	}
 	/**
-	 * Add restaurants descriptions
-	 * @param restaurants
+	 * Add restaurants descriptions to the text panel
+	 * @param restaurants a list of restaurant
 	 * @throws BadLocationException
 	 */
 	public void addDescription(List<Restaurant> restaurants) throws BadLocationException{
@@ -223,11 +224,10 @@ public class RecommendView extends JPanel implements JMapViewerEventListener {
 	}
 	
 	/**
-	 * Map default implementation
+	 * Required method, no use
 	 */
 	@Override
 	public void processCommand(JMVCommandEvent arg0) {
-		
 	}
 
 }

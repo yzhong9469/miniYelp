@@ -22,8 +22,12 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
+/**
+ * The login view, where user input their email and password
+ * @author Yan Zhong
+ *
+ */
 public class LoginView extends JPanel{
-	
 	
 	BufferedImage background;
 	
@@ -32,18 +36,17 @@ public class LoginView extends JPanel{
 	
 	private JButton login = new JButton("Login");
 	private JButton register = new JButton("Register");
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 2L;
 	
+	/**
+	 * Constructor, set the view
+	 */
 	public LoginView(){
 		
 		try {
 			background = ImageIO.read(new File("U-Penn2.jpg"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		setSize(800, 500);
 		setLayout(new GridBagLayout());
@@ -53,21 +56,29 @@ public class LoginView extends JPanel{
 		add(fields);
 	}
 	
+	/**
+	 * return the input email
+	 * @return email
+	 */
 	public String getEmail(){
 		return email.getText();
 	}
 	
+	/**
+	 * return the password
+	 * @return password
+	 */
 	public char[] getPassword(){
 		return password.getPassword();
 	}
 	
+	/**
+	 * display error message
+	 * @param errorMessage the message
+	 */
 	void displayErrorMessage(String errorMessage) {
         JOptionPane.showMessageDialog(this, errorMessage);
     }
-	
-//	public void setMessage(String s){
-//		message = s;
-//	}
 	
 	public void setLoginAction(ActionListener a){
 		login.addActionListener(a);
@@ -77,6 +88,10 @@ public class LoginView extends JPanel{
 		register.addActionListener(a);
 	}
 	
+	/**
+	 * set up the components in this view
+	 * @return
+	 */
 	public JPanel setField(){
 		JPanel fields = new JPanel();
 		fields.setLayout(new GridBagLayout());
@@ -118,6 +133,9 @@ public class LoginView extends JPanel{
         return fields;
 	}
 	
+	/**
+	 * set the background
+	 */
 	@Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -135,7 +153,5 @@ public class LoginView extends JPanel{
         }else{
         	g.drawImage(background, 0, 0, w, (int) (w/desired), this);
         }
-
     }
-
 }

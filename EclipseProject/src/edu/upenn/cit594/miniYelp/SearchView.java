@@ -67,15 +67,16 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	private String[] reviewChoice = new String[] {""};
 
 	private JTextPane textPane = new JTextPane();
-	/*
-	* Constructs the {@code Demo}.
-	*/
+	
+	/**
+	 * constructor, setup the view
+	 * @throws BadLocationException
+	 */
 	public SearchView() throws BadLocationException {
 		setSize(1210, 740);
 	
 		treeMap = new JMapViewerTree("Zones");
-	   	
-	   	// layout settings
+
 		setLayout(new BorderLayout());
 	   
 		JPanel panel = new JPanel(new BorderLayout());
@@ -93,7 +94,6 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	           + "double click to zoom.");
 		helpPanel.add(helpLabel);
 		
-		
 		// set text panel to display information
 		JScrollPane paneScrollPane = new JScrollPane(textPane);
 		textPane.setEditable(false);
@@ -108,26 +108,24 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		setReviewChoice();
 		
         addButtons(panelTop, panelBottom);
-	   	
-	   	/*
-	   	 * how to add marker example
-	   	 */
-	   	//MyMapMarker vanPelt = new MyMapMarker("Van Pelt",new Coordinate(39.952676, -75.194000));
-	   	//addMarkers(vanPelt);
-	   	//map().addMapMarker(vanPelt);
+
 	   	setMap();
 	}
 	
+	/**
+	 * create a map
+	 * @return
+	 */
 	private JMapViewer map() {
 		return treeMap.getViewer();
 	}
 	
+	/**
+	 * set up the map
+	 */
 	private void setMap(){
 		map().addJMVListener(this);
-		
-		/*
-	   	 * map settings
-	   	 */
+
 		map().setTileSource((TileSource) new OsmTileSource.Mapnik());
 	   	map().setZoomContolsVisible(true);
 	   	
@@ -158,6 +156,11 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	   	add(treeMap, BorderLayout.CENTER);
 	}
 	
+	/**
+	 * add buttons to the view
+	 * @param panelTop the top row
+	 * @param panelBottom the bottom row
+	 */
 	private void addButtons(JPanel panelTop, JPanel panelBottom){
 
 		/*
@@ -232,15 +235,20 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
         panelBottom.add(exit);
 	}
 	
+	/**
+	 * add text to the panel
+	 * @param s the text to be added
+	 * @throws BadLocationException
+	 */
 	public void addText(String s) throws BadLocationException{
 		StyledDocument doc = textPane.getStyledDocument();
 		doc.insertString(0, s, null);
 	}
-
-	public void addMarkers(MapMarkerDot marker){
-		map().addMapMarker(marker);
-	}
 	
+	/**
+	 * add a list of markers to the map
+	 * @param restaurants
+	 */
 	public void addMarkers(ArrayList<Restaurant> restaurants){
 		removeMarkers();
 		int i = 1;
@@ -256,6 +264,11 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		}
 	}
 	
+	/**
+	 * add restaurant desc to the text panel
+	 * @param restaurants a list of restaurants
+	 * @throws BadLocationException
+	 */
 	public void addDescription(ArrayList<Restaurant> restaurants) throws BadLocationException{
 		StyledDocument doc = textPane.getStyledDocument();
 		doc.remove(0, doc.getLength());
@@ -286,6 +299,10 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 		map().removeAllMapMarkers();
 	}
 	
+	/**
+	 * set the category choices
+	 * @param choice the list of choice
+	 */
 	public void setCategoryChoice(List<String> choice){
 		
 		String[] c = new String[choice.size()+1];
@@ -327,9 +344,12 @@ public class SearchView extends JPanel implements JMapViewerEventListener {
 	public String getReview(){
 		return review;
 	}
+	
+	/**
+	 * required method, no use
+	 */
 	@Override
 	public void processCommand(JMVCommandEvent arg0) {
-		
 	}
 
 }

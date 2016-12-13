@@ -30,13 +30,17 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.StyledDocument;
 import java.util.List;
 
+/**
+ * The profile view of our application, which display user email and user preference
+ * User can also add ratings when they click add preference
+ * @author yanzhong
+ *
+ */
 public class ProfileView extends JPanel{
-	
 	
 	private BufferedImage background;
 	
 	private User user;
-	
 	
 	private JButton add = new JButton("Add Rating");
 	private JButton returnToSearch = new JButton("Return");
@@ -45,28 +49,33 @@ public class ProfileView extends JPanel{
 	private JTextField restaurant = new JTextField(10);
 	JComboBox<String> ratingSelector = new JComboBox<>(new String[] {"5","4","3","2","1"});
 	JComboBox<String> restaurantSelector = new JComboBox<>(new String [] {""});
+	
 	private String selectedRating = "";
 	private String selectedRestaurantID = "";
 	
 	private JButton innerFind = new JButton("Find");
 	private JButton innerAdd = new JButton("Add");
 	
+	// the add rating frame
 	JFrame popup = new JFrame();
 	
+	// dynamically changing list
 	private List<Restaurant> choice;
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 2L;
 	
+	/**
+	 * constructor must take in user as its parameter
+	 * @param user the user to display
+	 * @throws BadLocationException
+	 */
 	public ProfileView(User user) throws BadLocationException{
 		
 		try {
 			background = ImageIO.read(new File("U-Penn2.jpg"));
 		} catch (IOException e) {
-			e.printStackTrace();
 		}
+		
 		setSize(1210, 740);
 		setLayout(new GridBagLayout());
 		this.user = user;
@@ -77,7 +86,10 @@ public class ProfileView extends JPanel{
 		setAddAction();
 	}
 	
-	
+	/**
+	 * popup a window with error message
+	 * @param errorMessage the message
+	 */
 	void displayErrorMessage(String errorMessage) {
         JOptionPane.showMessageDialog(this, errorMessage);
     }
@@ -86,6 +98,9 @@ public class ProfileView extends JPanel{
 		this.user = user;
 	}
 	
+	/**
+	 * add actionlistener to the add preference button
+	 */
 	public void setAddAction(){
 		add.addActionListener(new ActionListener(){
 
@@ -96,12 +111,14 @@ public class ProfileView extends JPanel{
 				JPanel innerField = setInnerField();
 				popup.add(innerField);
 				popup.setVisible(true);
-				
 			}
 		});
 	}
 	
-	
+	/**
+	 * configure the popup (window to add preference)
+	 * @return
+	 */
 	public JPanel setInnerField(){
 		JPanel fields = new JPanel();
 		fields.setLayout(new GridBagLayout());
@@ -149,8 +166,9 @@ public class ProfileView extends JPanel{
         gbc.weightx = 0;
         gbc.fill = GridBagConstraints.NONE;
         
+        // action for adding preference
         innerAdd.addActionListener(new ActionListener(){
-
+        	
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int index = restaurantSelector.getSelectedIndex();
@@ -167,12 +185,11 @@ public class ProfileView extends JPanel{
 			}
         });
         
-        
         fields.add(innerAdd, gbc);
         
         return fields;
 	}
-	
+
 	public void setSelectedRestaurantID(String ID){
 		selectedRestaurantID = ID;
 	}
@@ -185,14 +202,27 @@ public class ProfileView extends JPanel{
 		return restaurantSelector.getSelectedIndex();
 	}
 	
+	/**
+	 * add actionlistener for add on the popup window
+	 * @param a
+	 */
 	public void addInnerAddAction(ActionListener a){
 		innerAdd.addActionListener(a);
 	}
 	
+	/**
+	 * add actionlistener to return to main page
+	 * @param a
+	 */
 	public void addReturnAction(ActionListener a){
 		returnToSearch.addActionListener(a);
 	}
 	
+	/**
+	 * configure the main profile page
+	 * @return a JPanel with everything set up
+	 * @throws BadLocationException
+	 */
 	public JPanel setField() throws BadLocationException{
 		JPanel fields = new JPanel();
 		fields.setLayout(new GridBagLayout());
@@ -235,10 +265,8 @@ public class ProfileView extends JPanel{
 		paneScrollPane.setPreferredSize(new Dimension(250, 155));
 		paneScrollPane.setMinimumSize(new Dimension(10, 10));
 		
-		// add in text, create a function
 		displayRating();
 		fields.add(paneScrollPane, gbc);
-		
 		
 		gbc.ipady = 1;
         gbc.gridx = 1;
@@ -253,6 +281,10 @@ public class ProfileView extends JPanel{
         return fields;
 	}
 	
+	/**
+	 * display user's rating on the text panel
+	 * @throws BadLocationException
+	 */
 	private void displayRating() throws BadLocationException{
 		RestaurantCollection rc = RestaurantCollection.getInstance();
 		HashMap<String, Double> ratings = user.getRatings();
@@ -262,7 +294,6 @@ public class ProfileView extends JPanel{
 		for (String id : ratings.keySet()){
 			Restaurant r = rc.getRestaurant(id);
 			doc.insertString(doc.getLength(), r.getName() + ": " + ratings.get(id) + "\n", null);
-			//doc.insertString(doc.getLength(), id + ": " + ratings.get(id) + "\n", null);
 		}
 	}
 	
@@ -274,10 +305,17 @@ public class ProfileView extends JPanel{
 		return restaurant.getText();
 	}
 	
+	/**
+	 * set the choices in the inner panel, with restaurant name
+	 * @param model
+	 */
 	public void setSelector(DefaultComboBoxModel model){
 		restaurantSelector.setModel(model);
 	}
 	
+	/**
+	 * print the background
+	 */
 	@Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -296,22 +334,4 @@ public class ProfileView extends JPanel{
         	g.drawImage(background, 0, 0, w, (int) (w/desired), this);
         }
     }
-	
-	public static void main(String[] args) throws BadLocationException{
-		User u = new User("abc@gmail.com","abc@gmail.com");
-		System.out.println(u);
-		u.updateRatings("123", 4.0);
-		u.updateRatings("345", 2.0);
-		JPanel test = new ProfileView(u);
-		
-		test.setVisible(true);
-		JFrame miniYelp = new JFrame();
-		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		miniYelp.setSize(800, 500);
-		
-		
-		miniYelp.add(test);
-		miniYelp.setVisible(true);
-	}
-
 }

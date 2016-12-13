@@ -26,11 +26,10 @@ import org.openstreetmap.gui.jmapviewer.Style;
 import org.openstreetmap.gui.jmapviewer.interfaces.MapMarker;
 
 /**
-* A simple implementation of the {@link MapMarker} interface. Each map marker
-* is painted as a circle with a black border line and filled with a specified
-* color.
+* A implementation of the {@link MapMarker} interface. Adapted from the provided
+* simple markers
 *
-* @author Jan Peter Stotz
+* @author Yan Zhong
 *
 */
 public class MyMapMarker implements MapMarker, ImageObserver {
@@ -42,11 +41,25 @@ public class MyMapMarker implements MapMarker, ImageObserver {
     private String name;
     private Style style;
     private Boolean visible;
-
+    
+    /**
+     * create a new marker
+     * @param name the string to display
+     * @param coord the location
+     */
 	public MyMapMarker(String name, Coordinate coord){
 		this(null, name, coord, 5, STYLE.FIXED, getDefaultStyle());
 	}
     
+	/**
+	 * the full constructor
+	 * @param layer
+	 * @param name
+	 * @param coord
+	 * @param radius
+	 * @param markerStyle
+	 * @param style
+	 */
 	public MyMapMarker(Layer layer, String name, Coordinate coord, double radius, STYLE markerStyle, Style style) {
 	     this.layer = layer;
 	     this.name = name;
@@ -80,7 +93,10 @@ public class MyMapMarker implements MapMarker, ImageObserver {
 	 public STYLE getMarkerStyle() {
 	     return markerStyle;
 	 }
-
+	 
+	 /**
+	  * print the marker on the map
+	  */
 	 @Override
 	 public void paint(Graphics g, Point position, int radius) {
 	     int ss = 50;
@@ -97,11 +113,44 @@ public class MyMapMarker implements MapMarker, ImageObserver {
 	    	 paintText(g, new Point(position.x - 20, position.y - 30));
 	     }
 	 }
-
+	 
+	 /**
+	  * the style of the marker
+	  * @return
+	  */
 	 public static Style getDefaultStyle() {
 	     return new Style(Color.ORANGE, new Color(200, 200, 200, 200), null, getDefaultFont());
 	 }
+	 
+	 /**
+	  * return the default font
+	  * @return
+	  */
+	 public static Font getDefaultFont() {
+	     Font f = UIManager.getDefaults().getFont("TextField.font");
+	     if (f == null) {
+	         f = Font.decode(null);
+	     }
+	     return new Font(f.getName(), Font.BOLD, f.getSize());
+	 }
 	
+	 /**
+	  * paint the text inside the marker
+	  * @param g
+	  * @param position the location
+	  */
+	 public void paintText(Graphics g, Point position) {
+	     if (name != null && g != null && position != null) {
+	         g.setColor(Color.DARK_GRAY);
+	         Font f = getDefaultFont();
+	         g.setFont(new Font(f.getName(), Font.BOLD, f.getSize()-1));
+	         g.drawString(name, position.x+MapMarkerDot.DOT_RADIUS+2, position.y+MapMarkerDot.DOT_RADIUS);
+	     }
+	 }
+	
+	
+	// All provided required methods below, used by the external .jar
+	 
 	 @Override
 	 public String toString() {
 	     return "MapMarker at " + getLat() + ' ' + getLon();
@@ -121,27 +170,10 @@ public class MyMapMarker implements MapMarker, ImageObserver {
 
 	 @Override
 	 public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-	     // TODO Auto-generated method stub
 	     return false;
 	 }
-	 public static Font getDefaultFont() {
-	     Font f = UIManager.getDefaults().getFont("TextField.font");
-	     if (f == null) {
-	         f = Font.decode(null);
-	     }
-	     return new Font(f.getName(), Font.BOLD, f.getSize());
-	 }
-	
-	 public void paintText(Graphics g, Point position) {
-	     if (name != null && g != null && position != null) {
-	         g.setColor(Color.DARK_GRAY);
-	         Font f = getDefaultFont();
-	         g.setFont(new Font(f.getName(), Font.BOLD, f.getSize()-1));
-	         g.drawString(name, position.x+MapMarkerDot.DOT_RADIUS+2, position.y+MapMarkerDot.DOT_RADIUS);
-	     }
-	 }
-
-	 public Layer getLayer() {
+	 
+	public Layer getLayer() {
 	        return layer;
     }
 

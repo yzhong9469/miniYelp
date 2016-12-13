@@ -11,6 +11,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.text.BadLocationException;
 
+/**
+ * the controller, merge the model and the view together
+ * @author Yan Zhong
+ *
+ */
 public class Controller {
 	
 	private JFrame miniYelp;
@@ -22,13 +27,17 @@ public class Controller {
 	private UserProfileParser userParser;
 	private User user;
 	
-	
+	/**
+	 * constructor
+	 * @throws BadLocationException
+	 */
 	public Controller() throws BadLocationException{
 		miniYelp = new JFrame();
 		search = new SearchView();
 		recommend = new RecommendView();
 		login = new LoginView();
 		
+		// load in data
 		restParser = new RestaurantFileParser();
 		restParser.loadData("restaurant.txt");
 		userParser = new UserProfileParser();
@@ -36,18 +45,27 @@ public class Controller {
 		
 	}
 	
+	/**
+	 * call this function to run our program
+	 * @throws BadLocationException
+	 */
 	public void runMiniYelp() throws BadLocationException{
 		setup();
 		setActions();
 		miniYelp.setVisible(true);
 	}
 	
+	/**
+	 * set up all panels
+	 * @throws BadLocationException
+	 */
 	private void setup() throws BadLocationException{
 		miniYelp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		miniYelp.setSize(1210, 740);
 		miniYelp.setVisible(true);
 		miniYelp.setResizable(false);
 		
+		// set up the choices in categories
 		List<String> choice = RestaurantCollection.getInstance().getCategoryilst();
 		((SearchView) search).setCategoryChoice(choice);
 		
@@ -59,12 +77,14 @@ public class Controller {
 		miniYelp.add(search);
 		miniYelp.add(recommend);
         miniYelp.add(login);
-		
 	}
 	
-	
+	/**
+	 * set all buttons' action
+	 */
 	public void setActions() {
 		
+		// return to main page
 		((RecommendView) recommend).addReturnListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -74,6 +94,7 @@ public class Controller {
 			}
 		});
 		
+		// go to recommend page
 		((SearchView) search).addRecommendListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -87,6 +108,7 @@ public class Controller {
 			}
 		});
 		
+		// perfrom search
 		((SearchView) search).addSearchListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -97,21 +119,25 @@ public class Controller {
 			}
 		});
 		
-		
+		// login
 		((LoginView) login).setLoginAction(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String email = ((LoginView) login).getEmail();
 				String password = new String(((LoginView) login).getPassword());
+				
+				// error message
 				if (email.length() == 0){
 					((LoginView) login).displayErrorMessage("Email cannot be empty");
 				}else if (password.length() == 0){
 					((LoginView) login).displayErrorMessage("Password cannot be empty");
 				}else{
+					// try to find the user
 					User user = UserCollection.getInstance().login(email, password);
 					if (user == null){
 						((LoginView) login).displayErrorMessage("Wrong username or password!");
 					}else{
+						// set up user
 						Controller.this.user = user;
 						try {
 							profile = new ProfileView(user);
@@ -125,16 +151,16 @@ public class Controller {
 						miniYelp.setVisible(true);
 					}
 				}
-				
 			}
 		});
 		
-		
+		// register action
 		((LoginView) login).setRegisterAction(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String email = ((LoginView) login).getEmail();
 				String password = new String(((LoginView) login).getPassword());
+				
 				if (email.length() == 0){
 					((LoginView) login).displayErrorMessage("Email cannot be empty");
 				}else if (password.length() == 0){
@@ -160,6 +186,7 @@ public class Controller {
 			}
 		});
 		
+		// go to profile
 		((SearchView) search).addProfileListener(new ActionListener(){
 
 			@Override
@@ -168,9 +195,9 @@ public class Controller {
 				search.setVisible(false);
 				miniYelp.setVisible(true);
 			}
-			
 		});
 		
+		// exit the program, write out data
 		((SearchView) search).addExitListener(new ActionListener(){
 
 			@Override
@@ -178,13 +205,16 @@ public class Controller {
 				userParser.writeData();
 				System.exit(0);
 			}
-			
 		});
-		
-		
 	}
 	
+	/**
+	 * set up the profile panel
+	 * @param profile the profile panel
+	 */
 	private void setProfile(JPanel profile){
+		
+		// return to main page
 		((ProfileView) profile).addReturnAction(new ActionListener(){
 
 			@Override
@@ -195,6 +225,7 @@ public class Controller {
 			}
 		});
 		
+		// find the possible matching restaurant
 		((ProfileView) profile).addInnerFindAction(new ActionListener(){
 
 			@Override
@@ -214,26 +245,35 @@ public class Controller {
 				((ProfileView) profile).setRestaurantChoice(result);
 			}
 		});
-		
 	}
 	
+	/**
+	 * perform search
+	 * @throws BadLocationException
+	 */
 	private void performSearch() throws BadLocationException{
 		String category = ((SearchView) search).getCategory();
 		String price = ((SearchView) search).getPrice();
 		String rating = ((SearchView) search).getRating();
 		String review = ((SearchView) search).getReview();
+		// search
 		SearchRestaurant sr = new SearchRestaurant();
 		String[] filter = {category, price, rating, review};
-		System.out.println(Arrays.toString(filter));
+		// display
 		ArrayList<Restaurant> result = (ArrayList<Restaurant>) sr.searchRestaurant(filter);
 		((SearchView) search).addMarkers(result);
 		((SearchView) search).addDescription(result);
 		
 	}
 	
+	/**
+	 * perform recommend
+	 * @throws BadLocationException
+	 */
 	private void performRecommend() throws BadLocationException{
 		RecommendRestaurant rr = new RecommendRestaurant();
 		List<Restaurant> result = rr.recommRestaurant(user);
+		// display
 		((RecommendView) recommend).addMarkers(result);
 		((RecommendView) recommend).addDescription(result);
 	}
